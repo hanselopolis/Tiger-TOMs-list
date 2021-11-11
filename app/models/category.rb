@@ -9,4 +9,12 @@
 #  updated_at  :datetime         not null
 #
 class Category < ApplicationRecord
+
+    has_many(
+        :ads,
+        class_name: 'Ad',
+        foreign_key: 'category_id',
+        inverse_of: :category,
+        dependent: :destroy
+    )
 end
