@@ -6,6 +6,43 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+#USERS
+
+user1 = User.create!(
+    username: "badassBob",
+    first_name: "Bob",
+    last_name: "Hill",
+    email: "bboy@email.com",
+    phone: "100-234-5678",
+    bio: "I got the coolest parts in town!",
+    address1: "1111 driving way",
+    address2: " ",
+    address3: " ",
+    city: "NYC",
+    state: "NY",
+    country: "USA",
+    zip: 10001
+)
+
+user2 = User.create!(
+    username: "AngryAlice",
+    first_name: "Alice",
+    last_name: "Bezos",
+    email: "AtoZ@email.com",
+    phone: "200-432-4321",
+    bio: "Exotics only.",
+    address1: "2222 star road",
+    address2: " ",
+    address3: " ",
+    city: "Los Angeles",
+    state: "CA",
+    country: "USA",
+    zip: 90210
+)
+
+
+# CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -42,14 +79,17 @@ other_services = Category.create!(
     description: 'Anything that does not fall into a category'
 )
 
+#ADS
+
 Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
     location: 'Memphis, TN',
-    contact: 'guy@email.com',
+    contact: 'bob@email.com',
     price: 5650.0,
     status: 'active',
-    category: vehicles
+    category: vehicles,
+    user: user1
 )
 Ad.create!(
     title: 'Nissan Altima',
@@ -58,7 +98,8 @@ Ad.create!(
     contact: 'bob@email.com',
     price: 8500.0,
     status: 'active',
-    category: vehicles
+    category: vehicles,
+    user: user1
 )
 Ad.create!(
     title: 'Black Phone Mount',
@@ -67,7 +108,8 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 25.0,
     status: 'active',
-    category: accessories
+    category: accessories,
+    user: user2
 )
 Ad.create!(
     title: 'Camo Steering Wheel Cover',
@@ -76,36 +118,7 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 10.0,
     status: 'active',
-    category: accessories
-
-User.create!(
-    username: "badassBob",
-    first_name: "Bob",
-    last_name: "Hill",
-    email: "bboy@email.com",
-    phone: "100-234-5678",
-    bio: "I got the coolest parts in town!",
-    address1: "1111 driving way",
-    address2: " ",
-    address3: " ",
-    city: "NYC",
-    state: "NY",
-    country: "USA",
-    zip: 10001
+    category: accessories,
+    user: user2
 )
 
-User.create!(
-    username: "AngryAlice",
-    first_name: "Alice",
-    last_name: "Bezos",
-    email: "AtoZ@email.com",
-    phone: "200-432-4321",
-    bio: "Exotics only.",
-    address1: "2222 star road",
-    address2: " ",
-    address3: " ",
-    city: "Los Angeles",
-    state: "CA",
-    country: "USA",
-    zip: 90210
-)

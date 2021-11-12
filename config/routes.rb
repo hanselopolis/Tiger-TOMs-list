@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   as: 'category'
 
   # Ads
+  get 'categories/:category_id/new', to: 'ads#new',
+  as: 'new_ad'
   get 'categories/:category_id/:id', to: 'ads#show', 
   as: 'ad'
+  
 end

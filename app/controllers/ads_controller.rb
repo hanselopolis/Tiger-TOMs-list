@@ -6,4 +6,11 @@ class AdsController < ApplicationController
         render :show
     end
 
+    def new
+        @category = Category.find(params[:category_id])
+        @ad = Ad.new
+        render :new
+        
+    end
+
 end

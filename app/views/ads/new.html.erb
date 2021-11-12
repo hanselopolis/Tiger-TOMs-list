@@ -1,0 +1,18 @@
+<h1>Create a New Ad</h1>
+
+<%= bootstrap_form_with model: @ad, url: category_path(@category), 
+method: :post, local: true do |f| %>
+
+    <%= f.text_field :title %>
+    <%= f.text_area :description %>
+    <%= f.number_field :price, :step => "0.01" %>
+    <%= f.text_field :location %>
+    <%= f.text_field :contact %>
+
+    <%= f.submit %>
+
+<% end %>
+
+<br>
+<%= link_to "Cancel", category_path(@category),
+class: 'btn btn-danger' %>
