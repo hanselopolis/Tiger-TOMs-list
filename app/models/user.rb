@@ -20,4 +20,13 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+
+    has_many(
+        :ads,
+        class_name: 'Ad',
+        foreign_key: 'user_id',
+        inverse_of: :user,
+        dependent: :destroy
+    )
+
 end

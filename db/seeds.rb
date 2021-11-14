@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+#CATEGORYIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -42,43 +43,9 @@ other_services = Category.create!(
     description: 'Anything that does not fall into a category'
 )
 
-Ad.create!(
-    title: 'Toyota 4Runner For Sale',
-    description: 'Silver, 165000 miles, good condition',
-    location: 'Memphis, TN',
-    contact: 'guy@email.com',
-    price: 5650.0,
-    status: 'active',
-    category: vehicles
-)
-Ad.create!(
-    title: 'Nissan Altima',
-    description: 'White, 72450 miles, brand new tires',
-    location: 'Memphis, TN',
-    contact: 'bob@email.com',
-    price: 8500.0,
-    status: 'active',
-    category: vehicles
-)
-Ad.create!(
-    title: 'Black Phone Mount',
-    description: 'Mount up your phone to make using GPS that much easier',
-    location: 'Memphis, TN',
-    contact: 'alice@email.com',
-    price: 25.0,
-    status: 'active',
-    category: accessories
-)
-Ad.create!(
-    title: 'Camo Steering Wheel Cover',
-    description: 'Just buy it',
-    location: 'Memphis, TN',
-    contact: 'alice@email.com',
-    price: 10.0,
-    status: 'active',
-    category: accessories
 
-User.create!(
+#USERS
+user1 = User.create!(
     username: "badassBob",
     first_name: "Bob",
     last_name: "Hill",
@@ -94,7 +61,7 @@ User.create!(
     zip: 10001
 )
 
-User.create!(
+user2 = User.create!(
     username: "AngryAlice",
     first_name: "Alice",
     last_name: "Bezos",
@@ -108,4 +75,48 @@ User.create!(
     state: "CA",
     country: "USA",
     zip: 90210
+)
+
+
+#ADS
+Ad.create!(
+    title: 'Toyota 4Runner For Sale',
+    description: 'Silver, 165000 miles, good condition',
+    location: 'Memphis, TN',
+    contact: 'bob@email.com',
+    price: 5650.0,
+    status: 'active',
+    category: vehicles,
+    user: user1
+)
+Ad.create!(
+    title: 'Nissan Altima',
+    description: 'White, 72450 miles, brand new tires',
+    location: 'Memphis, TN',
+    contact: 'bob@email.com',
+    price: 8500.0,
+    status: 'active',
+    category: vehicles,
+    user: user1
+)
+Ad.create!(
+    title: 'Black Phone Mount',
+    description: 'Mount up your phone to make using GPS that much easier',
+    location: 'Memphis, TN',
+    contact: 'alice@email.com',
+    price: 25.0,
+    status: 'active',
+    category: accessories,
+    user: user2
+)
+
+Ad.create!(
+    title: 'Camo Steering Wheel Cover',
+    description: 'Just buy it',
+    location: 'Memphis, TN',
+    contact: 'alice@email.com',
+    price: 10.0,
+    status: 'active',
+    category: accessories,
+    user: user2
 )
