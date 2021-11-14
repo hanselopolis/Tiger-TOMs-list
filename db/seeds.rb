@@ -6,6 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -42,6 +43,7 @@ other_services = Category.create!(
     description: 'Anything that does not fall into a category'
 )
 
+  #Ad objects
 Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
@@ -77,4 +79,36 @@ Ad.create!(
     price: 10.0,
     status: 'active',
     category: accessories
+
+  #user objects
+User.create!(
+    username: "badassBob",
+    first_name: "Bob",
+    last_name: "Hill",
+    email: "bboy@email.com",
+    phone: "100-234-5678",
+    bio: "I got the coolest parts in town!",
+    address1: "1111 driving way",
+    address2: " ",
+    address3: " ",
+    city: "NYC",
+    state: "NY",
+    country: "USA",
+    zip: 10001
+)
+
+User.create!(
+    username: "AngryAlice",
+    first_name: "Alice",
+    last_name: "Bezos",
+    email: "AtoZ@email.com",
+    phone: "200-432-4321",
+    bio: "Exotics only.",
+    address1: "2222 star road",
+    address2: " ",
+    address3: " ",
+    city: "Los Angeles",
+    state: "CA",
+    country: "USA",
+    zip: 90210
 )

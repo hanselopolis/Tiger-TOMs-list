@@ -1,0 +1,51 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id         :bigint           not null, primary key
+#  address1   :string
+#  address2   :string
+#  address3   :string
+#  bio        :string
+#  city       :string
+#  country    :string
+#  email      :string
+#  first_name :string
+#  last_name  :string
+#  phone      :string
+#  state      :string
+#  username   :string
+#  zip        :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  username: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  phone: MyString
+  bio: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  zip: 1
+
+two:
+  username: MyString
+  first_name: MyString
+  last_name: MyString
+  email: MyString
+  phone: MyString
+  bio: MyString
+  address1: MyString
+  address2: MyString
+  address3: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  zip: 1
