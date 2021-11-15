@@ -11,8 +11,13 @@
   </head>
 
   <body>
+
+    <%= render partial: "shared/navbar" %>
+    
     <main role="main" class="container">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
