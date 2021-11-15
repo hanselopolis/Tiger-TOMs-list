@@ -2,7 +2,16 @@
     
     <ul>
         <% @categories.each do |c| %>
-            <li> <%= link_to c.title, category_path(c) %> </li>
+            <% if c.image.attached? %>
+                <div align="justify;" >   
+                    <%= image_tag c.image, style: 'width: 225px; height: 150px;'%>
+                    <br>
+                    <p>
+                        <%= link_to c.title, category_path(c) %>
+                    </p>
+                </div>
+            <% end %>
         <% end %>
     </ul>
+
  
