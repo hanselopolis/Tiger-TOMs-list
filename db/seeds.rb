@@ -13,6 +13,8 @@ vehicles = Category.create!(
     description: 'Buy an entire car'
 )
 
+vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
+
 parts_mechanics = Category.create!(
     title: 'Parts - Mechanics',
     description: 'Mechanical Parts for sale'

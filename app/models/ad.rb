@@ -25,7 +25,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Ad < ApplicationRecord
-    
+
     belongs_to(
         :category,
         class_name: 'Category',
