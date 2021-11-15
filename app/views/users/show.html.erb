@@ -1,0 +1,46 @@
+<table align ="right">
+
+    <thead>
+        <tr>
+            <th> <%= @user.username %> </th>
+        <tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td> <%= @user.first_name%> <%= @user.last_name %> </td>
+        </tr>
+        <tr>
+            <td> Email: <%= @user.email %> </td>
+        </tr>
+        <tr>
+            <td> Street Address 1: <%= @user.address1 %> </td>
+        </tr>
+        <tr>
+            <td> Street Address 2: <%= @user.address2 %> </td>
+        </tr>
+        <tr>
+            <td> Street Address 3: <%= @user.address3 %> </td>
+        </tr>
+        <tr>
+            <td> City: <%= @user.city%> </td>
+        </tr>
+        <tr>
+            <td> State: <%= @user.state%> </td>
+        </tr>
+        <tr>
+            <td> Country: <%= @user.country %> </td>
+        </tr>
+        <tr>
+            <td> ZIP Code: <%= @user.zip %>
+        </tr>
+    </tbody>
+</table>
+
+<p>
+
+Bio: <%= simple_format(@user.bio) %>
+</p>
+
+
+

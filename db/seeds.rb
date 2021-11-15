@@ -8,6 +8,7 @@
 
 
 User.create!(
+    id: 0,
     username: "badassBob",
     first_name: "Bob",
     last_name: "Hill",
@@ -24,6 +25,7 @@ User.create!(
 )
 
 User.create!(
+    id: 1,
     username: "AngryAlice",
     first_name: "Alice",
     last_name: "Bezos",
