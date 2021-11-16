@@ -10,13 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_11_11_214755) do
-
+ActiveRecord::Schema.define(version: 2021_11_14_162148) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,14 +53,18 @@ ActiveRecord::Schema.define(version: 2021_11_11_214755) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
+    t.bigint "user_id"
     t.index ["category_id"], name: "index_ads_on_category_id"
+    t.index ["user_id"], name: "index_ads_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
-    #creates user
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "first_name"
@@ -78,13 +79,12 @@ ActiveRecord::Schema.define(version: 2021_11_11_214755) do
     t.string "state"
     t.string "country"
     t.integer "zip"
-
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
-
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "ads", "categories"
+  add_foreign_key "ads", "users"
 end

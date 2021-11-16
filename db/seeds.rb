@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+#CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -43,45 +43,9 @@ other_services = Category.create!(
     description: 'Anything that does not fall into a category'
 )
 
-  #Ad objects
-Ad.create!(
-    title: 'Toyota 4Runner For Sale',
-    description: 'Silver, 165000 miles, good condition',
-    location: 'Memphis, TN',
-    contact: 'guy@email.com',
-    price: 5650.0,
-    status: 'active',
-    category: vehicles
-)
-Ad.create!(
-    title: 'Nissan Altima',
-    description: 'White, 72450 miles, brand new tires',
-    location: 'Memphis, TN',
-    contact: 'bob@email.com',
-    price: 8500.0,
-    status: 'active',
-    category: vehicles
-)
-Ad.create!(
-    title: 'Black Phone Mount',
-    description: 'Mount up your phone to make using GPS that much easier',
-    location: 'Memphis, TN',
-    contact: 'alice@email.com',
-    price: 25.0,
-    status: 'active',
-    category: accessories
-)
-Ad.create!(
-    title: 'Camo Steering Wheel Cover',
-    description: 'Just buy it',
-    location: 'Memphis, TN',
-    contact: 'alice@email.com',
-    price: 10.0,
-    status: 'active',
-    category: accessories
 
-  #user objects
-User.create!(
+#USERS
+user1 = User.create!(
     username: "badassBob",
     first_name: "Bob",
     last_name: "Hill",
@@ -97,7 +61,7 @@ User.create!(
     zip: 10001
 )
 
-User.create!(
+user2 = User.create!(
     username: "AngryAlice",
     first_name: "Alice",
     last_name: "Bezos",
@@ -112,3 +76,56 @@ User.create!(
     country: "USA",
     zip: 90210
 )
+
+
+#ADS
+Ad.create!(
+    title: 'Toyota 4Runner For Sale',
+    description: 'Silver, 165000 miles, good condition',
+    location: 'Memphis, TN',
+    contact: 'bob@email.com',
+    price: 5650.0,
+    status: 'active',
+    category: vehicles,
+    user: user1
+)
+Ad.create!(
+    title: 'Nissan Altima',
+    description: 'White, 72450 miles, brand new tires',
+    location: 'Memphis, TN',
+    contact: 'bob@email.com',
+    price: 8500.0,
+    status: 'active',
+    category: vehicles,
+    user: user1
+)
+Ad.create!(
+    title: 'Black Phone Mount',
+    description: 'Mount up your phone to make using GPS that much easier',
+    location: 'Memphis, TN',
+    contact: 'alice@email.com',
+    price: 25.0,
+    status: 'active',
+    category: accessories,
+    user: user2
+)
+
+Ad.create!(
+    title: 'Camo Steering Wheel Cover',
+    description: 'Just buy it',
+    location: 'Memphis, TN',
+    contact: 'alice@email.com',
+    price: 10.0,
+    status: 'active',
+    category: accessories,
+    user: user2
+)
+
+vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
+parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
+parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')
+parts_exterior.image.attach(io: File.open('app/assets/images/seed_images/parts_exterior_cat.jpg'), filename: 'parts_exterior.jpg')
+tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'), filename: 'tires_cat.jpg')
+accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
+mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
+other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')
