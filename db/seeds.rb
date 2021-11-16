@@ -79,7 +79,7 @@ Ad.create!(
     price: 10.0,
     status: 'active',
     category: accessories
-
+)
   #user objects
 User.create!(
     username: "badassBob",
