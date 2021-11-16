@@ -117,8 +117,23 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 10.0,
     status: 'active',
-    category: accessories,
-    user: user2
+    category: accessories
+)
+  #user objects
+User.create!(
+    username: "badassBob",
+    first_name: "Bob",
+    last_name: "Hill",
+    email: "bboy@email.com",
+    phone: "100-234-5678",
+    bio: "I got the coolest parts in town!",
+    address1: "1111 driving way",
+    address2: " ",
+    address3: " ",
+    city: "NYC",
+    state: "NY",
+    country: "USA",
+    zip: 10001
 )
 
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
