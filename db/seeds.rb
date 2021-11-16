@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
+#CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -43,15 +43,51 @@ other_services = Category.create!(
     description: 'Anything that does not fall into a category'
 )
 
-  #Ad objects
+
+#USERS
+user1 = User.create!(
+    username: "badassBob",
+    first_name: "Bob",
+    last_name: "Hill",
+    email: "bboy@email.com",
+    phone: "100-234-5678",
+    bio: "I got the coolest parts in town!",
+    address1: "1111 driving way",
+    address2: " ",
+    address3: " ",
+    city: "NYC",
+    state: "NY",
+    country: "USA",
+    zip: 10001
+)
+
+user2 = User.create!(
+    username: "AngryAlice",
+    first_name: "Alice",
+    last_name: "Bezos",
+    email: "AtoZ@email.com",
+    phone: "200-432-4321",
+    bio: "Exotics only.",
+    address1: "2222 star road",
+    address2: " ",
+    address3: " ",
+    city: "Los Angeles",
+    state: "CA",
+    country: "USA",
+    zip: 90210
+)
+
+
+#ADS
 Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
     location: 'Memphis, TN',
-    contact: 'guy@email.com',
+    contact: 'bob@email.com',
     price: 5650.0,
     status: 'active',
-    category: vehicles
+    category: vehicles,
+    user: user1
 )
 Ad.create!(
     title: 'Nissan Altima',
@@ -60,7 +96,8 @@ Ad.create!(
     contact: 'bob@email.com',
     price: 8500.0,
     status: 'active',
-    category: vehicles
+    category: vehicles,
+    user: user1
 )
 Ad.create!(
     title: 'Black Phone Mount',
@@ -69,8 +106,10 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 25.0,
     status: 'active',
-    category: accessories
+    category: accessories,
+    user: user2
 )
+
 Ad.create!(
     title: 'Camo Steering Wheel Cover',
     description: 'Just buy it',
@@ -97,18 +136,11 @@ User.create!(
     zip: 10001
 )
 
-User.create!(
-    username: "AngryAlice",
-    first_name: "Alice",
-    last_name: "Bezos",
-    email: "AtoZ@email.com",
-    phone: "200-432-4321",
-    bio: "Exotics only.",
-    address1: "2222 star road",
-    address2: " ",
-    address3: " ",
-    city: "Los Angeles",
-    state: "CA",
-    country: "USA",
-    zip: 90210
-)
+vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
+parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
+parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')
+parts_exterior.image.attach(io: File.open('app/assets/images/seed_images/parts_exterior_cat.jpg'), filename: 'parts_exterior.jpg')
+tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'), filename: 'tires_cat.jpg')
+accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
+mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
+other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')

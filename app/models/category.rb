@@ -10,6 +10,8 @@
 #
 class Category < ApplicationRecord
 
+    has_one_attached :image
+
     has_many(
         :ads,
         class_name: 'Ad',

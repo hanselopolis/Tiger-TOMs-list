@@ -1,8 +1,16 @@
+
 <h1>Shop By Category</h1>
-    
-    <ul>
-        <% @categories.each do |c| %>
-            <li> <%= link_to c.title, category_path(c) %> </li>
+
+<div class = "row">
+    <% @categories.each do |c| %>
+        <% if c.image.attached? %>
+            <div class= "column">
+                <%= image_tag c.image, style: "width: 100%" %>
+                <br>
+                <p>
+                    <%= link_to c.title, category_path(c) %>
+                </p>
+            </div>
         <% end %>
-    </ul>
- 
+    <% end %>
+</div>
