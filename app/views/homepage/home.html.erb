@@ -22,42 +22,20 @@ body {
   font-size: 50px;
 }
 
-/* Style the top navigation bar */
-.topnav {
-  overflow: hidden;
-  background-color: #333;
-}
-
-/* Style the topnav links */
-.topnav a {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-/* Change color on hover */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
 /* Create three unequal columns that floats next to each other */
 .column {   
   float: center;
-  width: 75%;
+  padding: 10px;
 }
 
 /* side columns */
 .column.side {
-  width: 25%;
+  width: 20%;
 }
 
 /* center column */
 .column.middle {
-  width: 50%;
+  width: 60%;
 }
 
 /* Clear floats after the columns */
@@ -84,18 +62,34 @@ body {
 
 <div class="row">
   <div class="column side">
-    <h2>Catagories</h2>
+      <table class="table">
+       
+        <thead class="thead-dark">
+        <th>Categories</th>
+        </thead>
+
+        <tbody>
+        <% @categories.each do |category| %>
+          <tr>
+            <td><%= category.title %></td>
+            <td class="text-nowrap">
+            </td>
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
   </div>
 
   <div class="column middle">
-    <h2>Ads Listings</h2>
-    <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADS</p>
+      <h2>Ads Listings</h2>
+      <p>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADS</p>
   </div>
 
   <div class="column side">
-    <h2>Post an Ad and Register</h2>
-    <p>Post an Ad</p>
-    <p>Register</p>
+      <h2>Post an Ad and Register</h2>
+      <p>Post an Ad</p>
+      <p>Register</p>
   </div>
 </div>
 
