@@ -1,4 +1,4 @@
-<h1>BUY THIS <%= @ad.title %> </h1>
+<h1>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%> </h1>
 
 <%= bootstrap_form_with model: @purchase, method: :patch, url: purchase_item_path(@category, @ad), local: true do |f| %>
 <div class = "row">
