@@ -42,4 +42,12 @@ class User < ApplicationRecord
         dependent: :destroy
     )
 
+    has_many(
+        :purchases,
+        class_name: 'Purchase',
+        foreign_key: 'user_id',
+        inverse_of: :user,
+        dependent: :destroy
+    )
+
 end
