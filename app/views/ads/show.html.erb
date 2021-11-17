@@ -12,7 +12,9 @@
         Seller: <b><%= @ad.user.first_name %> <%= @ad.user.last_name %></b>
     </p>
 </span>
-
+<p>
+  <%= link_to "BUY THIS AD!", purchase_item_path(@category, @ad), class: "btn btn-secondary"%>
+</p>
 <%= link_to "Back", category_path(@category) %>
 
 

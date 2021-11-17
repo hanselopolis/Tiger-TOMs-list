@@ -52,10 +52,10 @@ class Purchase < ApplicationRecord
         #dependent: :destroy
     )
 
-    belongs_to(
-        :buyer,
-        class_name: 'User',
-        foreign_key: 'user_id',
-        inverse_of: :purchases
-    )
+   ## belongs_to(
+   ##     :buyer,
+     ##   class_name: 'User',
+       ## foreign_key: 'user_id',
+        ##inverse_of: :purchases
+   ## )
 end

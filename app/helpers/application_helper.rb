@@ -7,6 +7,5 @@ module ApplicationHelper
           return ''
         end
       end
-
-      
+  
 end

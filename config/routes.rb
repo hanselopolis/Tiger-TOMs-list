@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get 'categories/:category_id/:id', to: 'ads#show', as: 'ad'
   
   # Purchases
-  #get 'categories/:category_id/:ad_id/buy', to: 'purchases#new', as: 'new_purchase'
+  get 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#new', as: 'purchase_item'
+  post 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#create'
   
 
 end

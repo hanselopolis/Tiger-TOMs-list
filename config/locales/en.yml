@@ -31,3 +31,34 @@
 
 en:
   hello: "Hello world"
+
+  helpers:
+    label:
+      purchase:
+        ship_name: Recipient name
+        ship_company: Company (optional)
+        ship_address1: Address 1
+        ship_address2: Address 2
+        ship_address3: Address 4
+        ship_city: City
+        ship_state: State/province
+        ship_country: Country
+        ship_postal: Postal code
+        ship_phone: Phone
+        ship_email: Email
+        bill_name: Name on card
+        bill_company: Company (optional)
+        bill_address1: Address 1
+        bill_address2: Address 2
+        bill_address3: Address 3
+        bill_city: City
+        bill_state: State/province
+        bill_country: Country
+        bill_postal: Postal code
+        bill_phone: Phone
+        bill_email: Email
+        card_type: Card type
+        card_number: Card number
+        card_exp_mo: Expiration month (##)
+        card_exp_yr: Year (##)
+        card_cvv: CVV (###)
