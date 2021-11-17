@@ -7,41 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#USERS
-
-user1 = User.create!(
-    username: "badassBob",
-    first_name: "Bob",
-    last_name: "Hill",
-    email: "bboy@email.com",
-    phone: "100-234-5678",
-    bio: "I got the coolest parts in town!",
-    address1: "1111 driving way",
-    address2: " ",
-    address3: " ",
-    city: "NYC",
-    state: "NY",
-    country: "USA",
-    zip: 10001
-)
-
-user2 = User.create!(
-    username: "AngryAlice",
-    first_name: "Alice",
-    last_name: "Bezos",
-    email: "AtoZ@email.com",
-    phone: "200-432-4321",
-    bio: "Exotics only.",
-    address1: "2222 star road",
-    address2: " ",
-    address3: " ",
-    city: "Los Angeles",
-    state: "CA",
-    country: "USA",
-    zip: 90210
-)
-
-
 # CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
