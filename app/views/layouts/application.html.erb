@@ -11,8 +11,23 @@
   </head>
 
   <body>
+    <style>
+      body {
+        background-color: lightgrey;
+        color: blue;
+      }
+
+      header {
+        backround-color: lightgrey;
+        color: blue;
+      }
+    </style>  
+    <%= render partial: "shared/navbar" %>
+    
     <main role="main" class="container">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>

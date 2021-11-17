@@ -111,6 +111,7 @@ Ad.create!(
     category: accessories,
     user: user2
 )
+
 Ad.create!(
     title: 'Camo Steering Wheel Cover',
     description: 'Just buy it',
