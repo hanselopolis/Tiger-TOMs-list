@@ -12,6 +12,7 @@
 #  email      :string
 #  first_name :string
 #  last_name  :string
+#  password   :string
 #  phone      :string
 #  state      :string
 #  username   :string
@@ -22,9 +23,9 @@
 
 one:
   username: MyString
+  password: MyString
   first_name: MyString
   last_name: MyString
-  email: MyString
   phone: MyString
   bio: MyString
   address1: MyString
@@ -37,9 +38,9 @@ one:
 
 two:
   username: MyString
+  password: MyString
   first_name: MyString
   last_name: MyString
-  email: MyString
   phone: MyString
   bio: MyString
   address1: MyString

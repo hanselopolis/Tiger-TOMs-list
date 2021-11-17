@@ -34,12 +34,16 @@
         <tr>
             <td> ZIP Code: <%= @user.zip %>
         </tr>
+        <tr>
+            <td><%= link_to "Edit", edit_user_path(@user) , class: "btn btn-primary" %></td>
+        </tr>
     </tbody>
 </table>
 
+
 <p>
 
-Bio: <%= simple_format(@user.bio) %>
+Bio:<%= simple_format(@user.bio) %>
 </p>
 
 
