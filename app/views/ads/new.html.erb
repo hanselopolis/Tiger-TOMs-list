@@ -3,6 +3,12 @@
     <%= bootstrap_form_with model: @ad, url: category_path(@category), 
     method: :post, local: true do |f| %>
         <div class= "row">
+             </div class = "column">
+             <%= f.file_field :images, multiple: true %>
+                <p>(Max: 4)</p>
+            </div>
+        </div>
+        <div class= "row">
             <div class= "column">
                 <%= f.text_field :title%>
                 <%= f.number_field(:price, :step => "0.01", :class => "input-small") %>
@@ -11,11 +17,12 @@
                 <%= f.text_area :description, :class => "input-xlarge" %>
                 <%= f.submit %>
             </div>
-            <div class= "column-md-4 offset-md-4">
-                <%= f.text_field :location %>
-                <%= f.text_field :contact %>
-                <%= f.file_field :images, multiple: true %>
-                <p>(Max: 4)</p>
+            <div class= "column offset-md-3">
+                <%= f.text_field :email %>
+                <%= f.text_field :phone %>
+                <%= f.text_field :city %>
+                <%= f.text_field :state %>
+                <%= f.text_field :zip %>
             </div>
         </div>
     <% end %>
