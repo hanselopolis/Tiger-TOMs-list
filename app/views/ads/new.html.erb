@@ -1,18 +1,27 @@
-<h1>Create a New Ad</h1>
-
-<%= bootstrap_form_with model: @ad, url: category_path(@category), 
-method: :post, local: true do |f| %>
-
-    <%= f.text_field :title %>
-    <%= f.text_area :description %>
-    <%= f.number_field :price, :step => "0.01" %>
-    <%= f.text_field :location %>
-    <%= f.text_field :contact %>
-
-    <%= f.submit %>
-
-<% end %>
-
+<div class= "container">
+<center><h1>Create a New Ad</h1></center>
+    <%= bootstrap_form_with model: @ad, url: category_path(@category), 
+    method: :post, local: true do |f| %>
+        <div class= "row">
+            <div class= "column">
+                <%= f.text_field :title%>
+                <%= f.number_field(:price, :step => "0.01", :class => "input-small") %>
+                <%= f.collection_select :category, 
+                Category.order(:title), :id, :title, include_blank: true %>
+                <%= f.text_area :description, :class => "input-xlarge" %>
+                <%= f.submit %>
+            </div>
+            <div class= "column-md-4 offset-md-4">
+                <%= f.text_field :location %>
+                <%= f.text_field :contact %>
+                <%= f.file_field :images, multiple: true %>
+                <p>(Max: 4)</p>
+            </div>
+        </div>
+    <% end %>
 <br>
-<%= link_to "Cancel", category_path(@category),
-class: 'btn btn-danger' %>
+
+<a href= "<%= category_url(@category)%>", style= "float: right;",
+class= "btn btn-danger">Cancel</a>
+
+</div>
