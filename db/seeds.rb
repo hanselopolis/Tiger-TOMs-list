@@ -79,6 +79,43 @@ other_services = Category.create!(
     description: 'Anything that does not fall into a category'
 )
 
+
+#USERS
+user1 = User.create!(
+    username: "badassBob",
+    first_name: "Bob",
+    last_name: "Hill",
+    email: "bboy@email.com",
+    password: "password",
+    phone: "100-234-5678",
+    bio: "I got the coolest parts in town!",
+    address1: "1111 driving way",
+    address2: " ",
+    address3: " ",
+    city: "NYC",
+    state: "NY",
+    country: "USA",
+    zip: 10001
+)
+
+user2 = User.create!(
+    username: "AngryAlice",
+    first_name: "Alice",
+    last_name: "Bezos",
+    email: "AtoZ@email.com",
+    password: "password",
+    phone: "200-432-4321",
+    bio: "Exotics only.",
+    address1: "2222 star road",
+    address2: " ",
+    address3: " ",
+    city: "Los Angeles",
+    state: "CA",
+    country: "USA",
+    zip: 90210
+)
+
+
 #ADS
 
 Ad.create!(
@@ -121,7 +158,9 @@ Ad.create!(
     status: 'active',
     category: accessories,
     user: user2
+
 )
+
 
 
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
