@@ -50,6 +50,7 @@ user1 = User.create!(
     first_name: "Bob",
     last_name: "Hill",
     email: "bboy@email.com",
+    password: "password",
     phone: "100-234-5678",
     bio: "I got the coolest parts in town!",
     address1: "1111 driving way",
@@ -66,6 +67,7 @@ user2 = User.create!(
     first_name: "Alice",
     last_name: "Bezos",
     email: "AtoZ@email.com",
+    password: "password",
     phone: "200-432-4321",
     bio: "Exotics only.",
     address1: "2222 star road",
@@ -121,22 +123,7 @@ Ad.create!(
     user: user2
 
 )
-  #user objects
-User.create!(
-    username: "badassBob",
-    first_name: "Bob",
-    last_name: "Hill",
-    email: "bboy@email.com",
-    phone: "100-234-5678",
-    bio: "I got the coolest parts in town!",
-    address1: "1111 driving way",
-    address2: " ",
-    address3: " ",
-    city: "NYC",
-    state: "NY",
-    country: "USA",
-    zip: 10001
-)
+
 
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
