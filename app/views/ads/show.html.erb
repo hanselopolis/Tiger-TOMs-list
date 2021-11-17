@@ -1,7 +1,7 @@
 <center><h1> <%= @ad.title %> </h1></center> 
     <ul>
         <li>Description: <%= @ad.description%> </li>
-        <li>Price: <%= @ad.price%> </li>
+        <li>Price: $<%= '%.2f' % @ad.price%> </li>
         <li>Loocation: <%= @ad.location%> </li>
         <li>Contact: <%= @ad.contact%> </li>
     </ul>
