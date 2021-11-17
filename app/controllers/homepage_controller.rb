@@ -1,6 +1,6 @@
 class HomepageController < ApplicationController
     def home
-        @categories = Category.all
+        # @categories = Category.all
 
         render :home
     end

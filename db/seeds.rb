@@ -117,7 +117,9 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 10.0,
     status: 'active',
-    category: accessories
+    category: accessories,
+    user: user2
+
 )
   #user objects
 User.create!(
