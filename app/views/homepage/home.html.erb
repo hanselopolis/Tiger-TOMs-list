@@ -69,14 +69,14 @@ body {
         </thead>
 
         <tbody>
-        
-        <!-- <% @categories.each do |category| %>
+
+        <% @hpcategories.each do |c| %>
           <tr>
-            <td><%= category.title %></td>
+            <td><%= link_to c.title, category_path(c) %></td>
             <td class="text-nowrap">
             </td>
           </tr>
-        <% end %> -->
+        <% end %>
 
         </tbody>
       </table>
