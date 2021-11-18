@@ -52,10 +52,29 @@ class Purchase < ApplicationRecord
         #dependent: :destroy
     )
 
-   ## belongs_to(
-   ##     :buyer,
-     ##   class_name: 'User',
-       ## foreign_key: 'user_id',
-        ##inverse_of: :purchases
-   ## )
+   belongs_to(
+      :buyer,
+      class_name: 'User',
+      foreign_key: 'user_id',
+      inverse_of: :purchases
+   )
+
+    validates :ship_name, presence: true
+    validates :ship_address1, presence: true
+    validates :ship_city, presence: true
+    validates :ship_state, presence: true
+    validates :ship_country, presence: true
+    validates :ship_postal, presence: true
+    validates :bill_name, presence: true
+    validates :bill_address1, presence: true
+    validates :bill_city, presence: true
+    validates :bill_state, presence: true
+    validates :bill_country, presence: true
+    validates :bill_postal, presence: true
+    validates :card_number, presence: true
+    validates :card_exp_mo, presence: true
+    validates :card_exp_yr, presence: true
+    validates :card_cvv, presence: true
+    validates :card_type, presence: true
+    
 end

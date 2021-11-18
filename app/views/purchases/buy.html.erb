@@ -30,15 +30,15 @@
  <h3> SHIPPING INFORMATION</h3>
   <%= f.text_field :ship_name %>
   <%= f.text_field :ship_company %>
-  <%= f.text_field :ship_address1 %>
-  <%= f.text_field :ship_address2 %>
-  <%= f.text_field :ship_address3 %>
-  <%= f.text_field :ship_city %>
-  <%= f.text_field :ship_state %>
-  <%= f.text_field :ship_country %>
-  <%= f.text_field :ship_postal %>
-  <%= f.text_field :ship_phone %>
-  <%= f.text_field :ship_email %>
+  <%= f.text_field :ship_address1, value: current_user.address1 %>
+  <%= f.text_field :ship_address2, value: current_user.address2 %>
+  <%= f.text_field :ship_address3 , value: current_user.address3%>
+  <%= f.text_field :ship_city, value: current_user.city %>
+  <%= f.text_field :ship_state, value: current_user.state %>
+  <%= f.text_field :ship_country, value: current_user.country %>
+  <%= f.text_field :ship_postal, value: current_user.zip %>
+  <%= f.text_field :ship_phone, value: current_user.phone %>
+  <%= f.text_field :ship_email, value: current_user.email %>
 
   <%= f.submit %>
   </div>
