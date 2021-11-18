@@ -8,12 +8,14 @@
 </p>
 
 <span style="float:right;">
-    <p>
+    <div>
         Seller: <b><%= @ad.user.first_name %> <%= @ad.user.last_name %></b>
-    </p>
+    </div>
+    <%= link_to "Edit", edit_ad_path(@category, @ad), class: "basic-button basic-button:hover" %>
 </span>
 
-<%= link_to "Back", category_path(@category) %>
+<%= link_to "Back", category_path(@category), class: "basic-button basic-button:hover" %>
+
 
 
  
