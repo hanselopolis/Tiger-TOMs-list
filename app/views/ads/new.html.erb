@@ -5,6 +5,9 @@
     <div class = "column">
 
         <%= f.file_field :images, multiple: true %>
+        <%= f.file_field :images, multiple: true %>
+        <%= f.file_field :images, multiple: true %>
+        <%= f.file_field :images, multiple: true %>
         <%= f.text_field :title%>
         <%= f.number_field(:price, :step => "0.01") %>
         <%= f.collection_select(:category_id, Category.all, :id, :title) %>

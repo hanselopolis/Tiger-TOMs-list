@@ -10,7 +10,7 @@ body {
   padding: 10px;
 }
 
-/* Header/Blog Title */
+/* Header */
 .header {
   padding: 30px;
   text-align: center;
@@ -44,7 +44,7 @@ body {
   clear: both;
 }
 
-/* Responsive layout - when the screen is less than 800px wide, make the columns stack on top of each other instead of next to each other */
+/* when the screen is less than 800px wide, make the columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .column.side, .column.middle {   
     width: 100%;
@@ -61,6 +61,43 @@ body {
 <table>
 <b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
 
+
+        <tbody>
+
+        <% @hpcategories.each do |c| %>
+          <tr>
+            <td><%= link_to c.title, category_path(c) %></td>
+            <td class="text-nowrap">
+            </td>
+          </tr>
+        <% end %>
+
+        </tbody>
+      </table>
+  </div>
+
+  <div class="column middle">
+      <table class="table">
+       
+        <thead class="thead-dark">
+        <th>Ad Listings</th>
+        </thead>
+
+        <tbody>
+        
+
+        </tbody>
+      </table>
+  </div>
+
+  <div class="column side">
+      <h2>Post an Ad and Register</h2>
+
+      <p>Post an Ad</p>
+
+      <p>Register</p>
+  </div>
+</div>
 
 </body>
 </html>
