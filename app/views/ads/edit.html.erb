@@ -1,7 +1,7 @@
 <style>
 h1 {text-align: center;}
 </style>
-<h1>Create a New Ad</h1>
+<h1>Edit Ad: <%= @ad.title %></h1>
 
 <%= bootstrap_form_with model: @ad, method: :patch, url: ad_path(@category, @ad), local: true do |f| %>
 <div class = "form-row">

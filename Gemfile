@@ -66,3 +66,6 @@ end
 
 # Replaces Rails form helpers with bootstrap-specific form helpers
 gem "bootstrap_form", "~> 4.0"
+
+# email validation 
+gem 'email_validator' 

@@ -90,6 +90,7 @@ Ad.create!(
     contact: 'bob@email.com',
     price: 5650.0,
     status: 'active',
+    email: 'bob@email.com',
     category: vehicles,
     user: user1
 )
@@ -100,6 +101,7 @@ Ad.create!(
     contact: 'bob@email.com',
     price: 8500.0,
     status: 'active',
+    email: 'bob@email.com',
     category: vehicles,
     user: user1
 )
@@ -110,6 +112,7 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 25.0,
     status: 'active',
+    email: 'alice@email.com',
     category: accessories,
     user: user2
 )
@@ -121,6 +124,7 @@ Ad.create!(
     contact: 'alice@email.com',
     price: 10.0,
     status: 'active',
+    email: 'alice@email.com',
     category: accessories,
     user: user2
 
