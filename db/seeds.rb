@@ -47,6 +47,7 @@ other_services = Category.create!(
 #USERS
 user1 = User.create!(
     username: "badassBob",
+    encrypted_password: "1234",
     first_name: "Bob",
     last_name: "Hill",
     email: "bboy@email.com",
@@ -64,6 +65,7 @@ user1 = User.create!(
 
 user2 = User.create!(
     username: "AngryAlice",
+    encrypted_password: "4321",
     first_name: "Alice",
     last_name: "Bezos",
     email: "AtoZ@email.com",

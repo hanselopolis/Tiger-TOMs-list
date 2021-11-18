@@ -31,11 +31,12 @@
 
 one:
   username: MyString
+  encrypted_password: MyString
+  reset_password_sent_at: 2021-11-17 17:46:51
+  reset_password_toke: MyString
+  remember_created_at: 2021-11-17 17:46:51
   first_name: MyString
   last_name: MyString
-  email: MyString
-  phone: MyString
-  bio: MyString
   address1: MyString
   address2: MyString
   address3: MyString
@@ -43,14 +44,18 @@ one:
   state: MyString
   country: MyString
   zip: 1
+  phone: MyString
+  email: MyString
+  bio: MyString
 
 two:
   username: MyString
+  encrypted_password: MyString
+  reset_password_sent_at: 2021-11-17 17:46:51
+  reset_password_toke: MyString
+  remember_created_at: 2021-11-17 17:46:51
   first_name: MyString
   last_name: MyString
-  email: MyString
-  phone: MyString
-  bio: MyString
   address1: MyString
   address2: MyString
   address3: MyString
@@ -58,3 +63,6 @@ two:
   state: MyString
   country: MyString
   zip: 1
+  phone: MyString
+  email: MyString
+  bio: MyString
