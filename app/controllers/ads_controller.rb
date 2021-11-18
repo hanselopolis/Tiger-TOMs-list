@@ -28,6 +28,23 @@ class AdsController < ApplicationController
           flash.now[:error] = "Ad could not be saved"
           render :new
         end
-      end
+    end
 
+    def edit
+      @category = Category.find(params[:category_id])
+      @ad = Ad.find(params[:id])
+      render :edit  
+    end
+
+    def update 
+      @category = Category.find(params[:category_id]) 
+      @ad = @category.ads.find(params[:id])
+      if @ad.update(params.require(:ad).permit(:title, :description, :price, :email, :phone, :category_id, :addr, :city, :state, :images, :zip))
+        flash[:success] = "Ad updated successfully"
+        redirect_to ad_url(@category, @ad)
+      else
+        flash.now[:error] = "Ad could not be updated"
+        render :new
+      end
+    end
 end
