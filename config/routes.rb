@@ -17,12 +17,11 @@ Rails.application.routes.draw do
   get 'categories/:category_id/:id', to: 'ads#show', 
   as: 'ad'
   
-<<<<<<< HEAD
+
   # Purchases
   get 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#new', as: 'purchase_item'
   post 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#create'
   
 
-=======
->>>>>>> main
+
 end
