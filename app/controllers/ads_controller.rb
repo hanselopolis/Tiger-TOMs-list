@@ -15,4 +15,19 @@ class AdsController < ApplicationController
         
     end
 
+    # Flashes not working
+    def create
+        @category = Category.find(params[:ad][:category_id]) 
+        @ad = current_user.ads.build(params.require(:ad).permit(:title, :description, :price, 
+        :email, :phone, :category_id, :addr, :city, :state, :images, :zip))
+        @ad.category = @category
+        if @ad.save
+          flash[:success] = "Ad saved successfully"
+          redirect_to category_url(@category)
+        else
+          flash.now[:error] = "Ad could not be saved"
+          render :new
+        end
+      end
+
 end
