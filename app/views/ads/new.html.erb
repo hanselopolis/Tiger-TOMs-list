@@ -14,12 +14,12 @@
 
    <div class = "column offset-md-3"> 
 
-        <%= f.text_field :email %>
-        <%= f.text_field :phone %>
-        <%= f.text_field :addr%>
-        <%= f.text_field :city %>
-        <%= f.text_field :state %>
-        <%= f.text_field :zip %>
+        <%= f.text_field :email, value: current_user.email %>
+        <%= f.text_field :phone, value: current_user.phone %>
+        <%= f.text_field :addr, value: current_user.address1%>
+        <%= f.text_field :city, value: current_user.city %>
+        <%= f.text_field :state, value: current_user.state %>
+        <%= f.text_field :zip, value: current_user.zip %>
 
     </div>
 
