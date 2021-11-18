@@ -2,9 +2,11 @@ class AdsController < ApplicationController
 
     before_action :authenticate_user!, except: [:index]
     before_action :require_permission, except: [:show, :new, :create]
+    add_flash_types :info, :error, :warning, :success
 
     def require_permission
       if Ad.find(params[:id]).user != current_user
+        flash[:error] = "You do not have permission to do that."
         redirect_to categories_path
       end
     end
