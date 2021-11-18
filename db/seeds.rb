@@ -9,7 +9,7 @@
 
 User.create!(
     username: "badassBob",
-    password: "1234",
+    encrypted_password: "1234",
     first_name: "Bob",
     last_name: "Hill",
     email: "bboy@email.com",
@@ -26,7 +26,7 @@ User.create!(
 
 User.create!(
     username: "AngryAlice",
-    password: "4321",
+    encrypted_password: "4321",
     first_name: "Alice",
     last_name: "Bezos",
     email: "AtoZ@email.com",
