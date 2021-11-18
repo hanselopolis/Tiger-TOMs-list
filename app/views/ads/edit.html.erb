@@ -1,13 +1,28 @@
+<style>
+h1 {text-align: center;}
+</style>
 <h1>Create a New Ad</h1>
 
-<%= bootstrap_form_with model: @ad, method: :post, url: category_path(@category), local: true do |f| %>
+<%= bootstrap_form_with model: @ad, method: :patch, url: ad_path(@category, @ad), local: true do |f| %>
+<div class = "form-row">
+    
+    <div class = column>
+        <h3>Current Images</h3>
+
+        <% (0...@ad.images.count).each do |image| %>
+            <div style = "width:300px; height:300px;">
+                <%= image_tag @ad.images[image], style: "width:100%; height: auto" %>
+            </div>
+        <% end %>
+    </div>
+</div>
 <div class = "form-row">
     <div class = "column">
-
+        
         <%= f.file_field :images, multiple: true %>
         <%= f.file_field :images, multiple: true %>
         <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>
+        <%= f.file_field :images, multiple: true %>   
         <%= f.text_field :title%>
         <%= f.number_field(:price, :step => "0.01") %>
         <%= f.collection_select(:category_id, Category.all, :id, :title) %>
@@ -34,5 +49,3 @@
 </div>
 <% end %>
 <br>
-
-

@@ -12,3 +12,22 @@
     display: table;
     clear: both;
   }
+
+  /* BUTTONS */
+
+  .basic-button {
+    background-color: white;
+    color: black;
+    border: 2px solid blue;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 12px;
+    transition-duration: 0.4s;
+  }
+
+  .basic-button:hover{
+    background-color: blue;
+    color: white;
+  }
