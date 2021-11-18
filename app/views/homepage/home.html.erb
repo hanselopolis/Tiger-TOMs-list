@@ -1,0 +1,66 @@
+<html>
+<head>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+}
+
+/* Header/Blog Title */
+.header {
+  padding: 30px;
+  text-align: center;
+  background: white;
+}
+
+.header h1 {
+  font-size: 50px;
+}
+
+/* Create three unequal columns that floats next to each other */
+.column {   
+  float: center;
+  padding: 10px;
+}
+
+/* side columns */
+.column.side {
+  width: 20%;
+}
+
+/* center column */
+.column.middle {
+  width: 60%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+  .column.side, .column.middle {   
+    width: 100%;
+  }
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Tiger Tom's List</h1>
+</div>
+<table>
+<b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+
+
+</body>
+</html>

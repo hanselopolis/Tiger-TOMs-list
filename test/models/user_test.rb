@@ -10,7 +10,7 @@
 #  city                   :string
 #  country                :string
 #  email                  :string
-#  encrypted_password     :string
+#  encrypted_password     :string           default(""), not null
 #  first_name             :string
 #  last_name              :string
 #  phone                  :string
@@ -22,6 +22,11 @@
 #  zip                    :integer
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 require "test_helper"
 
