@@ -110,7 +110,8 @@ purchase1 = Purchase.create!(
     card_number: "1234 2234 3234 4234",
     card_exp_mo: "12",
     card_exp_yr: "25",
-    card_cvv: "123"
+    card_cvv: "123",
+    buyer: user1
 )
 
 
@@ -165,13 +166,7 @@ Ad.create!(
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> main
-=======
->>>>>>> main
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
 parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')

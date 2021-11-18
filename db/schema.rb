@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_11_17_054040) do
-=======
 ActiveRecord::Schema.define(version: 2021_11_17_182713) do
->>>>>>> main
-=======
-ActiveRecord::Schema.define(version: 2021_11_17_182713) do
->>>>>>> main
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,22 +54,13 @@ ActiveRecord::Schema.define(version: 2021_11_17_182713) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.bigint "user_id"
-<<<<<<< HEAD
-<<<<<<< HEAD
     t.bigint "purchase_id"
-=======
-=======
->>>>>>> main
     t.string "email"
     t.string "phone"
     t.string "addr"
     t.string "city"
     t.string "state"
     t.integer "zip"
-<<<<<<< HEAD
->>>>>>> main
-=======
->>>>>>> main
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["purchase_id"], name: "index_ads_on_purchase_id"
     t.index ["user_id"], name: "index_ads_on_user_id"
