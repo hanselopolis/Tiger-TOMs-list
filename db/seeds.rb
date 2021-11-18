@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#CATEGORIES
+
+# CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -50,6 +51,7 @@ user1 = User.create!(
     first_name: "Bob",
     last_name: "Hill",
     email: "bboy@email.com",
+    password: "password",
     phone: "100-234-5678",
     bio: "I got the coolest parts in town!",
     address1: "1111 driving way",
@@ -66,6 +68,7 @@ user2 = User.create!(
     first_name: "Alice",
     last_name: "Bezos",
     email: "AtoZ@email.com",
+    password: "password",
     phone: "200-432-4321",
     bio: "Exotics only.",
     address1: "2222 star road",
@@ -79,6 +82,7 @@ user2 = User.create!(
 
 
 #ADS
+
 Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
@@ -121,22 +125,8 @@ Ad.create!(
     user: user2
 
 )
-  #user objects
-User.create!(
-    username: "badassBob",
-    first_name: "Bob",
-    last_name: "Hill",
-    email: "bboy@email.com",
-    phone: "100-234-5678",
-    bio: "I got the coolest parts in town!",
-    address1: "1111 driving way",
-    address2: " ",
-    address3: " ",
-    city: "NYC",
-    state: "NY",
-    country: "USA",
-    zip: 10001
-)
+
+
 
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
@@ -146,3 +136,4 @@ tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'),
 accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
 mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
 other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')
+

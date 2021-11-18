@@ -1,19 +1,21 @@
 <center><h1> <%= @ad.title %> </h1></center> 
     <ul>
         <li>Description: <%= @ad.description%> </li>
-        <li>Price: <%= @ad.price%> </li>
+        <li>Price: $<%= '%.2f' % @ad.price%> </li>
         <li>Loocation: <%= @ad.location%> </li>
         <li>Contact: <%= @ad.contact%> </li>
     </ul>
 </p>
 
 <span style="float:right;">
-    <p>
+    <div>
         Seller: <b><%= @ad.user.first_name %> <%= @ad.user.last_name %></b>
-    </p>
+    </div>
+    <%= link_to "Edit", edit_ad_path(@category, @ad), class: "basic-button basic-button:hover" %>
 </span>
 
-<%= link_to "Back", category_path(@category) %>
+<%= link_to "Back", category_path(@category), class: "basic-button basic-button:hover" %>
+
 
 
  
