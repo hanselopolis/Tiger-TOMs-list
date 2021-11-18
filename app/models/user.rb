@@ -36,7 +36,7 @@ class User < ApplicationRecord
 
     has_many(
         :ads,
-        class_name: 'Ad',
+        class_name:'Ad',
         foreign_key: 'user_id',
         inverse_of: :user,
         dependent: :destroy

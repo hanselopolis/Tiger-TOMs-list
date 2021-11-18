@@ -3,12 +3,18 @@
 # Table name: ads
 #
 #  id          :bigint           not null, primary key
+#  addr        :string
+#  city        :string
 #  contact     :string
 #  description :string
+#  email       :string
 #  location    :string
+#  phone       :string
 #  price       :float
+#  state       :string
 #  status      :string
 #  title       :string
+#  zip         :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  category_id :bigint
@@ -28,6 +34,8 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Ad < ApplicationRecord
+
+    has_many_attached :images
 
     belongs_to(
         :category,

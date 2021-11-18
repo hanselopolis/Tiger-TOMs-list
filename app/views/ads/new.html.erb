@@ -1,0 +1,35 @@
+<h1>Create a New Ad</h1>
+
+<%= bootstrap_form_with model: @ad, method: :post, url: category_path(@category), local: true do |f| %>
+<div class = "form-row">
+    <div class = "column">
+
+        <%= f.file_field :images, multiple: true %>
+        <%= f.text_field :title%>
+        <%= f.number_field(:price, :step => "0.01") %>
+        <%= f.collection_select(:category_id, Category.all, :id, :title) %>
+        <%= f.text_area :description %>
+
+    </div>
+
+   <div class = "column offset-md-3"> 
+
+        <%= f.text_field :email, value: current_user.email %>
+        <%= f.text_field :phone, value: current_user.phone %>
+        <%= f.text_field :addr, value: current_user.address1%>
+        <%= f.text_field :city, value: current_user.city %>
+        <%= f.text_field :state, value: current_user.state %>
+        <%= f.text_field :zip, value: current_user.zip %>
+
+    </div>
+
+    <div class = "form-column"> 
+        <%= f.submit %>
+        <a href= "<%= category_url(@category)%>", style= "float: right;",
+        class= "btn btn-danger">Cancel</a>
+    </div>
+</div>
+<% end %>
+<br>
+
+

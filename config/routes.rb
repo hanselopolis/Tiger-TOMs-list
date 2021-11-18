@@ -9,13 +9,20 @@ Rails.application.routes.draw do
   # Categories
   get 'categories', to: 'categories#index', as: 'categories'
   get 'categories/:id', to: 'categories#show', as: 'category'
+  post 'categories/:id', to: 'ads#create'
 
   # Ads
-  get 'categories/:category_id/:id', to: 'ads#show', as: 'ad'
+  get 'categories/:category_id/new', to: 'ads#new',
+  as: 'new_ad'
+  get 'categories/:category_id/:id', to: 'ads#show', 
+  as: 'ad'
   
+<<<<<<< HEAD
   # Purchases
   get 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#new', as: 'purchase_item'
   post 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#create'
   
 
+=======
+>>>>>>> main
 end

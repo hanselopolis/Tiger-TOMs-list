@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#CATEGORIES
+
+# CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -114,6 +115,7 @@ purchase1 = Purchase.create!(
 
 
 #ADS
+
 Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
@@ -163,7 +165,10 @@ Ad.create!(
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> main
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
 parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')
