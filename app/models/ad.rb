@@ -33,7 +33,14 @@
 class Ad < ApplicationRecord
 
     validates :title, presence: true
-    
+    validates :price, presence: true
+    validates :price, :numericality => { :greater_than_or_equal_to => 0 }
+    validates :description, presence: true
+    validates :email, presence: true
+    validates :email, email: true
+    validates :phone, length: { minimum: 10, maximum: 10 }, allow_blank: true
+    validates :state, length: {minimum: 2, maximum: 2 }, allow_blank: true
+
     has_many_attached :images
 
     belongs_to(
