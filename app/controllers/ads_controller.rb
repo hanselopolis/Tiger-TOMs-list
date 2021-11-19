@@ -56,4 +56,14 @@ class AdsController < ApplicationController
         render :new
       end
     end
+
+    def destroy 
+      @category = Category.find(params[:category_id])
+      @ad = @category.ads.find(params[:id])
+
+      @ad.destroy
+      flash[:success] = "Ad deleted successfully"
+      redirect_to category_url(@category)
+
+    end
 end
