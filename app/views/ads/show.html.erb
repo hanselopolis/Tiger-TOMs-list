@@ -2,7 +2,7 @@
     <ul>
         <li>Description: <%= @ad.description%> </li>
         <li>Price: $<%= '%.2f' % @ad.price%> </li>
-        <li>Loocation: <%= @ad.location%> </li>
+        <li>Location: <%= @ad.location%> </li>
         <li>Contact: <%= @ad.contact%> </li>
         <li>Status: <%= @ad.status %> </li>
     </ul>
@@ -14,9 +14,10 @@
     </div>
     <%= link_to "Edit", edit_ad_path(@category, @ad), class: "basic-button basic-button:hover" %>
 </span>
-
-<%= link_to "Back", category_path(@category), class: "basic-button basic-button:hover" %>
-
+<p>
+  <%= link_to "BUY THIS AD!", purchase_item_path(@category, @ad), class: "btn btn-secondary"%>
+</p>
+<%= link_to "Back", category_path(@category) %>
 
 
  

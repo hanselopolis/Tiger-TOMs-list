@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :purchases
   # Users
   devise_for :users
 
@@ -33,4 +34,18 @@ Rails.application.routes.draw do
   get 'categories/:category_id/:id/edit', to: 'ads#edit', 
   as: 'edit_ad'
   
+
+  # Purchases
+  get 'purchases', to: 'purchases#index', as: 'purchases_index'
+  get 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#new', as: 'purchase_item'
+  post 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#create'
+  patch 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#update'
+  put 'categories/:category_id/ads/:ad_id/purchases/:id', to: 'purchases#update'
+
+  get 'categories/:category_id/ads/:ad_id/purchases/:id/complete', to: 'purchase#complete', as: 'purchase_complete'
+
+  
+  
+
+
 end
