@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-#CATEGORIES
+
+# CATEGORIES
 # Descriptions need to be better
 vehicles = Category.create!(
     title: 'Vehicles',
@@ -81,6 +82,7 @@ user2 = User.create!(
 
 
 #ADS
+
 Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
@@ -125,6 +127,7 @@ Ad.create!(
 )
 
 
+
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
 parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')
@@ -133,3 +136,4 @@ tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'),
 accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
 mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
 other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')
+
