@@ -58,20 +58,25 @@ body {
 <div class="header">
     <h1>Tiger Tom's List</h1>
 </div>
-<table>
+
 <b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
 
-
+<div class="column side">
+  <table class="table">
+    
+    <thead class="thead-dark">
+    <th>Categories</th>
+    </thead>
+    
         <tbody>
 
-        <% @hpcategories.each do |c| %>
+        <% @categories.each do |c| %>
           <tr>
             <td><%= link_to c.title, category_path(c) %></td>
             <td class="text-nowrap">
             </td>
           </tr>
         <% end %>
-
         </tbody>
       </table>
   </div>
@@ -85,7 +90,17 @@ body {
 
         <tbody>
         
-
+        <% @categories.each do |c2| %>
+        <tr>
+        <% @ads.each do |a| %>
+          <tr>
+            <td><%= link_to a.title, ad_path(a) %></td>
+            <td class="text-nowrap">
+            </td>
+          </tr>
+        <% end %>
+        </tr>
+        <% end %>
         </tbody>
       </table>
   </div>
@@ -93,9 +108,9 @@ body {
   <div class="column side">
       <h2>Post an Ad and Register</h2>
 
-      <p>Post an Ad</p>
+      <p>Register Here</p>
 
-      <p>Register</p>
+      <p>Post an Ad"</p>
   </div>
 </div>
 
