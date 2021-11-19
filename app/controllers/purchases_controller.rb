@@ -22,11 +22,18 @@ class PurchasesController < ApplicationController
           :bill_state,:bill_country,:bill_postal,:bill_phone,:bill_email,:card_number,:card_exp_mo,:card_exp_yr,:card_type,:card_cvv,:user))  
         if @purchase.save
           flash[:success] = "ITEM PURCHASED!"
-          render :buy
+          render :complete
         else
           flash.now[:error] = "PURCHASE FAILED - Please fill out all required fields"
           render :buy
         end
       end
+
+      def complete
+        @category = Category.find(params[:category_id])
+        @ad = Ad.find(params[:ad_id])
+        @purchase = Purchase.find(params[:purchase_id])
+        render :complete
+    end
 
 end

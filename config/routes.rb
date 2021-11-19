@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   patch 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#update'
   put 'categories/:category_id/ads/:ad_id/purchases/:id', to: 'purchases#update'
 
+  get 'categories/:category_id/ads/:ad_id/purchases/:id/complete', to: 'purchase#complete', as: 'purchase_complete'
+
   
   
 
