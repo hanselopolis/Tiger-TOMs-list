@@ -31,3 +31,24 @@
     background-color: blue;
     color: white;
   }
+
+  .img{
+    height: auto;
+    width: 100%;
+    text-align: left;
+    width: 200px;
+    margin:auto;
+    margin-left: 5px;
+    padding: 3px;
+    display: inline-block;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 5px;
+    padding: 0px;
+  }
+
+  .imgs-container {
+    display: inline-block;
+    width: 200px;
+    padding: 5px;
+  }
