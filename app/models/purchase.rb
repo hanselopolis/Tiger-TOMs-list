@@ -44,16 +44,16 @@
 #
 class Purchase < ApplicationRecord
 
-   # has_one(
-    #    :ads,
-     #   class_name: 'Ad',
-      #  foreign_key: 'purchase_id',
-       # inverse_of: :purchase,
-        ##dependent: :destroy
-    #)
+    has_one(
+        :ads,
+        class_name: 'Ad',
+        foreign_key: 'purchase_id',
+        inverse_of: :purchase,
+        dependent: :destroy
+    )
 
    #belongs_to(
-    #  :buyer,
+    #  :user,
      # class_name: 'User',
       #foreign_key: 'user_id',
       #inverse_of: :purchases
@@ -78,3 +78,4 @@ class Purchase < ApplicationRecord
     validates :card_type, presence: true
     
 end
+

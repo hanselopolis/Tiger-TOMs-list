@@ -37,7 +37,6 @@ Rails.application.routes.draw do
   # Purchases
   get 'purchases', to: 'purchases#index', as: 'purchases_index'
   get 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#new', as: 'purchase_item'
-  #post 'purchases', to: 'purchases#create'
   post 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#create'
   patch 'categories/:category_id/ads/:ad_id/buy', to: 'purchases#update'
   put 'categories/:category_id/ads/:ad_id/purchases/:id', to: 'purchases#update'

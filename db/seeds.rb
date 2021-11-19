@@ -111,7 +111,7 @@ purchase1 = Purchase.create!(
     card_exp_mo: "12",
     card_exp_yr: "25",
     card_cvv: "123",
-    buyer: user1
+    user: user1
 )
 
 # Card Types
