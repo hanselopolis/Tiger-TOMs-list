@@ -11,7 +11,7 @@ class AdsController < ApplicationController
     end
 
     def show
-        @category = Category.find(params[:category_id])
+        @category = Category.find(params[:id])
         @ad = @category.ads.find(params[:id])
         render :show
     end
