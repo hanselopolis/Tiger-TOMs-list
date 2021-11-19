@@ -1,6 +1,6 @@
 <h1>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%> </h1>
 
-<%= bootstrap_form_with model: @purchase, method: :patch, url: purchase_item_path(@category, @ad), local: true do |f| %>
+<%= bootstrap_form_with model: @purchase, method: :post, url: purchase_item_path(@category, @ad), local: true do |f| %>
 <div class = "row">
 <div class = "column">
 
@@ -18,10 +18,11 @@
   <%= f.text_field :bill_email, value: current_user.email %>
 
   <h3>CREDIT CARD INFORMATION</h3>
-   <%= f.number_field :card_number %>
-   <%= f.number_field :card_exp_mo %>
-   <%= f.number_field :card_exp_yr %>
-   <%= f.number_field :card_cvv %>
+    <%= f.select :card_type, ['Visa', 'Mastercard', 'American Express','Diner\'s Club', 'Library'] %>
+    <%= f.number_field :card_number %>
+    <%= f.number_field :card_exp_mo %>
+    <%= f.number_field :card_exp_yr %>
+    <%= f.number_field :card_cvv %>
 
 </div>
 
@@ -40,7 +41,7 @@
   <%= f.text_field :ship_phone, value: current_user.phone %>
   <%= f.text_field :ship_email, value: current_user.email %>
 
-  <%= f.submit %>
+  <%= f.submit "BUY NOW!" %>
   </div>
  </div> 
 <% end %>

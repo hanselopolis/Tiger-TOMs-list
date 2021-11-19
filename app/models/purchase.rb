@@ -44,20 +44,20 @@
 #
 class Purchase < ApplicationRecord
 
-    has_one(
-        :ads,
-        class_name: 'Ad',
-        foreign_key: 'purchase_id',
-        inverse_of: :purchase,
-        #dependent: :destroy
-    )
+   # has_one(
+    #    :ads,
+     #   class_name: 'Ad',
+      #  foreign_key: 'purchase_id',
+       # inverse_of: :purchase,
+        ##dependent: :destroy
+    #)
 
-   belongs_to(
-      :buyer,
-      class_name: 'User',
-      foreign_key: 'user_id',
-      inverse_of: :purchases
-   )
+   #belongs_to(
+    #  :buyer,
+     # class_name: 'User',
+      #foreign_key: 'user_id',
+      #inverse_of: :purchases
+   #)
 
     validates :ship_name, presence: true
     validates :ship_address1, presence: true

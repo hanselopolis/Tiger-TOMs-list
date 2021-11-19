@@ -114,6 +114,18 @@ purchase1 = Purchase.create!(
     buyer: user1
 )
 
+# Card Types
+visa = CardType.create!(
+    cardtype: "Visa"
+)
+
+amex = CardType.create!(
+    cardtype: "American Express"
+)
+
+mastercard = CardType.create!(
+    cardtype: "MasterCard"
+)
 
 #ADS
 

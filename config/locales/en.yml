@@ -39,7 +39,7 @@ en:
         ship_company: Company (optional)
         ship_address1: Address 1
         ship_address2: Address 2
-        ship_address3: Address 4
+        ship_address3: Address 3
         ship_city: City
         ship_state: State/province
         ship_country: Country

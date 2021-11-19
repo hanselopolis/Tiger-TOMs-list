@@ -57,6 +57,7 @@ class Ad < ApplicationRecord
         :purchase,
         class_name: 'Purchase',
         foreign_key: 'purchase_id',
-        inverse_of: :ads
+        inverse_of: :ads,
+        optional: true
     )
 end
