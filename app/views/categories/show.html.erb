@@ -1,26 +1,19 @@
+<style>
+    h1 {text-align: center;}
+</style>
+
 <h1>Category: <%= @category.title%></h1>
 
+<div class= "row">
+    <% @category.ads.each do |ad| %>
+            <% if ad.images.attached? %>
+                <div class= "img-column">
+                    <a href= "<%= ad_url(@category, ad)%>">
+                        <p class= "ad-button"><%= image_tag(ad.images[0])%> <%= ad.title %></p>
+                    </a>
+                </div>
+            <% end %>
+        
+</div>
 
-<table class='table table-hover'>
-    <thead class = 'thead thead-dark'>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Posted</th>
-        </tr>
-    </thead>
-
-    <tbody>
-         <% @ads.each do |a|%>
-            <tr>
-                <td> <%= link_to a.title, ad_path(@category, a) %> </td>
-                <td> <%= a.description %> </td>
-                <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
-
-
-<%= link_to "Post an Ad", new_ad_path(@category), class: 'btn btn-primary', float: 'right' %>
-
+<% end %>
