@@ -172,7 +172,7 @@ Ad.create!(
     location: 'Memphis, TN',
     contact: 'alice@email.com',
     price: 10.0,
-    status: 'active',
+    status: 'sold',
     email: 'alice@email.com',
     category: accessories,
     user: user2,

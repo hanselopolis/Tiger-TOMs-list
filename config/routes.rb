@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   as: 'ad'
   patch 'categories/:category_id/:id', to: 'ads#update'
   put 'categories/:category_id/:id', to: 'ads#update'
+  delete 'categories/:category_id/:id', to: 'ads#destroy'
   get 'categories/:category_id/:id/edit', to: 'ads#edit', 
   as: 'edit_ad'
   
