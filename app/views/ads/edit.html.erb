@@ -1,28 +1,28 @@
 <style>
-h1 {text-align: center;}
+h1 {text-align: center; }
+h3 {outline: #A0A0A0 dashed 2px;}
 </style>
 <h1>Edit Ad: <%= @ad.title %></h1>
+<h2>Current Images</h2>
 
 <%= bootstrap_form_with model: @ad, method: :patch, url: ad_path(@category, @ad), local: true do |f| %>
 <div class = "form-row">
-    
-    <div class = column>
-        <h3>Current Images</h3>
-
         <% (0...@ad.images.count).each do |image| %>
-            <div style = "width:300px; height:300px;">
+            <div class="img">
                 <%= image_tag @ad.images[image], style: "width:100%; height: auto" %>
             </div>
         <% end %>
-    </div>
 </div>
+<br>
+<h3></h3>
+
 <div class = "form-row">
     <div class = "column">
         
-        <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>   
+        <%= f.file_field :images, multiple: true, label: "Main Image" %>
+        <%= f.file_field :images, multiple: true, label: "Extra Image" %>
+        <%= f.file_field :images, multiple: true, label: "Extra Image" %>
+        <%= f.file_field :images, multiple: true, label: "Extra Image" %>   
         <%= f.text_field :title%>
         <%= f.number_field(:price, :step => "0.01") %>
         <%= f.collection_select(:category_id, Category.all, :id, :title) %>
