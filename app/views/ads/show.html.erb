@@ -45,9 +45,37 @@
         </section>
 
         <aside>
-            <p style= "text-align: left;">Button to Favorite Ad</p>
+            <aside>
+                <a href= "<%= user_url(@ad.user) %>">
+                    <h2 class= "basic-button"><b>Seller:</b> <%= @ad.user.first_name %> <%= @ad.user.last_name %></h2>
+                </a>
+            </aside>
+
+            <!-- White Space so that succeding buttons are somewhat cnetered with image -->
+            <pre>
+
+
+
+
+
+
+
+            </pre>
+            <a href= "#">
+                <p class= "yellow-box-button"style= "text-align: left;">Favorite Ad</p>
+            </a>
             <br>
-            <p style= "text-align: left;">Button to Purchase Ad</p>
+            <a href= "#">
+                <p class= "green-box-button"style= "text-align: left;">Purchase Ad</p>
+            </a>
+            <br>
+
+            <% if @ad.user == current_user %>
+                <p>Hey, <%= @ad.user.first_name%>! Would you like to edit your Ad? </p>
+                <a href= "<%=  edit_ad_path(@category, @ad)%>", style= "text-align: right;">
+                            <p class= "basic-button", style= "text-align: right;">Edit<p>
+                        </a>
+            <% end %>
         </aside>
 
         <section>
@@ -63,11 +91,9 @@
                        <br>
                        - Date Added: <%= @ad.created_at.strftime("%m/%d/%Y") %>
                     </p>
-                    <aside>
-                        <a href= "<%= user_url(@ad.user) %>">
-                            <h2 class= "basic-button"><b>Seller:</b> <%= @ad.user.first_name %> <%= @ad.user.last_name %></h2>
-                        </a>
-                    </aside>
+                    <a href= "<%=  category_path(@category)%>">
+                        <p class= "basic-button", style= "text-align: right;">< Back<p>
+                    </a>
                 </div>
             </div>
         </section>
@@ -77,8 +103,9 @@
             <p class= "ad-description-container">
                 <%= @ad.description %>
             </p>
-
         </aside>
+
+      
 
     </body>
 </html>

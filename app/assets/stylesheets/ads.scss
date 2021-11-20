@@ -32,6 +32,40 @@
     color: white;
   }
 
+  .yellow-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid yellow;
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;
+  }
+
+  .yellow-box-button:hover{
+    background-color: yellow;
+    color: black;
+  }
+
+  .green-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;
+  }
+
+  .green-box-button:hover{
+    background-color: green;
+    color: black;
+  }
+
   /* IMAGES */
 
   .img{
@@ -118,3 +152,6 @@
     overflow-wrap: normal;
     float: left;
   }
+
+
+  
