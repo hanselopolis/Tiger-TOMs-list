@@ -1,19 +1,24 @@
+<!DOCTYPE html>
+<html>
 <style>
     h1 {text-align: center;}
 </style>
+    <body>
+        <header>
+            <h1>Category: <%= @category.title %> </h1>
+        </header>
 
-<h1>Category: <%= @category.title%></h1>
+        <div class= "row">
+            <div class= "column">
+                <% @category.ads.each do |ad| %>
+                    <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+                        <%= image_tag ad.images[0], width: "250", height: "200" %>
+                        <br>
+                        <%= ad.title %>
+                    </p> </a>
+                <% end %>
+            </div>
+        </div>
+    </body>
 
-<div class= "picture-grid">
-    <% @category.ads.each do |ad| %>
-            <% if ad.images.attached? %>
-                <div class= "grid-box">
-                    <a href= "<%= ad_url(@category, ad)%>">
-                        <p class= "ad-button"><%= image_tag(ad.images[0])%> <%= ad.title %></p>
-                    </a>
-                </div>
-            <% end %>
-        
-</div>
-
-<% end %>
+</html>
