@@ -32,6 +32,8 @@
     color: white;
   }
 
+  /* IMAGES */
+
   .img{
     height: auto;
     width: 100%;
@@ -51,4 +53,32 @@
     display: inline-block;
     width: 200px;
     padding: 5px;
+  }
+
+  .small-img{
+    text-align: left;
+    width: 150px;
+    height: 100px;
+    margin:auto;
+    margin-left: 5px;
+    padding: 3px;
+    display: inline-block;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 5px;
+    padding: 0px;
+  }
+
+  .big-img{
+    text-align: left;
+    width: 460px;
+    height: 400px;
+    margin:auto;
+    margin-left: 5px;
+    padding: 3px;
+    display: inline-block;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 5px;
+    padding: 0px;
   }
