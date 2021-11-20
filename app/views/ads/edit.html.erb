@@ -43,9 +43,10 @@ h3 {outline: #A0A0A0 dashed 2px;}
 
     <div class = "form-column"> 
         <%= f.submit %>
-        <a href= "<%= category_url(@category)%>", style= "float: right;",
-        class= "btn btn-danger">Cancel</a>
+        <%= link_to "Delete", ad_path(@category, @ad), method: :delete, class: "btn btn-danger" %>
     </div>
 </div>
 <% end %>
-<br>
+
+<a href= "<%= category_url(@category)%>", style= "float: right;",
+        class= "btn btn-danger;">Cancel</a>

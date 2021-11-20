@@ -7,20 +7,23 @@
             <th>Title</th>
             <th>Description</th>
             <th>Posted</th>
+            <th>Status</th>
         </tr>
     </thead>
 
     <tbody>
-         <% @ads.each do |a|%>
-            <tr>
-                <td> <%= link_to a.title, ad_path(@category, a) %> </td>
-                <td> <%= a.description %> </td>
-                <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
-            </tr>
+         <% @ads.each do |ad|%>
+            <% if ad.status == "active" %>
+                <tr>
+                    <td> <%= link_to ad.title, ad_path(@category, ad) %> </td>
+                    <td> <%= ad.description %> </td>
+                    <td> <%= ad.created_at.strftime("%m/%d/%Y") %> </td>
+                </tr>
+            <% end %>
         <% end %>
     </tbody>
 </table>
 
 
-<%= link_to "Post an Ad", new_ad_path(@category), class: 'btn btn-primary', float: 'right' %>
+<%= link_to "Post an Ad", new_ad_path(@category), class: 'btn btn-primary', float: 'right' %>  <%= link_to "Back to Categories", categories_path(), class: 'btn btn-secondary', float: 'right' %> 
 
