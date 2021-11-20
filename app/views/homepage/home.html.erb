@@ -70,7 +70,7 @@ body {
     
         <tbody>
 
-        <% @categories.each do |c| %>
+        <% @category.each do |c| %>
           <tr>
             <td><%= link_to c.title, category_path(c) %></td>
             <td class="text-nowrap">
@@ -86,21 +86,19 @@ body {
        
         <thead class="thead-dark">
         <th>Ad Listings</th>
+        <th>Posted</th>
         </thead>
 
         <tbody>
         
-        <% @categories.each do |c2| %>
-        <tr>
-        <% @ads.each do |a| %>
+        <% @ad.each do |a| %>
           <tr>
-            <td><%= link_to a.title, ad_path(a) %></td>
-            <td class="text-nowrap">
-            </td>
+            <td><%= link_to a.title, ad_path(@category, a) %></td>
+            <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
+            <td class="text-nowrap"></td>
           </tr>
         <% end %>
-        </tr>
-        <% end %>
+  
         </tbody>
       </table>
   </div>
@@ -108,9 +106,9 @@ body {
   <div class="column side">
       <h2>Post an Ad and Register</h2>
 
-      <p>Register Here</p>
+      <p><%= link_to "Register Here", new_user_path, class: "basic-button basic-button:hover" %></p>
 
-      <p>Post an Ad"</p>
+      <p><%= link_to "Post an Ad", new_ad_path(@category), class: "basic-button basic-button:hover" %></p>
   </div>
 </div>
 

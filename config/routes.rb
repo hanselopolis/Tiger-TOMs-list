@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   
   #homepage 
-  root to: redirect('/home/1/1')
-  get 'home/:category_id/:id', to: 'homepage#home', as: 'home' 
+
+  root to: redirect('/home')
+  get 'home', to: 'homepage#home', as: 'home' 
 
 
   post 'users', to: 'users#create'
