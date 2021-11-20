@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <style>
     h1 {text-align: center;}
-    p {text-align: left; font-size: 18px;}
+    h3 {outline: #A0A0A0 dashed 2px;}
 </style>
 <html>
     <body>
@@ -45,9 +45,39 @@
         </section>
 
         <aside>
-            <p>Button to Favorite Ad</p>
+            <p style= "text-align: left;">Button to Favorite Ad</p>
             <br>
-            <p>Button to Purchase Ad</p>
+            <p style= "text-align: left;">Button to Purchase Ad</p>
+        </aside>
+
+        <section>
+        <h2>Details</h2>
+            <div class= "row">
+                <div class= "column">
+                    <p class= "ad-text-container">
+                       - Price: $<%= '%.2f' % @ad.price%>
+                         <br>
+                       - Contact: <%= @ad.email %>
+                       <br>
+                       - Location: <%= @ad.city %>, <%= @ad.state %>
+                       <br>
+                       - Date Added: <%= @ad.created_at.strftime("%m/%d/%Y") %>
+                    </p>
+                    <aside>
+                        <a href= "<%= user_url(@ad.user) %>">
+                            <h2 class= "basic-button"><b>Seller:</b> <%= @ad.user.first_name %> <%= @ad.user.last_name %></h2>
+                        </a>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <aside>
+            <h2>Description</h2>
+            <p class= "ad-description-container">
+                <%= @ad.description %>
+            </p>
+
         </aside>
 
     </body>
