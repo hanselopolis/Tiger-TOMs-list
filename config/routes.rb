@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   resources :purchases
   # Users
   devise_for :users
+  
+  #homepage 
+
+  root to: redirect('/home')
+  get 'home', to: 'homepage#home', as: 'home' 
+
 
   post 'users', to: 'users#create'
 
@@ -13,10 +19,6 @@ Rails.application.routes.draw do
   delete 'users/:id', to: 'users#destroy'
 
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
-
-  # Homepage 
-  root to: redirect('/home')
-  get 'home', to: 'homepage#home', as: 'home' 
   
   # Categories
   get 'categories', to: 'categories#index', as: 'categories'

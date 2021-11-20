@@ -4,4 +4,5 @@ class HomepageController < ApplicationController
         @ad = Ad.all
         render :home
     end
+    
 end
