@@ -46,7 +46,7 @@ class User < ApplicationRecord
         :purchases,
         class_name: 'Purchase',
         foreign_key: 'user_id',
-        inverse_of: :buyer,
+        inverse_of: :user,
         dependent: :destroy
     )
 
