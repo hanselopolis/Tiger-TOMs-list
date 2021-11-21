@@ -1,29 +1,31 @@
-<h1>Category: <%= @category.title%></h1>
+<!DOCTYPE html>
+<html>
+<style>
+    h1 {text-align: center;}
+</style>
+    <body>
+        <header>
+            <h1>Category: <%= @category.title %> </h1>
+        </header>
 
+        <div class= "row">
+            <div class= "column">
+                <% @category.ads.each do |ad| %>
+                    <% if ad.images.attached? %>
+                        <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+                            <%= image_tag ad.images[0], width: "250", height: "200" %>
+                            <br>
+                            <%= ad.title %>
+                        </p> </a>
+                    <% else %>
+                        <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+                            <%= image_tag "no_image.jpg", width: "250", height: "200" %>
+                            <br>
+                            <%= ad.title %>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </body>
 
-<table class='table table-hover'>
-    <thead class = 'thead thead-dark'>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Posted</th>
-            <th>Status</th>
-        </tr>
-    </thead>
-
-    <tbody>
-         <% @ads.each do |ad|%>
-            <% if ad.status == "active" %>
-                <tr>
-                    <td> <%= link_to ad.title, ad_path(@category, ad) %> </td>
-                    <td> <%= ad.description %> </td>
-                    <td> <%= ad.created_at.strftime("%m/%d/%Y") %> </td>
-                </tr>
-            <% end %>
-        <% end %>
-    </tbody>
-</table>
-
-
-<%= link_to "Post an Ad", new_ad_path(@category), class: 'btn btn-primary', float: 'right' %>  <%= link_to "Back to Categories", categories_path(), class: 'btn btn-secondary', float: 'right' %> 
-
+</html>

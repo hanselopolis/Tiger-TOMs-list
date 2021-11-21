@@ -23,7 +23,6 @@ class AdsController < ApplicationController
         
     end
 
-   
     def create
         @category = Category.find(params[:ad][:category_id]) 
         @ad = current_user.ads.build(params.require(:ad).permit(:title, :description, :price, 

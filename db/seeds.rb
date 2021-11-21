@@ -129,7 +129,7 @@ mastercard = CardType.create!(
 
 #ADS
 
-Ad.create!(
+ad1 = Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
     location: 'Memphis, TN',
@@ -166,7 +166,7 @@ Ad.create!(
     purchase: purchase1
 )
 
-Ad.create!(
+ad2 = Ad.create!(
     title: 'Camo Steering Wheel Cover',
     description: 'Just buy it',
     location: 'Memphis, TN',
@@ -190,5 +190,9 @@ parts_exterior.image.attach(io: File.open('app/assets/images/seed_images/parts_e
 tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'), filename: 'tires_cat.jpg')
 accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
 mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
-other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')
+other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'vehicles_cat.png')
+ad1.images.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles.jpg')
+ad2.images.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')
+
+
 
