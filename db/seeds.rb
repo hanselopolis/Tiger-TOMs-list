@@ -172,7 +172,7 @@ ad2 = Ad.create!(
     location: 'Memphis, TN',
     contact: 'alice@email.com',
     price: 10.0,
-    status: 'sold',
+    status: 'active',
     email: 'alice@email.com',
     category: accessories,
     user: user2,
@@ -191,8 +191,8 @@ tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'),
 accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
 mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
 other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'vehicles_cat.png')
-ad1.images.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles.jpg')
-ad2.images.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'other_services_cat.png')
+ad1.images.attach(io: File.open('app/assets/images/seed_images/4runner.jpg'), filename: '4runner.jpg')
+ad2.images.attach(io: File.open('app/assets/images/seed_images/camo_wheel.jpg'), filename: 'camo_wheel.jpg')
 
 
 

@@ -17,7 +17,7 @@
 #  card_cvv      :integer
 #  card_exp_mo   :integer
 #  card_exp_yr   :integer
-#  card_number   :integer
+#  card_number   :string
 #  card_type     :string
 #  ship_address1 :string
 #  ship_address2 :string

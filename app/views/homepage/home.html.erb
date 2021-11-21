@@ -53,7 +53,7 @@ body {
 
 </style>
 </head>
-<!-- <body>
+<body>
 
 <div class="header">
     <h1>Tiger Tom's List</h1>
@@ -92,11 +92,13 @@ body {
         <tbody>
         
         <% @ad.each do |a| %>
-          <tr>
-            <td><%= link_to a.title, ad_path(@category, a) %></td>
-            <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
-            <td class="text-nowrap"></td>
-          </tr>
+          <% if a.status == "active" %>
+            <tr>
+              <td><%= link_to a.title, ad_path(a.category, a) %></td>
+              <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
+              <td class="text-nowrap"></td>
+            </tr>
+          <% end %>
         <% end %>
   
         </tbody>
@@ -108,7 +110,7 @@ body {
 
       <p><%= link_to "Register Here", new_user_path, class: "basic-button basic-button:hover" %></p>
 
-      <p><%= link_to "Post an Ad", new_ad_path(@category), class: "basic-button basic-button:hover" %></p>
+      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p>
   </div>
 </div>
 

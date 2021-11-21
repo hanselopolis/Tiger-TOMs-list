@@ -65,9 +65,11 @@
                 <p class= "yellow-box-button"style= "text-align: left;">Favorite Ad</p>
             </a>
             <br>
-            <a href= "#">
-                <p class= "green-box-button"style= "text-align: left;">Purchase Ad</p>
-            </a>
+            <% if @ad.user != current_user%>
+                <a href= "<%= purchase_item_path(@category, @ad)%>">
+                    <p class= "green-box-button"style= "text-align: left;">Purchase Ad</p>
+                </a>
+            <% end %>
             <br>
 
             <% if @ad.user == current_user %>

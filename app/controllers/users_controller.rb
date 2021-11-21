@@ -11,12 +11,12 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(params.require(:user).permit(:username, :encrypted_password, :first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
+        @user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
         if @user.save
             flash[:success] = "User account creation successful!"
-            redirect_to user_url
+            redirect_to user_path(@user)
         else
-            flash.now[:error] = "Account creation failed, please try again"
+            flash.now[:error] = @errors = "Account creation failed, please try again"
             render :new
         end
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update(params.require(:user).permit(:username,:encrypted_password, :first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
+        if @user.update(params.require(:user).permit(:email,:password, :first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
             flash[:success] = "User account successfully updated!"
             redirect_to user_url(@user)
         else

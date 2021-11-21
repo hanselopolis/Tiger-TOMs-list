@@ -14,6 +14,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
       t.string :state
       t.string :country
       t.integer :zip
+      t.string :password
 
       t.timestamps
     end

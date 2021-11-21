@@ -41,7 +41,7 @@ class Ad < ApplicationRecord
     validates :description, presence: true
     validates :email, presence: true
     validates :email, email: true
-    validates :phone, length: { minimum: 10, maximum: 10 }, allow_blank: true
+    validates :phone, length: { minimum: 12, maximum: 12 }, allow_blank: true
     validates :state, length: {minimum: 2, maximum: 2 }, allow_blank: true
 
     has_many_attached :images
