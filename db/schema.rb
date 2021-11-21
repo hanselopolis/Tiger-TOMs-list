@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_17_182713) do
+ActiveRecord::Schema.define(version: 2021_11_18_224215) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_182713) do
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "category_id"
     t.bigint "user_id"
+    t.bigint "purchase_id"
     t.string "email"
     t.string "phone"
     t.string "addr"
@@ -61,7 +62,14 @@ ActiveRecord::Schema.define(version: 2021_11_17_182713) do
     t.string "state"
     t.integer "zip"
     t.index ["category_id"], name: "index_ads_on_category_id"
+    t.index ["purchase_id"], name: "index_ads_on_purchase_id"
     t.index ["user_id"], name: "index_ads_on_user_id"
+  end
+
+  create_table "card_types", force: :cascade do |t|
+    t.string "cardtype"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -69,6 +77,40 @@ ActiveRecord::Schema.define(version: 2021_11_17_182713) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.string "ship_name"
+    t.string "ship_company"
+    t.string "ship_address1"
+    t.string "ship_address2"
+    t.string "ship_address3"
+    t.string "ship_city"
+    t.string "ship_state"
+    t.string "ship_country"
+    t.string "ship_postal"
+    t.string "ship_phone"
+    t.string "ship_email"
+    t.string "bill_name"
+    t.string "bill_company"
+    t.string "bill_address1"
+    t.string "bill_address2"
+    t.string "bill_address3"
+    t.string "bill_city"
+    t.string "bill_state"
+    t.string "bill_country"
+    t.string "bill_postal"
+    t.string "bill_phone"
+    t.string "bill_email"
+    t.string "card_type"
+    t.integer "card_number"
+    t.integer "card_exp_mo"
+    t.integer "card_exp_yr"
+    t.integer "card_cvv"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,5 +140,7 @@ ActiveRecord::Schema.define(version: 2021_11_17_182713) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "ads", "categories"
+  add_foreign_key "ads", "purchases"
   add_foreign_key "ads", "users"
+  add_foreign_key "purchases", "users"
 end

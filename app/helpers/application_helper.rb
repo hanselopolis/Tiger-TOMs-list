@@ -7,6 +7,7 @@ module ApplicationHelper
           return ''
         end
       end
+  
 
       def flash_class(level)
         bootstrap_alert_class = {

@@ -11,8 +11,8 @@ class AdsController < ApplicationController
     end
 
     def show
-        @category = Category.find(params[:category_id])
-        @ad = @category.ads.find(params[:id])
+        @category = Category.find(params[:id])
+        @ad = Ad.find(params[:id])
         render :show
     end
 
@@ -22,12 +22,13 @@ class AdsController < ApplicationController
         render :new
         
     end
-    
+
     def create
         @category = Category.find(params[:ad][:category_id]) 
         @ad = current_user.ads.build(params.require(:ad).permit(:title, :description, :price, 
         :email, :phone, :category_id, :addr, :city, :state, :zip, images: []))
         @ad.category = @category
+        @ad.status = "ACTIVE"
         if @ad.save
           flash[:success] = "Ad posted successfully"
           redirect_to category_url(@category)
@@ -53,5 +54,15 @@ class AdsController < ApplicationController
         flash.now.alert = "Ad could not be updated"
         render :new
       end
+    end
+
+    def destroy 
+      @category = Category.find(params[:category_id])
+      @ad = @category.ads.find(params[:id])
+
+      @ad.destroy
+      flash[:success] = "Ad deleted successfully"
+      redirect_to category_url(@category)
+
     end
 end
