@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :purchases
-  
+  devise_for :users
   
   
   #homepage 
@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get 'home', to: 'homepage#home', as: 'home' 
 
   # Users
-  devise_for :users
   #get 'users', to:'users#index', as: 'users'
   post 'users', to: 'users#create'
 

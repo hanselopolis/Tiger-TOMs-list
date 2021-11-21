@@ -92,11 +92,13 @@ body {
         <tbody>
         
         <% @ad.each do |a| %>
-          <tr>
-            <td><%= link_to a.title, ad_path(a.category, a) %></td>
-            <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
-            <td class="text-nowrap"></td>
-          </tr>
+          <% if a.status == "active" %>
+            <tr>
+              <td><%= link_to a.title, ad_path(a.category, a) %></td>
+              <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
+              <td class="text-nowrap"></td>
+            </tr>
+          <% end %>
         <% end %>
   
         </tbody>
