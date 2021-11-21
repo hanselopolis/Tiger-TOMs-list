@@ -127,6 +127,7 @@ ActiveRecord::Schema.define(version: 2021_11_18_224215) do
     t.string "state"
     t.string "country"
     t.integer "zip"
+    t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "encrypted_password", default: "", null: false
