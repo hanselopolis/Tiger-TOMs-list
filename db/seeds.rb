@@ -47,7 +47,6 @@ other_services = Category.create!(
 
 #USERS
 user1 = User.create!(
-    username: "badassBob",
     first_name: "Bob",
     last_name: "Hill",
     email: "bboy@email.com",
@@ -64,7 +63,6 @@ user1 = User.create!(
 )
 
 user2 = User.create!(
-    username: "AngryAlice",
     first_name: "Alice",
     last_name: "Bezos",
     email: "AtoZ@email.com",
@@ -72,8 +70,8 @@ user2 = User.create!(
     phone: "200-432-4321",
     bio: "Exotics only.",
     address1: "2222 star road",
-    address2: " ",
-    address3: " ",
+    address2: "3333 black hole way",
+    address3: "4444 supernova st",
     city: "Los Angeles",
     state: "CA",
     country: "USA",
