@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :authenticate_user!, except: [:show]
+    before_action :authenticate_user!, except: [:show, :new, :create]
     before_action :require_permission, except: [:show, :new, :create]
 
 
