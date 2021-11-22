@@ -35,7 +35,9 @@
             <td> ZIP Code: <%= @user.zip %>
         </tr>
         <tr>
+        <% if @user == current_user %>
             <td><%= link_to "Edit", edit_user_path(@user) , class: "btn btn-primary" %></td>
+        <%end%>
         </tr>
     </tbody>
 </table>

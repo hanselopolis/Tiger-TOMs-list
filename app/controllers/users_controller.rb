@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+    before_action :authenticate_user!, except: [:show]
+    before_action :require_permission, except: [:show, :new, :create]
+
+
+    def require_permission
+        if User.find(params[:id]) != current_user
+          redirect_to users_path, flash: { error: "You do not have permission to do that." }
+        end
+    end
 
     def show
         @user = User.find(params[:id])
@@ -29,7 +38,7 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update(params.require(:user).permit(:email,:password, :first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
+        if @user.update(params.require(:user).permit(:email,:first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
             flash[:success] = "User account successfully updated!"
             redirect_to user_url(@user)
         else
