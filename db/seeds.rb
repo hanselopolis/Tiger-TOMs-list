@@ -15,7 +15,7 @@ vehicles = Category.create!(
 )
 
 parts_mechanics = Category.create!(
-    title: 'Parts - Mechanics',
+    title: 'Parts - Mechanical',
     description: 'Mechanical Parts for sale'
 )
 

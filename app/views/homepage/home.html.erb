@@ -12,9 +12,15 @@ body {
 
 /* Header */
 .header {
-  padding: 30px;
+  /*padding: 30px;*/
   text-align: center;
-  background: white;
+  background: lightgrey;
+  font-size: 80px;
+}
+
+.column-head-blue {
+  background: blue;
+  color: white;
 }
 
 .header h1 {
@@ -56,15 +62,16 @@ body {
 <body>
 
 <div class="header">
-    <h1>Tiger Tom's List</h1>
+    <strong><b>TOM the Tiger's List</b></strong>
 </div>
 
 <b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
-
+<br>
+<div class = "row">
 <div class="column side">
   <table class="table">
     
-    <thead class="thead-dark">
+    <thead class="column-head-blue">
     <th>Categories</th>
     </thead>
     
@@ -84,7 +91,7 @@ body {
   <div class="column middle">
       <table class="table">
        
-        <thead class="thead-dark">
+        <thead class="column-head-blue">
         <th>Ad Listings</th>
         <th>Posted</th>
         </thead>
@@ -113,6 +120,7 @@ body {
       <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p>
 
   </div>
+</div>
 </div>
 
 </body>

@@ -2,3 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+@import "rails_bootstrap_forms";
+@import "bootswatch/dist/pulse/variables";
+@import "bootstrap/scss/bootstrap";
+@import "bootswatch/dist/pulse/bootswatch";
+
+$form-validation-states: ( "valid": ( "color": $form-feedback-valid-color, "icon":
+$form-feedback-icon-valid ), "invalid": ( "color": $form-feedback-invalid-color, "icon":
+$form-feedback-icon-invalid ) );
+
+@each $state, $data in $form-validation-states { @include form-validation-state($state,
+    map-get($data, color), map-get($data, icon)); }

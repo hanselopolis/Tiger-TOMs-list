@@ -1,11 +1,72 @@
-<h1>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%> </h1>
 
-<%= bootstrap_form_with model: @purchase, method: :post, url: purchase_item_path(@category, @ad), local: true do |f| %>
-<div class = "row">
-<div class = "column">
+    
+<h1>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%> </h1> 
 
+<%= bootstrap_form_with model: @purchase,  method: :post, url: purchase_item_path(@category, @ad), local: true do |f| %>
+
+<div class = "row needs-validation" novalidate  >
+<div class = "column col-lg-5 position-relative">
+<br>
+  
   <h3>BILLING INFORMATION</h3>
-  <%= f.text_field :bill_name %>
+
+  <div class="form-floating">
+    <input class="form-control" id="purchase_bill_name" name="purchase[bill_name]" placeholder="Name" type="string" required> 
+    <input class="form-control" id="purchase_bill_address1" name="purchase[bill_address1]" placeholder="Address 1" type="string" required>
+    <input class="form-control" id="purchase_bill_address2" name="purchase[bill_address2]" placeholder="Address 2" type="string">
+    <input class="form-control" id="purchase_bill_address3" name="purchase[bill_address3]" placeholder="Address 3" type="string">
+    <input class="form-control" id="purchase_bill_city" name="purchase[bill_city]" placeholder="City" type="string" required>
+    <input class="form-control" id="purchase_bill_state" name="purchase[bill_state]" placeholder="State/Province" type="string" required>
+    <input class="form-control" id="purchase_bill_country" name="purchase[bill_country]" placeholder="Country" type="string" required>
+    <input class="form-control" id="purchase_bill_zip" name="purchase[bill_zip]" placeholder="Postal Code" type="string" required>
+    <input class="form-control" id="purchase_bill_phone" name="purchase[bill_phone]" placeholder="Phone" type="string" required>
+    <input class="form-control" id="purchase_bill_email" name="purchase[bill_email]" placeholder="Email" type="string" required>
+    <br>
+    <br>
+  </div>
+  
+  
+  <h3>CREDIT CARD INFORMATION</h3>
+   Credit card type: <select class="form-select" name="purchase[card_type]"id="purchase_card_type" type="string" required>
+        <option value="Visa">Visa</option>
+        <option value="MasterCard">MasterCard</option>
+        <option value="American Express">American Express</option>
+        <option value="Library">Library</option>
+      </select>
+      <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number" type="integer" required>
+      
+      <div class = "row">
+        <div class = "column col-lg-6">  
+          <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_mo]" placeholder="Expiration month (##)" type="integer" required>
+        </div> 
+        <div class = "column col-lg-6">  
+          <input class="form-control" id="purchase_card_exp_yr" name="purchase[card_exp_yr]" placeholder="Expiration year (####)" type="integer" required>
+        </div>
+      </div>
+
+      <input class="form-control" id="purchase_card_cvv" name="purchase[card_cvv]" placeholder="CVV" type="integer" required>
+
+</div>
+
+<div class = "column offset-md-1 col-lg-5">
+<br>
+  <h3> SHIPPING INFORMATION</h3>
+  <div class="form-floating">
+    <input class="form-control" id="purchase_ship_name" name="purchase[ship_name]" placeholder="Name" type="string" required> 
+    <input class="form-control" id="purchase_ship_address1" name="purchase[ship_address1]" placeholder="Address 1" type="string" required>
+    <input class="form-control" id="purchase_ship_address2" name="purchase[ship_address2]" placeholder="Address 2" type="string">
+    <input class="form-control" id="purchase_ship_address3" name="purchase[ship_address3]" placeholder="Address 3" type="string">
+    <input class="form-control" id="purchase_ship_city" name="purchase[ship_city]" placeholder="City" type="string" required>
+    <input class="form-control" id="purchase_ship_state" name="purchase[ship_state]" placeholder="State/Province" type="string" required>
+    <input class="form-control" id="purchase_ship_country" name="purchase[ship_country]" placeholder="Country" type="string" required>
+    <input class="form-control" id="purchase_ship_zip" name="purchase[ship_zip]" placeholder="Postal Code" type="string" required>
+    <input class="form-control" id="purchase_ship_phone" name="purchase[ship_phone]" placeholder="Phone" type="string" required>
+    <input class="form-control" id="purchase_ship_email" name="purchase[ship_email]" placeholder="Email" type="string" required>
+    <br>
+    <br>
+  </div>
+
+  <!-- <%= f.text_field :bill_name %>
   <%= f.text_field :bill_company %>
   <%= f.text_field :bill_address1, value: current_user.address1 %>
   <%= f.text_field :bill_address2, value: current_user.address2 %>
@@ -15,21 +76,15 @@
   <%= f.text_field :bill_country, value: current_user.country %>
   <%= f.text_field :bill_postal, value: current_user.zip %>
   <%= f.text_field :bill_phone, value: current_user.phone %>
-  <%= f.text_field :bill_email, value: current_user.email %>
+  <%= f.text_field :bill_email, value: current_user.email %>-->
 
-  <h3>CREDIT CARD INFORMATION</h3>
-    <%= f.select :card_type, ['Visa', 'Mastercard', 'American Express','Diner\'s Club', 'Library'] %>
+ <!-- <%= f.select :card_type, ['Visa', 'Mastercard', 'American Express','Diner\'s Club', 'Library'] %>
     <%= f.number_field :card_number %>
     <%= f.number_field :card_exp_mo %>
     <%= f.number_field :card_exp_yr %>
-    <%= f.number_field :card_cvv %>
+    <%= f.number_field :card_cvv %> -->
 
-</div>
-
-<div class = "column offset-md-1">
-
- <h3> SHIPPING INFORMATION</h3>
-  <%= f.text_field :ship_name %>
+  <!-- >  <%= f.text_field :ship_name %>
   <%= f.text_field :ship_company %>
   <%= f.text_field :ship_address1, value: current_user.address1 %>
   <%= f.text_field :ship_address2, value: current_user.address2 %>
@@ -39,10 +94,14 @@
   <%= f.text_field :ship_country, value: current_user.country %>
   <%= f.text_field :ship_postal, value: current_user.zip %>
   <%= f.text_field :ship_phone, value: current_user.phone %>
-  <%= f.text_field :ship_email, value: current_user.email %>
-
+  <%= f.text_field :ship_email, value: current_user.email %> -->
+  <center>
   <%= f.submit "BUY NOW!" %>
+  </center>
   </div>
  </div> 
+
 <% end %>
+
+
 
