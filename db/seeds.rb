@@ -14,7 +14,7 @@ vehicles = Category.create!(
     description: 'Buy an entire car'
 )
 
-parts_mechanics = Category.create!(
+parts_mechanical = Category.create!(
     title: 'Parts - Mechanical',
     description: 'Mechanical Parts for sale'
 )
@@ -182,7 +182,7 @@ ad2 = Ad.create!(
 
 
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
-parts_mechanics.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
+parts_mechanical.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
 parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')
 parts_exterior.image.attach(io: File.open('app/assets/images/seed_images/parts_exterior_cat.jpg'), filename: 'parts_exterior.jpg')
 tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'), filename: 'tires_cat.jpg')
