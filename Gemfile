@@ -69,3 +69,6 @@ gem "bootstrap_form", "~> 4.0"
 
 # email validation 
 gem 'email_validator' 
+
+# bootstrap for forms
+gem 'bootstrap', '~> 5.0.2'
