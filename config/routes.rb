@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   patch 'users/:id', to: 'users#update'
   delete 'users/:id', to: 'users#destroy'
 
+  get 'users/:id/ads', to: 'users#show_ads', as: 'user_ads'
+
   get 'users/:id/edit', to: 'users#edit', as: 'edit_user'
   
   

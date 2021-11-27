@@ -54,6 +54,13 @@ class UsersController < ApplicationController
         #redirect_to
     end
 
+    def show_ads
+        @user = User.find(params[:id])
+        @ads = @user.ads
+
+        render :my_posts
+    end
+
 
 
 end
