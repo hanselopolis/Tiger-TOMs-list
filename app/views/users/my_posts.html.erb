@@ -1,9 +1,64 @@
 <!DOCTYPE html>
 <html>
+<style>
+    h4 {
+        color: black;
+        font-family: Garamond, serif;
+    }
+</style>
     <body>
         <header>
             <h1>Here are My Posts</h1>
         </header>
+
+        <h4>Active</h4>
+        <div class= "active-ads-container">
+            <div class= "row">
+                <div class= "column">
+                    <% @ads.each do |ad| %>
+                        <% if ad.status == "active" %>
+                            <% if ad.images.attached? %>
+                                <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
+                                    <%= image_tag ad.images[0], width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                </p> </a>
+                            <% else %>
+                                <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
+                                    <%= image_tag "no_image.jpg", width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %></p></a>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <h4>Sold</h4>
+        <div class= "sold-ads-container">
+            <div class= "row">
+                <div class= "column">
+                    <% @ads.each do |ad| %>
+                        <% if ad.status == "SOLD" %>
+                            <% if ad.images.attached? %>
+                                <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
+                                    <%= image_tag ad.images[0], width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                </p> </a>
+                            <% else %>
+                                <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
+                                    <%= image_tag "no_image.jpg", width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %></p></a>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 

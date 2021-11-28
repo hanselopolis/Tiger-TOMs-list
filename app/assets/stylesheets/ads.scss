@@ -153,5 +153,33 @@
     float: left;
   }
 
+  .active-ads-container {
+    border: 5px solid black;
+    outline-style: solid;
+    outline-color: rgb(3, 196, 19);
+    outline-width: 7px;
+    margin: 0px 0px 0px 0px;  
+    padding-bottom: 1px;
+    padding-top: 10px;
+    padding-left: 48px;
+    padding-right: 10px;
+    text-align: left;
+    width: 57rem;
+  }
+
+  .sold-ads-container {
+    border: 5px solid black;
+    outline-style: solid;
+    outline-color: rgb(230, 2, 2);
+    outline-width: 7px;
+    margin: 0px 0px 20px 0px;  
+    padding-bottom: 1px;
+    padding-top: 10px;
+    padding-left: 48px;
+    padding-right: 10px;
+    text-align: left;
+    width: 57rem;
+  }
+
 
   
