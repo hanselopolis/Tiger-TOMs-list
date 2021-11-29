@@ -21,6 +21,7 @@ class PurchasesController < ApplicationController
           :ship_city,:ship_state,:ship_country,:ship_postal,:ship_email,:ship_phone,:bill_name,:bill_company,:bill_address1,:bill_address2,:bill_address3,:bill_city,
           :bill_state,:bill_country,:bill_postal,:bill_phone,:bill_email,:card_number,:card_exp_mo,:card_exp_yr,:card_type,:card_cvv,:user))  
         @purchase.user = current_user
+        @ad.purchase = @purchase
         if @purchase.save
           flash[:success] = "ITEM PURCHASED!"
           render :complete
