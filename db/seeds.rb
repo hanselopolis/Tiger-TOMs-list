@@ -139,6 +139,39 @@ ad2 = Ad.create!(
     user: user2
 )
 
+## purchase1 = Purchase.create!(
+   ## ship_name: "steve",
+    # ship_company: "national buy stuff",
+    # ship_address1: "123 Elm Street",
+    # ship_address2: "Apt 3",
+    # ship_address3: "Basement",
+    # ship_city: "Haddenfield",
+    # ship_state: "IL",
+    # ship_country: "USA",
+    # ship_postal: "08033",
+    # ship_phone: "6301234567",
+    # ship_email: "steve@email.com",
+
+    # bill_name: "steve",
+    # bill_company: "",
+    # bill_address1: "123 Elm Street",
+    # bill_address2: "Apt 3",
+    # bill_address3: "",
+    # bill_city: "Haddenfield",
+    # bill_state: "IL",
+    # bill_country: "USA",
+    # bill_postal: "08033",
+    # bill_phone: "6301234567",
+    # bill_email: "",
+
+    # card_type: "Diners Club",
+    # card_number: "1234 2234 3234 4234",
+    # card_exp_mo: "12",
+    # card_exp_yr: "25",
+    # card_cvv: "123",
+    # user: user1
+# )
+
 
 
 
