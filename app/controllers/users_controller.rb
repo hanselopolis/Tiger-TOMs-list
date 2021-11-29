@@ -5,7 +5,7 @@ class UsersController < ApplicationController
 
     def require_permission
         if User.find(params[:id]) != current_user
-          redirect_to users_path, flash: { error: "You do not have permission to do that." }
+          redirect_to user_path, flash: { error: "You do not have permission to do that." }
         end
     end
 
