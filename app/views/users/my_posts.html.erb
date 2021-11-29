@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+    h4 {
+        color: black;
+        font-family: Garamond, serif;
+    }
+</style>
+    <body>
+        <header>
+            <h1>Here are My Posts</h1>
+        </header>
+
+        <h4>Active</h4>
+        <div class= "active-ads-container">
+            <div class= "row">
+                <div class= "column">
+                    <% @ads.each do |ad| %>
+                        <% if ad.status == "active" %>
+                            <% if ad.images.attached? %>
+                                <p class="single-ad">
+                                    <%= image_tag ad.images[0], width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                    <br>
+                                    <%= link_to "Edit", edit_ad_path(ad.category, ad), class: "basic-button"%>
+                                    <br>
+                                    <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
+                                </p> 
+                                
+                            <% else %>
+                                <p class="single-ad">
+                                    <%= image_tag "no_image.jpg", width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                    <br>
+                                    <%= link_to "Edit", edit_ad_path(ad.category, ad), class: "basic-button"%>
+                                    <br>
+                                    <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
+                                </p>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <br>
+        <h4>Sold</h4>
+        <div class= "sold-ads-container">
+            <div class= "row">
+                <div class= "column">
+                    <% @ads.each do |ad| %>
+                        <% if ad.status == "SOLD" %>
+                            <% if ad.images.attached? %>
+                                <p class="single-ad">
+                                    <%= image_tag ad.images[0], width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                    <br>
+                                    Purchased by: <%= link_to ad.purchase.user.first_name, user_path(ad.purchase.user) %>
+                                </p>
+                            <% else %>
+                                <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
+                                    <%= image_tag "no_image.jpg", width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %></p></a>
+                                    <br>
+                                    
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+
+        <%= link_to "<Back", user_path(@user), class: "basic-button"%>
+    </body>
+</html>
+
