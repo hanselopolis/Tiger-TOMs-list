@@ -2,10 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.credit-card{
+.credit-card-master{
     height: 200px;
     width: 400px;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(56, 0, 119);
     color: black;
     border: 2px solid rgb(0, 0, 0);
     font-size: 16px;
@@ -13,13 +13,42 @@
     text-align: left;
     padding: 10px;
     border-radius: 12px;
+    color: white;
+  }
+
+  .credit-card-visa{
+    height: 200px;
+    width: 400px;
+    background-color: rgb(9, 109, 0);
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 16px;
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    border-radius: 12px;
+    color: white;
+  }
+
+  .credit-card-express{
+    height: 200px;
+    width: 400px;
+    background-color: rgb(4, 0, 255);
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 16px;
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    border-radius: 12px;
+    color: white;
   }
 
   .card-type-img{
     text-align: left;
     width: 135px;
     height: 85px;
-    padding: 5px;
+    padding: 0px;
     margin:auto;
     margin-left: 5px;
     display: inline-block;
