@@ -7,14 +7,16 @@ class PurchasesController < ApplicationController
     end
 
     def new
-        @category = Category.find(params[:category_id])
+        ## @category = Category.find(params[:category_id])
+        @category = Category.all
         @ad = Ad.find(params[:ad_id])
         @purchase = Purchase.new
         render :buy
     end
 
     def create
-        @category = Category.find(params[:category_id])
+        ## @category = Category.find(params[:category_id])
+        @category = Category.all
         @ad = Ad.find(params[:ad_id])
         @ad.update(status: 'SOLD')
         @purchase = Purchase.new(params.require(:purchase).permit(:ship_name,:ship_company,:ship_address1,:ship_address2,:ship_address3,

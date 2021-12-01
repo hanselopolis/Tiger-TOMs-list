@@ -12,7 +12,7 @@ class AdsController < ApplicationController
 
     def show
         @category = Category.find(params[:category_id])
-        @ad = Ad.find(params[:id])
+        @ad = Ad.find(params[:id]) 
         render :show
     end
 

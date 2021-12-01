@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_21_205426) do
+ActiveRecord::Schema.define(version: 2021_11_30_235514) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,21 @@ ActiveRecord::Schema.define(version: 2021_11_21_205426) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "favorite_ads", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "favorited_type", null: false
+    t.bigint "favorited_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "purchases", force: :cascade do |t|
     t.string "ship_name"
     t.string "ship_company"
@@ -143,5 +158,6 @@ ActiveRecord::Schema.define(version: 2021_11_21_205426) do
   add_foreign_key "ads", "categories"
   add_foreign_key "ads", "purchases"
   add_foreign_key "ads", "users"
+  add_foreign_key "favorites", "users"
   add_foreign_key "purchases", "users"
 end

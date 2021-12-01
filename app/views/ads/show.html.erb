@@ -8,7 +8,7 @@
         <header>
             <h1> <%= @ad.title %> </h1>
         </header>
-
+        <pre> </pre> 
         <section>
         <div class= "row">
             <div class= "column">
@@ -60,17 +60,28 @@
 
 
 
-            </pre>
-            <a href= "#">
-                <p class= "yellow-box-button"style= "text-align: left;">Favorite Ad</p>
-            </a>
-            <br>
+            </pre> 
+           
+            <!-- favoriting actions -->
+
+            <% if @ad.user != current_user%>
+                <%- unless current_user.favorite_ads.exists?(id: @ad.id) -%>
+                    <%= link_to 'Add to favorites', favorite_ads_path(ad_id: @ad), method: :post, class: 'yellow-box-button'  %>
+                <%- else -%>
+                    <%= link_to 'Remove from favorites', favorite_ad_path(@ad), method: :delete, class: 'yellow-box-button' %>
+                <%- end -%>
+            <% end %>    
+           
+            <!-- purchasing actions -->
+            <pre></pre>
             <% if @ad.user != current_user%>
                 <a href= "<%= purchase_item_path(@category, @ad)%>">
-                    <p class= "green-box-button"style= "text-align: left;">Purchase Ad</p>
+                    <p class= "green-box-button"style= "text-align: left;">Purchase Item</p>
                 </a>
             <% end %>
             <br>
+
+            <!-- edit actions -->
 
             <% if @ad.user == current_user %>
                 <p>Hey, <%= @ad.user.first_name%>! Would you like to edit your Ad? </p>
@@ -93,9 +104,12 @@
                        <br>
                        - Date Added: <%= @ad.created_at.strftime("%m/%d/%Y") %>
                     </p>
-                    <a href= "<%=  category_path(@category)%>">
-                        <p class= "basic-button", style= "text-align: right;">< Back<p>
-                    </a>
+                    <!-- <a href= "<%=  home_path()%>">
+                        <p class= "basic-button", style= "text-align: right;">< Home<p>
+                    </a> -->
+                    <form>
+                        <input type="button" value="< Back" onclick="history.back()">
+                    </form>
                 </div>
             </div>
         </section>
@@ -108,8 +122,7 @@
         </aside>
 
       
-
-    </body>
+      </body>
 </html>
 
 

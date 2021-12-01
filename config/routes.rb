@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  resources :favorite_ads
   resources :purchases
   devise_for :users
   
+  resources :favorite_ads, only: [:create, :destroy]
   
   #homepage 
 
@@ -51,7 +53,9 @@ Rails.application.routes.draw do
 
   get 'categories/:category_id/ads/:ad_id/purchases/:id/complete', to: 'purchase#complete', as: 'purchase_complete'
 
-  
+  # Favorites
+  get 'favorites/:id', to: "favorite_ads#show", as: 'favorite'
+  get 'favorites', to: 'favorite_ads#index', as: 'favorites'
   
 
 
