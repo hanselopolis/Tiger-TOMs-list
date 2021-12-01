@@ -59,6 +59,7 @@ Rails.application.routes.draw do
 
   # Credit Cards
   get 'users/:id/credit_card', to: 'credit_cards#show', as: 'credit_card'
+  delete 'users/:id/credit_card', to: 'credit_cards#destroy'
   
 
 

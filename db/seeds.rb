@@ -82,7 +82,7 @@ CreditCard.create!(
     name: "Bobby Jones",
     number: "4456-7783-9754-3521",
     cvv: 119,
-    exp_date: "09/01/2026",
+    exp_date: "09/01/2019",
     card_type: "MasterCard",
     user: user1
 )

@@ -38,6 +38,7 @@
         <% if @user == current_user %>
             <td><%= link_to "Favorites", favorites_path() , class: "btn btn-primary" %></td>
             <td><%= link_to "Edit Profile", edit_user_path(@user) , class: "btn btn-primary" %></td>
+            <td><%= link_to "Credit Card", credit_card_path(@user) , class: "btn btn-primary" %></td>
             <td><%= link_to "Change Password", edit_user_registration_path, class: "btn btn-primary" %></td>
             <td><%= link_to "My Posts", user_ads_path(@user), class: "btn btn-primary"%></td>
         <%end%>
