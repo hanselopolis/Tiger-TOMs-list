@@ -1,6 +1,7 @@
 
-    
-<h1>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%> </h1> 
+<%# header pulls ad title and price from ad model %>
+
+<h1><center><b>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%></b></center></h1> 
 
 <%= bootstrap_form_with model: @purchase,  method: :post, url: purchase_item_path(@category, @ad), local: true do |f| %>
 
@@ -8,7 +9,7 @@
 <div class = "column col-lg-5 position-relative">
 <br>
   
-  <h3>BILLING INFORMATION</h3>
+  <div class= "column-head-blue" ><h3><center>BILLING INFORMATION</center></h3></div>
 
   <div class="form-floating">
     <input class="form-control" id="purchase_bill_name" name="purchase[bill_name]" placeholder="Name" type="string"  value= '<%= current_user.first_name %> <%= current_user.last_name %>' required> 
@@ -26,7 +27,7 @@
   </div>
   
   
-  <h3>CREDIT CARD INFORMATION</h3>
+  <div class= "column-head-blue" ><h3><center>CREDIT CARD INFORMATION</center></h3></div>
    Credit card type: <select class="form-select" name="purchase[card_type]"id="purchase_card_type" type="string" required>
         <option value="Visa">Visa</option>
         <option value="MasterCard">MasterCard</option>
@@ -50,7 +51,7 @@
 
 <div class = "column offset-md-1 col-lg-5">
 <br>
-  <h3> SHIPPING INFORMATION</h3>
+  <div class= "column-head-blue" ><h3><center>SHIPPING INFORMATION</center></h3></div>
   <div class="form-floating">
     <input class="form-control" id="purchase_ship_name" name="purchase[ship_name]" placeholder="Name" type="string" value= '<%= current_user.first_name %> <%= current_user.last_name %>' required> 
     <input class="form-control" id="purchase_ship_address1" name="purchase[ship_address1]" placeholder="Address 1" type="string" value= '<%= current_user.address1 %>' required>
@@ -66,37 +67,8 @@
     <br>
   </div>
 
-  <!-- <%= f.text_field :bill_name %>
-  <%= f.text_field :bill_company %>
-  <%= f.text_field :bill_address1, value: current_user.address1 %>
-  <%= f.text_field :bill_address2, value: current_user.address2 %>
-  <%= f.text_field :bill_address3, value: current_user.address3 %>
-  <%= f.text_field :bill_city, value: current_user.city %>
-  <%= f.text_field :bill_state, value: current_user.state %>
-  <%= f.text_field :bill_country, value: current_user.country %>
-  <%= f.text_field :bill_postal, value: current_user.zip %>
-  <%= f.text_field :bill_phone, value: current_user.phone %>
-  <%= f.text_field :bill_email, value: current_user.email %>-->
-
- <!-- <%= f.select :card_type, ['Visa', 'Mastercard', 'American Express','Diner\'s Club', 'Library'] %>
-    <%= f.number_field :card_number %>
-    <%= f.number_field :card_exp_mo %>
-    <%= f.number_field :card_exp_yr %>
-    <%= f.number_field :card_cvv %> -->
-
-  <!-- >  <%= f.text_field :ship_name %>
-  <%= f.text_field :ship_company %>
-  <%= f.text_field :ship_address1, value: current_user.address1 %>
-  <%= f.text_field :ship_address2, value: current_user.address2 %>
-  <%= f.text_field :ship_address3 , value: current_user.address3%>
-  <%= f.text_field :ship_city, value: current_user.city %>
-  <%= f.text_field :ship_state, value: current_user.state %>
-  <%= f.text_field :ship_country, value: current_user.country %>
-  <%= f.text_field :ship_postal, value: current_user.zip %>
-  <%= f.text_field :ship_phone, value: current_user.phone %>
-  <%= f.text_field :ship_email, value: current_user.email %> -->
   <center>
-  <%= f.submit "BUY NOW!" %>
+  <%= f.submit "BUY NOW!"%>
   </center>
   </div>
  </div> 
