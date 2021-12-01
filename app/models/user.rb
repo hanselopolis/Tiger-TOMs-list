@@ -51,6 +51,14 @@ class User < ApplicationRecord
         dependent: :destroy
     )
 
+    has_one(
+        :credit_cards,
+        class_name: 'CreditCard',
+        foreign_key: 'user_id',
+        inverse_of: :user,
+        dependent: :destroy
+    )
+
     has_many :favorites
     has_many :favorite_ads, through: :favorites, source: :favorited, source_type: 'Ad'
 
