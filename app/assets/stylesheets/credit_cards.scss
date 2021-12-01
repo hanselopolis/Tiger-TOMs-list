@@ -1,0 +1,30 @@
+// Place all the styles related to the CreditCards controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.credit-card{
+    height: 200px;
+    width: 400px;
+    background-color: rgb(255, 255, 255);
+    color: black;
+    border: 2px solid rgb(0, 0, 0);
+    font-size: 16px;
+    display: inline-block;
+    text-align: left;
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .card-type-img{
+    text-align: left;
+    width: 135px;
+    height: 85px;
+    padding: 5px;
+    margin:auto;
+    margin-left: 5px;
+    display: inline-block;
+    outline-style: solid;
+    outline-color: black;
+    outline-width: 2px;
+    
+  }

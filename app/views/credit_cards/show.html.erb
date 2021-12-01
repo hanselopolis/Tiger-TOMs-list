@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <header>
+            <h1>Here is your credit card, <%= @user.first_name %></h1>
+        </header>
+
+        <section>
+            <!-- Credit Card -->
+            <div class= "credit-card">
+                <section>
+                    <div class= "card-type-img">
+                    </div>
+                </section>
+
+                <aside>
+                    <p> 
+                        <pre style= "overflow: hidden"> <!--Clunky way to get card number and date to bottom of card-->
+
+
+                        </pre>
+                        Card Number:
+                        <br>
+                        Exp: 
+                    </p>
+                </aside>
+            </div>
+            <br>
+            <br>
+            If expired, a warning message will go under it
+        </section>
+
+        <aside>
+            Some text will go here along with option to delete 
+        </aside>
+    </body>
+</html>
+
+
+

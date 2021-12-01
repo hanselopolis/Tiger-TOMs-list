@@ -56,6 +56,9 @@ Rails.application.routes.draw do
   # Favorites
   get 'favorites/:id', to: "favorite_ads#show", as: 'favorite'
   get 'favorites', to: 'favorite_ads#index', as: 'favorites'
+
+  # Credit Cards
+  get 'users/:id/credit_card', to: 'credit_cards#show', as: 'credit_card'
   
 
 
