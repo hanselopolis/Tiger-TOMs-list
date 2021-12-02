@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <header>
+            <center><h1>Here is your credit card, <%= @user.first_name %></h1></center>
+        </header>
+
+        <section>
+            <!-- Credit Card -->
+            <% if @credit_card.card_type == "MasterCard" %>
+                <div class= "credit-card-master">
+                <section>
+                    <%= image_tag 'mastercard.png', class: 'card-type-img'%>
+                    <pre>
+                    </pre>
+                    <p style="text-align: center;"><%= @credit_card.name %></p>
+                </section>
+
+                <aside>
+                    <p> 
+                        <pre style= "overflow: hidden"> <!--Clunky way to get card number and date to bottom of card-->
+
+
+                        </pre>
+                        Card #: ***<%= @credit_card.number[-4..-1]%>
+                        <br>
+                        Exp: <%= @credit_card.exp_date.strftime("%m/%Y")%>
+                    </p>
+                </aside>
+            </div>
+            <% end %>
+            <% if @credit_card.card_type == "Visa" %>
+                <div class= "credit-card-visa">
+                <section>
+                    <%= image_tag 'visa.png', class: 'card-type-img'%>
+                    <pre>
+                    </pre>
+                    <p style="text-align: center;"><%= @credit_card.name %></p>
+                </section>
+
+                <aside>
+                    <p> 
+                        <pre style= "overflow: hidden"> <!--Clunky way to get card number and date to bottom of card-->
+
+
+                        </pre>
+                        Card #: ***<%= @credit_card.number[-4..-1]%>
+                        <br>
+                        Exp: <%= @credit_card.exp_date.strftime("%m/%Y")%>
+                    </p>
+                </aside>
+            </div>
+            <% end %>
+            <% if @credit_card.card_type == "American Express" %>
+                <div class= "credit-card-express">
+                <section>
+                    <%= image_tag 'express.png', class: 'card-type-img'%>
+                    <pre>
+                    </pre>
+                    <p style="text-align: center;"><%= @credit_card.name %></p>
+                </section>
+
+                <aside>
+                    <p> 
+                        <pre style= "overflow: hidden"> <!--Clunky way to get card number and date to bottom of card-->
+
+
+                        </pre>
+                        Card #: ***<%= @credit_card.number[-4..-1]%>
+                        <br>
+                        Exp: <%= @credit_card.exp_date.strftime("%m/%Y")%>
+                    </p>
+                </aside>
+            </div>
+            <% end %>
+            <br>
+            <br>
+            <% if @credit_card.exp_date < DateTime.now %> 
+                <b><p style= "color: red; font-family: 'Times New Roman', serif;"> WARNING: Credit Card is expired. Please remove and add a new one </p></b>
+            <% end%>
+            
+        </section>
+
+        <aside style= "text-align: center;">
+            <pre>
+
+            </pre>
+            <h3 style= "color: black;">Want to Remove Your Credit Card?</h4>
+            <p style= "font-size: 21px;">
+                <br>
+                <%= link_to "Remove Card", credit_card_path(@user), method: :delete, class: "delete-button" %>
+            </p>
+            
+        </aside>
+    </body>
+</html>
+
+
+

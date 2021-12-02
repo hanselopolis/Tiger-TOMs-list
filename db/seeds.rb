@@ -78,6 +78,24 @@ user2 = User.create!(
     zip: 90210
 )
 
+CreditCard.create!(
+    name: "Bobby Jones",
+    number: "4456-7783-9754-3521",
+    cvv: 119,
+    exp_date: "09/01/2019",
+    card_type: "MasterCard",
+    user: user1
+)
+
+CreditCard.create!(
+    name: "Alice Smith",
+    number: "1344-9912-3456-9987",
+    cvv: 134,
+    exp_date: "08/01/2076",
+    card_type: "American Express",
+    user: user2
+)
+
 # Card Types
 visa = CardType.create!(
     cardtype: "Visa"
