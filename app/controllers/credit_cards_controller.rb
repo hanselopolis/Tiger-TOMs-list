@@ -30,14 +30,14 @@ class CreditCardsController < ApplicationController
 
     def create
          @user = User.find(params[:id])
-         @credit_card = CreditCard.new(params.require(:credit_card).permit(:name, :number, :cvv, :exp_date, :card_type))
+         @credit_card = CreditCard.new(params.require(:credit_card).permit(:name, :number, :cvv, :exp_date, :card_type, :company))
          @credit_card.user = @user 
 
          if @credit_card.save
             flash[:success] = "Credit Card Added Successfully"
             redirect_to credit_card_url(@user)
          else
-            flash.now[:error] = "Credit Card Failed to Ad"
+            flash.now[:error] = "Failed to Add Credit Card - Make sure to follow all specified formats"
             render :new
          end
     end

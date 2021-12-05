@@ -22,6 +22,12 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class CreditCard < ApplicationRecord
+    validates :name, presence: true
+    validates :cvv, presence: true
+    validates :exp_date, presence: true
+    validates :card_type, presence: true
+    validates :number, presence: true
+    validates :number, length: { minimum: 16, maximum: 19 }
     
     belongs_to(
         :user,
