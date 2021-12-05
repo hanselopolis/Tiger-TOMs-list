@@ -72,3 +72,5 @@ gem 'email_validator'
 
 # bootstrap for forms
 gem 'bootstrap', '~> 5.0.2'
+
+gem 'ransack'

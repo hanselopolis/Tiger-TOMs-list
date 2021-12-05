@@ -10,6 +10,11 @@ class AdsController < ApplicationController
       end
     end
 
+    def index
+      @q = Ad.ransack(params[:q])
+      @ads = Ad.all
+    end
+
     def show
         @category = Category.find(params[:category_id])
         @ad = Ad.find(params[:id]) 

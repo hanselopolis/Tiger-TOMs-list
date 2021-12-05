@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   post 'categories/:id', to: 'ads#create'
 
   # Ads
+  get 'ads', to: 'ads#index', as: 'ads'
   get 'categories/:category_id/new', to: 'ads#new',
   as: 'new_ad'
   get 'categories/:category_id/:id', to: 'ads#show', 
@@ -42,7 +43,6 @@ Rails.application.routes.draw do
   delete 'categories/:category_id/:id', to: 'ads#destroy'
   get 'categories/:category_id/:id/edit', to: 'ads#edit', 
   as: 'edit_ad'
-  
 
   # Purchases
   get 'purchases', to: 'purchases#index', as: 'purchases_index'

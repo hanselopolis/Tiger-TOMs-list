@@ -66,6 +66,7 @@ body {
 </div>
 
 <b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+
 <br>
 <div class = "row">
 <div class="column side">
@@ -89,6 +90,12 @@ body {
   </div>
 
   <div class="column middle">
+  <%= search_form_for @q do |f| %> 
+    <%= f.label :title_or_description_or_email_cont %>
+    <%= f.search_field :title_or_description_or_email_cont %>
+  <%= f.submit %>
+  <% end %>
+  
       <table class="table">
        
         <thead class="column-head-blue">
