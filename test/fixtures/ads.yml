@@ -11,6 +11,7 @@
 #  location    :string
 #  phone       :string
 #  price       :float
+#  purchaser   :integer
 #  state       :string
 #  status      :string
 #  title       :string
