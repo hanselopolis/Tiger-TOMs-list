@@ -1,1 +1,15 @@
-<h1>You have no credit card :(</h1>
+<h1>Looks like you don't have a credit card. Would you like to add one?</h1>
+
+<div class= "row justify-content-center", style= "margin-top: 8rem;">
+    <div class= "col-sm-2">
+        <a href= "<%= new_credit_card_path(@user)%>"><div class= "yes-button">
+            Add Card
+        </div></a>
+    </div>
+    <div class= "column">
+        <form>
+            <input class= "no-button" type="button" value="No, Thank you" onclick="history.back()">
+        </form>
+    </div>
+</div>
+

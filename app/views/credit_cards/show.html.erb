@@ -77,7 +77,11 @@
             <br>
             <% if @credit_card.exp_date < DateTime.now %> 
                 <b><p style= "color: red; font-family: 'Times New Roman', serif;"> WARNING: Credit Card is expired. Please remove and add a new one </p></b>
-            <% end%>
+            <% end %>
+
+            <form style= "margin-top: 11rem;">
+                <input type="button" value="< Back" onclick="history.back()">
+            </form>
             
         </section>
 

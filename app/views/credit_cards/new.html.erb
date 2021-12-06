@@ -1,0 +1,24 @@
+<h1>Enter Credit Card Inforamtion</h1>
+
+<%= bootstrap_form_with model: @purchase,  method: :post, url: credit_card_path(@user), local: true do |f| %>
+
+<div class="form-floating">
+    <input class="form-control" id="credit_card_name" name="credit_card[name]" placeholder="Name" type="string" required>
+    <input class="form-control" id="credit_card_number" name="credit_card[number]" placeholder="Number: ####-####-####-####" type="string" required>
+    <input class="form-control" id="credit_card_cvv" name="credit_card[cvv]" placeholder="CVV: ###" type="number" required> 
+    <input class="form-control" id="credit_card_exp_date" name="credit_card[exp_date]" placeholder="Expiration Date: ##/##/####" type="string" required>
+    <select class="form-select" name="credit_card[card_type]"id="credit_card_card_type" type="string" required>
+        <option value="Visa">Visa</option>
+        <option value="MasterCard">MasterCard</option>
+        <option value="American Express">American Express</option>
+    </select>
+</div>
+<br>
+
+<%= f.submit %>
+
+<% end %>
+
+<form style= "margin-top: 11rem;">
+    <input type="button" value="< Back" onclick="history.back()">
+</form>
