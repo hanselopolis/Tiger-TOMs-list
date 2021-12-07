@@ -51,6 +51,14 @@ class User < ApplicationRecord
         dependent: :destroy
     )
 
+    has_many(
+        :conversations,
+        class_name: 'Conversation',
+        foreign_key: 'user_id',
+        inverse_of: :user,
+        dependent: :destroy
+    )
+
     has_one(
         :credit_cards,
         class_name: 'CreditCard',

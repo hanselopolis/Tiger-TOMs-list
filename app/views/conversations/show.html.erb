@@ -1,0 +1,56 @@
+<% if current_user == @conversation.listener %>
+    <h1>Chatting with <%= @conversation.starter %></h1>
+<% else %>
+    <h1>Chatting with <%= @conversation.listener %></h1>
+<% end %>
+
+
+<% if current_user.email == @conversation.starter %>
+    <aside>
+        <p class= "msg-overview"> <%= @conversation.initial_msg %></p>
+    </aside>
+
+    <% @messages.each do |msg| %>
+        <% if msg.author != current_user.email %>
+            <section>
+                <pre>
+
+                </pre>
+                <p class= "msg-overview"> <%= msg.body %></p>
+            </section>
+        <% else %>
+            <aside>
+                <pre>
+
+                </pre>
+                <p class= "msg-overview"> <%= msg.body %></p>
+            </aside>
+        <% end %>
+    <% end %>
+<% else %>
+    <section>
+        <p class= "msg-overview"> <%= @conversation.initial_msg %></p>
+    </section>
+
+    <% @messages.each do |msg| %>
+        <% if msg.author != current_user.email %>
+            <section>
+                <pre>
+
+                </pre>
+                <p class= "msg-overview"> <%= msg.body %></p>
+            </section>
+        <% else %>
+            <aside>
+                <pre>
+
+                </pre>
+                <p class= "msg-overview"> <%= msg.body %></p>
+            </aside>
+        <% end %>
+    <% end %>
+<% end %>
+
+    
+
+

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_06_215531) do
+ActiveRecord::Schema.define(version: 2021_12_07_214722) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,16 @@ ActiveRecord::Schema.define(version: 2021_12_06_215531) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.string "starter"
+    t.string "listener"
+    t.string "initial_msg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_conversations_on_user_id"
+  end
+
   create_table "credit_cards", force: :cascade do |t|
     t.string "name"
     t.string "company"
@@ -100,6 +110,15 @@ ActiveRecord::Schema.define(version: 2021_12_06_215531) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "author"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "conversation_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -166,7 +185,9 @@ ActiveRecord::Schema.define(version: 2021_12_06_215531) do
   add_foreign_key "ads", "categories"
   add_foreign_key "ads", "purchases"
   add_foreign_key "ads", "users"
+  add_foreign_key "conversations", "users"
   add_foreign_key "credit_cards", "users"
   add_foreign_key "favorites", "users"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "purchases", "users"
 end

@@ -1,0 +1,14 @@
+<h1>Messages</h1>
+
+<p>
+    <% @conversations.each do |conversation|%>
+        
+        <% if current_user == conversation.user || current_user.email == conversation.listener %>
+            <a><p class= "msg-overview">
+            <%= conversation.starter %> : <%= conversation.initial_msg %>
+            <br>
+            To: <%= conversation.listener %>
+            <p>
+        <% end %>
+    <% end %>
+</p>
