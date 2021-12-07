@@ -24,7 +24,7 @@ class ConversationsController < ApplicationController
 
     def create
         @user = User.find(params[:id])
-        @conversation = Conversation.new(params.require(:conversation).permit(:listener, :initial_msg))
+        @conversation = Conversation.new(params.require(:conversation).permit(:listener, :initial_msg, :subject))
         @conversation.starter = @user.email
         @conversation.user = @user 
 
