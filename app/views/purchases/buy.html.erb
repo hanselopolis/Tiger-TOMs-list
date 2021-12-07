@@ -5,19 +5,19 @@
 
 <%= bootstrap_form_with model: @purchase,  method: :post, url: purchase_item_path(@category, @ad), local: true do |f| %>
 
-<div class = "row needs-validation" novalidate  >
+<div class = "row needs-validation" novalidate>
 <div class = "column col-lg-5 position-relative">
 <br>
   
   <!-- enter billing information, most fields will autofill from user info -->
   <div class= "column-head-blue" ><h3><center>BILLING INFORMATION</center></h3></div>
-
-  <div class="form-floating">
+  
+  <div class="form-floating needs-validation">
     <input class="form-control" id="purchase_bill_name" name="purchase[bill_name]" placeholder="Name" type="string"  value= '<%= current_user.first_name %> <%= current_user.last_name %>' required> 
     <input class="form-control" id="purchase_bill_company" name="purchase[bill_company]" placeholder="Company (optional)" type="string" >
     <input class="form-control" id="purchase_bill_address1" name="purchase[bill_address1]" placeholder="Address 1" type="string" value= '<%= current_user.address1 %>' required>
-    <input class="form-control" id="purchase_bill_address2" name="purchase[bill_address2]" placeholder="Address 2" type="string" >
-    <input class="form-control" id="purchase_bill_address3" name="purchase[bill_address3]" placeholder="Address 3" type="string" >
+    <input class="form-control" id="purchase_bill_address2" name="purchase[bill_address2]" placeholder="Address 2 (optional)" type="string" >
+    <input class="form-control" id="purchase_bill_address3" name="purchase[bill_address3]" placeholder="Address 3 (optional)" type="string" >
     <input class="form-control" id="purchase_bill_city" name="purchase[bill_city]" placeholder="City" type="string" value= <%= current_user.city %> required>
     <input class="form-control" id="purchase_bill_state" name="purchase[bill_state]" placeholder="State/Province" type="string" value= '<%= current_user.state %>' required>
     <input class="form-control" id="purchase_bill_country" name="purchase[bill_country]" placeholder="Country" type="string" value= '<%= current_user.country %>' required>
@@ -28,11 +28,13 @@
     <br>
   </div>
   
+  
   <!-- enter billing information, most fields will autofill from stored user credit card info if card is not expired -->
  
   <div class= "column-head-blue" ><h3><center>CREDIT CARD INFORMATION</center></h3></div>
-    <!-- notification for expired credit card -->
-    <%if current_user.credit_cards.exp_date < DateTime.now %>
+
+    <!-- if stored credit card is present but expired, display message and do not autofill -->
+    <%if current_user.credit_cards != nil && current_user.credit_cards.exp_date < DateTime.now %>
       <p style="color:red"><b> Your saved credit card is expired. Please provide new information below. </b></p>
       <pre></pre>
     <% end %> 
@@ -40,37 +42,24 @@
         <% if current_user.credit_cards != nil && current_user.credit_cards.exp_date > DateTime.now %>
           <option value=<%= current_user.credit_cards.card_type%>><%= current_user.credit_cards.card_type%></option> <!--Makes a duplicate for now-->
         <% end %>
-        <option value="Visa">Visa</option>
-        <option value="MasterCard">MasterCard</option>
-        <option value="American Express">American Express</option>
+          <option value="Visa">Visa</option>
+          <option value="MasterCard">MasterCard</option>
+          <option value="American Express">American Express</option>
         
       </select>
-      <% if current_user.credit_cards != nil && current_user.credit_cards.exp_date > DateTime.now %>
-          <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number" type="integer" value= <%= current_user.credit_cards.number%> required>
-      
-        <div class = "row">
-          <div class = "column col-lg-6">  
-            <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_mo]" placeholder="Expiration month (##)" type="integer" value= <%= current_user.credit_cards.exp_date.strftime("%m")%> required>
-          </div> 
-          <div class = "column col-lg-6">  
-            <input class="form-control" id="purchase_card_exp_yr" name="purchase[card_exp_yr]" placeholder="Expiration year (####)" type="integer"value= <%= current_user.credit_cards.exp_date.strftime("%Y")%> required>
-          </div>
-        </div>
 
+      <!-- autofill if credit card is present and not expired -->
+      <% if current_user.credit_cards != nil && current_user.credit_cards.exp_date > DateTime.now %>
+          
+        <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number (16 digits)" type="integer" value= <%= current_user.credit_cards.number%> required>
+        <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_date]" placeholder="Expiration date" type="date" value= <%= current_user.credit_cards.exp_date %> required>
         <input class="form-control" id="purchase_card_cvv" name="purchase[card_cvv]" placeholder="CVV" type="integer" value= <%= current_user.credit_cards.cvv %> required>
+      
+      <!-- if card is not present or is present and expired do not autofill -->
       <% else %>
          
-        <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number" type="integer" required>
-        
-        <div class = "row">
-          <div class = "column col-lg-6">  
-            <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_mo]" placeholder="Expiration month (##)" type="integer" required>
-          </div> 
-          <div class = "column col-lg-6">  
-            <input class="form-control" id="purchase_card_exp_yr" name="purchase[card_exp_yr]" placeholder="Expiration year (####)" type="integer" required>
-          </div>
-        </div>
-
+        <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number (16 digits)" type="integer" required>
+        <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_date]" placeholder="Expiration date" type="date" required>
         <input class="form-control" id="purchase_card_cvv" name="purchase[card_cvv]" placeholder="CVV" type="integer" required>
       <% end %>
 
@@ -85,8 +74,8 @@
     <input class="form-control" id="purchase_ship_name" name="purchase[ship_name]" placeholder="Name" type="string" value= '<%= current_user.first_name %> <%= current_user.last_name %>' required> 
     <input class="form-control" id="purchase_ship_company" name="purchase[ship_company]" placeholder="Company (optional)" type="string">
     <input class="form-control" id="purchase_ship_address1" name="purchase[ship_address1]" placeholder="Address 1" type="string" value= '<%= current_user.address1 %>' required>
-    <input class="form-control" id="purchase_ship_address2" name="purchase[ship_address2]" placeholder="Address 2" type="string">
-    <input class="form-control" id="purchase_ship_address3" name="purchase[ship_address3]" placeholder="Address 3" type="string">
+    <input class="form-control" id="purchase_ship_address2" name="purchase[ship_address2]" placeholder="Address 2 (optional)" type="string">
+    <input class="form-control" id="purchase_ship_address3" name="purchase[ship_address3]" placeholder="Address 3 (optional)" type="string">
     <input class="form-control" id="purchase_ship_city" name="purchase[ship_city]" placeholder="City" type="string" value= '<%= current_user.city %>' required>
     <input class="form-control" id="purchase_ship_state" name="purchase[ship_state]" placeholder="State/Province" type="string" value= '<%= current_user.state %>' required>
     <input class="form-control" id="purchase_ship_country" name="purchase[ship_country]" placeholder="Country" type="string" value= '<%= current_user.country %>' required>
@@ -97,13 +86,14 @@
     <br>
   </div>
 
-  <center>
-  <%= f.submit "BUY NOW!"%>
-  </center>
+    <center>
+      <%= f.submit "BUY NOW!"%>
+    </center>
   </div>
  </div> 
 
 <% end %>
+
 
 
 
