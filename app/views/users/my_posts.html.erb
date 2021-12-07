@@ -17,7 +17,9 @@
             <div class= "row">
                 <div class= "column">
                     <% @ads.each do |ad| %>
+                        <!-- filter for active ads --> 
                         <% if ad.status == "active" %>
+                            <!-- ads with images --> 
                             <% if ad.images.attached? %>
                                 <p class="single-ad">
                                     <%= image_tag ad.images[0], width: "250", height: "200" %>
@@ -27,7 +29,7 @@
                                     <%= link_to "Edit", edit_ad_path(ad.category, ad), class: "basic-button"%>
                                     <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
                                 </p> 
-                                
+                            <!-- ads without images -->     
                             <% else %>
                                 <p class="single-ad">
                                     <%= image_tag "no_image.jpg", width: "250", height: "200" %>
