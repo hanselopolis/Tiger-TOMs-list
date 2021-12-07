@@ -1,7 +1,7 @@
-<% if current_user == @conversation.listener %>
-    <h1>Chatting with <%= @conversation.starter %></h1>
+<% if current_user.email == @conversation.listener %>
+    <h1>Chatting with <%= @conversation.starter.split('@')[0] %></h1>
 <% else %>
-    <h1>Chatting with <%= @conversation.listener %></h1>
+    <h1>Chatting with <%= @conversation.listener.split('@')[0] %></h1>
 <% end %>
 
 

@@ -70,4 +70,8 @@ class User < ApplicationRecord
     has_many :favorites
     has_many :favorite_ads, through: :favorites, source: :favorited, source_type: 'Ad'
 
+    def name
+        email.split('@')[0]
+    end
+
 end

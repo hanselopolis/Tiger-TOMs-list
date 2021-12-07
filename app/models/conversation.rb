@@ -35,4 +35,6 @@ class Conversation < ApplicationRecord
         inverse_of: :conversations,
         optional: true
     )
+
+    
 end

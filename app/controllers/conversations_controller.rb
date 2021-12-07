@@ -36,4 +36,5 @@ class ConversationsController < ApplicationController
            render :new
         end
     end
-end
+
+    end
