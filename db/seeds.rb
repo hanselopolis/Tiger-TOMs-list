@@ -16,7 +16,7 @@ vehicles = Category.create!(
 
 parts_mechanical = Category.create!(
     title: 'Parts - Mechanical',
-    description: 'Mechanical Parts for sale'
+    description: 'Keep your car running with these parts'
 )
 
 parts_interior = Category.create!(
@@ -29,7 +29,7 @@ parts_exterior = Category.create!(
 )
 tires = Category.create!(
     title: 'Tires',
-    description: 'Tires of all kinds'
+    description: 'Find any tire to keep your car rolling'
 )
 accessories = Category.create!(
     title: 'Accessories',
@@ -151,7 +151,7 @@ parts_exterior.image.attach(io: File.open('app/assets/images/seed_images/parts_e
 tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'), filename: 'tires_cat.jpg')
 accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
 mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
-other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'vehicles_cat.png')
+other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.jpg'), filename: 'other_services.jpg')
 ad1.images.attach(io: File.open('app/assets/images/seed_images/4runner.jpg'), filename: '4runner.jpg')
 ad2.images.attach(io: File.open('app/assets/images/seed_images/camo_wheel.jpg'), filename: 'camo_wheel.jpg')
 
