@@ -1,14 +1,33 @@
+<!DOCTYPE html>
+<html>
+<style>
+    a { text-decoration: none; 
+        color: black; 
+    }
+    a:hover { text-decoration: none; 
+              color:black;
+    }
+</style>
 <h1>Messages</h1>
-
 <p>
     <% @conversations.each do |conversation|%>
         
         <% if current_user == conversation.user || current_user.email == conversation.listener %>
-            <a><p class= "msg-overview">
-            <%= conversation.starter %> : <%= conversation.initial_msg %>
-            <br>
-            To: <%= conversation.listener %>
-            <p>
+            <% if current_user.email == conversation.starter %>
+                <a href="<%= conversation_path(@user, conversation)%>">
+                    <p class= "conversation-container">
+                        <b><%= conversation.subject%></b> | <%= conversation.listener %>
+                    </p>
+                </a>
+            <% else %>
+                <a href= "<%= conversation_path(@user, conversation)%>">
+                        <p class= "conversation-container">
+                            <b><%= conversation.subject%></b> | <%= conversation.starter %>
+                        <p>
+                    </a>
+            </a>
+            <% end %>
         <% end %>
     <% end %>
 </p>
+</html>

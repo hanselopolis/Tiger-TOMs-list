@@ -11,3 +11,22 @@
     padding: 5px 10px;
     border-radius: 12px;
   }
+
+  .conversation-container{
+    height: 50px;
+    width: 1100px;
+    background-color: rgba(0, 38, 255, 0);
+    color: black;
+    border-top: 2px solid blue;
+    border-bottom: 2px solid blue;
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.7s;
+  }
+
+  .conversation-container:hover{
+      background-color: white;
+  }
