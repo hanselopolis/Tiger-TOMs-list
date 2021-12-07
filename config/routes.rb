@@ -62,6 +62,7 @@ Rails.application.routes.draw do
   post 'users/:id/credit_card', to: 'credit_cards#create'
   delete 'users/:id/credit_card', to: 'credit_cards#destroy'
   get 'users/:id/credit_card/new', to: 'credit_cards#new', as: 'new_credit_card'
+  delete 'users/:id/credit_card/new', to: 'credit_cards#expired'
   
 
 

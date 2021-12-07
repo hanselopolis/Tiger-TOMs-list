@@ -78,9 +78,13 @@
             <% end %>
             <br>
             <br>
+            <!--Warn user that credit card is expired and offer to add new card-->
             <% if @credit_card.exp_date < DateTime.now %> 
                 <b><p style= "color: red; font-family: 'Times New Roman', serif;"> WARNING: Credit Card is expired. Please remove and add a new one </p></b>
+                <a data-method= "delete", href="<%= new_credit_card_path(@user) %>"><p class= "basic-button">Replace expired card</p></a>
             <% end %>
+
+            
 
             <form style= "margin-top: 11rem;">
                 <input type="button" value="< Back" onclick="history.back()">
@@ -89,14 +93,17 @@
         </section>
 
         <aside style= "text-align: center;">
+            
             <pre>
 
             </pre>
-            <h3 style= "color: black;">Want to Remove Your Credit Card?</h4>
-            <p style= "font-size: 21px;">
-                <br>
-                <%= link_to "Remove Card", credit_card_path(@user), method: :delete, class: "delete-button" %>
-            </p>
+            <% if current_user.credit_cards != nil && current_user.credit_cards.exp_date > DateTime.now %>
+                <h3 style= "color: black;">Want to Remove Your Credit Card?</h3>
+                <p style= "font-size: 21px;">
+                    <br>
+                    <%= link_to "Remove Card", credit_card_path(@user), method: :delete, class: "delete-button" %>
+                </p>
+            <% end %>    
             
         </aside>
     </body>
