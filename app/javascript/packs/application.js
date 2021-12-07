@@ -20,3 +20,7 @@ document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="popover"]').popover();
   autosize(document.querySelectorAll('textarea'));
 })
+
+
+
+
