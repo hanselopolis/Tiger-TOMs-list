@@ -1,16 +1,26 @@
-
 <h1>Shop By Category</h1>
 
-<div class = "picture-grid">
-    <% @categories.each do |c| %>
-        <% if c.image.attached? %>
-            <div class= "grid-box">
-                <a href= "<%= category_url(c)%>"><%= image_tag c.image, style: "width: 100%" %></a>
-                <br>
-                <p>
-                    <%= c.title %>
-                </p>
-            </div>
+<table class= "table table-hover">
+    <tbody>
+        <% @categories.each do |category|%>
+            <tr>
+                <td>
+                    <a href= "<%= category_url(category)%>"><%= image_tag category.image, size: "400x300", class: "category-img"%></a>
+                </td>
+                <td>
+                    <pre>
+
+
+
+
+                    </pre>
+                    <p style= "text-align: center;">
+                        <h4 class="category-title"><%= category.title %></h4>
+                        <%= category.description %>
+                    </p>
+                   
+                </td>
+            </tr>
         <% end %>
-    <% end %>
-</div>
+    </tbody>
+</table>
