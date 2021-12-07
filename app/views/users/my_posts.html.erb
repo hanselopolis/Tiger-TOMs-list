@@ -25,7 +25,6 @@
                                     <%= ad.title %>
                                     <br>
                                     <%= link_to "Edit", edit_ad_path(ad.category, ad), class: "basic-button"%>
-                                   
                                     <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
                                 </p> 
                                 
@@ -36,7 +35,6 @@
                                     <%= ad.title %>
                                     <br>
                                     <%= link_to "Edit", edit_ad_path(ad.category, ad), class: "basic-button"%>
-                                    
                                     <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
                                 </p>
                             <% end %>
@@ -56,11 +54,12 @@
                         <% if ad.status == "SOLD" %>
                             <% if ad.images.attached? %>
                                 <p class="single-ad">
+                                    <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
                                     <%= image_tag ad.images[0], width: "250", height: "200" %>
                                     <br>
-                                    <%= ad.title %>
-                                    
-                                    <%= link_to "Purchased by " + ad.purchase.user.first_name, user_path(ad.purchase.user) %>
+                                    <%= ad.title %> </a>
+                                    <br>
+                                    <%= link_to "Purchased by " + ad.purchase.user.first_name, user_path(ad.purchase.user) %> </p>
                                 </p>
                             <% else %>
                                
@@ -69,7 +68,7 @@
                                     <br>
                                     <%= ad.title %>
                                     <br>
-                                    <%= link_to "Purchased by " + ad.purchase.user.first_name, user_path(ad.purchase.user) %> </a>
+                                    <%= link_to "Purchased by " + ad.purchase.user.first_name, user_path(ad.purchase.user) %> </p></a>
                                 
                             <% end %>
                         <% end %>
@@ -87,15 +86,14 @@
                     <% @bought.each do |b| %>
                         <% if b.purchaser == current_user[:id] %>
                             <% if b.images.attached? %>
-                                <p class="single-ad">
+                                
                                     <a href= "<%= ad_path(b.category, b) %>"><p class="ad-button">
                                     <%= image_tag b.images[0], width: "250", height: "200" %>
                                     <br>
-                                    <%= b.title %>
+                                    <%= b.title %> </a>
                                     <br>
-                                    <%= link_to "Sold by " + b.user.first_name, user_path(b.user) %> 
-                                    </a>
-                                </p>
+                                    <%= link_to "Purchased by " + b.purchase.user.first_name, user_path(b.purchase.user) %> </p>
+                                
                             <% else %>
                                 <a href= "<%= ad_path(b.category, b) %>"><p class="ad-button">
                                     <%= image_tag "no_image.jpg", width: "250", height: "200" %>
@@ -104,7 +102,7 @@
                                     <br>
                                     <%= link_to "Sold by " + b.user.first_name, user_path(b.user) %></a>
                                     <br>
-                                    
+                                  </p>  
                             <% end %>
                         <% end %>
                     <% end %>
