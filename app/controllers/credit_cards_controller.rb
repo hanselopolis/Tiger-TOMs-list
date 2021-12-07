@@ -50,4 +50,13 @@ class CreditCardsController < ApplicationController
         flash[:success] = "Credit Card deleted successfully"
         redirect_to user_url(@user)
     end
+
+    def expired 
+        @user = User.find(params[:id])
+        @credit_card = @user.credit_cards
+
+        @credit_card.destroy
+        flash[:success] = "Expired Card Removed - Please Add A New Card"
+        redirect_to new_credit_card_url(@user)
+    end
 end
