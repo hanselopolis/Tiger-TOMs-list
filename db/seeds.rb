@@ -154,6 +154,8 @@ mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_ca
 other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.jpg'), filename: 'other_services.jpg')
 ad1.images.attach(io: File.open('app/assets/images/seed_images/4runner.jpg'), filename: '4runner.jpg')
 ad2.images.attach(io: File.open('app/assets/images/seed_images/camo_wheel.jpg'), filename: 'camo_wheel.jpg')
+user1.image.attach(io: File.open('app/assets/images/seed_images/bob.jpg'), filename: 'bob.jpg')
+user2.image.attach(io: File.open('app/assets/images/seed_images/alice.jpg'), filename: 'alice.jpg')
 
 
 
