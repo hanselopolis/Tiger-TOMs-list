@@ -20,7 +20,8 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
+        @user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :address1, :address2, :address3, 
+            :city, :state, :country, :zip, :phone, :bio))
         if @user.save
             flash[:success] = "User account creation successful!"
             redirect_to user_path(@user)
@@ -38,7 +39,8 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update(params.require(:user).permit(:email,:first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio))
+        if @user.update(params.require(:user).permit(:email,:first_name, :last_name, :email, :address1, :address2, :address3, 
+                :city, :state, :country, :zip,  :phone, :bio))
             flash[:success] = "User account successfully updated!"
             redirect_to user_url(@user)
         else
@@ -57,9 +59,11 @@ class UsersController < ApplicationController
     def show_ads
         @user = User.find(params[:id])
         @ads = @user.ads
-
+        @bought = Ad.all
         render :my_posts
     end
+
+    
 
 
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_11_30_235514) do
+ActiveRecord::Schema.define(version: 2021_12_07_215752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,15 +61,10 @@ ActiveRecord::Schema.define(version: 2021_11_30_235514) do
     t.string "city"
     t.string "state"
     t.integer "zip"
+    t.integer "purchaser"
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["purchase_id"], name: "index_ads_on_purchase_id"
     t.index ["user_id"], name: "index_ads_on_user_id"
-  end
-
-  create_table "card_types", force: :cascade do |t|
-    t.string "cardtype"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "categories", force: :cascade do |t|
@@ -77,6 +72,30 @@ ActiveRecord::Schema.define(version: 2021_11_30_235514) do
     t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "conversations", force: :cascade do |t|
+    t.string "starter"
+    t.string "listener"
+    t.string "initial_msg"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.string "subject"
+    t.index ["user_id"], name: "index_conversations_on_user_id"
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.string "name"
+    t.string "company"
+    t.string "card_type"
+    t.string "number"
+    t.integer "cvv"
+    t.date "exp_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_credit_cards_on_user_id"
   end
 
   create_table "favorite_ads", force: :cascade do |t|
@@ -92,6 +111,15 @@ ActiveRecord::Schema.define(version: 2021_11_30_235514) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["favorited_type", "favorited_id"], name: "index_favorites_on_favorited"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "author"
+    t.string "body"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "conversation_id"
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -119,12 +147,11 @@ ActiveRecord::Schema.define(version: 2021_11_30_235514) do
     t.string "bill_email"
     t.string "card_type"
     t.string "card_number"
-    t.integer "card_exp_mo"
-    t.integer "card_exp_yr"
     t.integer "card_cvv"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.date "card_exp_date"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
@@ -158,6 +185,9 @@ ActiveRecord::Schema.define(version: 2021_11_30_235514) do
   add_foreign_key "ads", "categories"
   add_foreign_key "ads", "purchases"
   add_foreign_key "ads", "users"
+  add_foreign_key "conversations", "users"
+  add_foreign_key "credit_cards", "users"
   add_foreign_key "favorites", "users"
+  add_foreign_key "messages", "conversations"
   add_foreign_key "purchases", "users"
 end

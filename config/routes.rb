@@ -61,6 +61,24 @@ Rails.application.routes.draw do
   # Favorites
   get 'favorites/:id', to: "favorite_ads#show", as: 'favorite'
   get 'favorites', to: 'favorite_ads#index', as: 'favorites'
+
+  # Credit Cards
+  get 'users/:id/credit_card', to: 'credit_cards#show', as: 'credit_card'
+  post 'users/:id/credit_card', to: 'credit_cards#create'
+  delete 'users/:id/credit_card', to: 'credit_cards#destroy'
+  get 'users/:id/credit_card/new', to: 'credit_cards#new', as: 'new_credit_card'
+  delete 'users/:id/credit_card/new', to: 'credit_cards#expired'
+
+  # Conversations
+  get 'users/:id/conversations', to: 'conversations#index', as: 'conversations'
+  post 'users/:id/conversations', to: 'conversations#create'
+  get 'users/:id/conversations/new', to: 'conversations#new', as: 'new_conversation'
+  get 'users/:user_id/conversations/:id', to: 'conversations#show', as: 'conversation'
+  
+
+  # Messages
+  get 'users/:user_id/conversations/:id/new', to: 'messages#new', as: 'new_message'
+  post 'users/:user_id/conversations/:id', to: 'messages#create'
   
 
 

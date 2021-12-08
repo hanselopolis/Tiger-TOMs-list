@@ -1,20 +1,23 @@
 
-    
-<h1>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%> </h1> 
+<%# header pulls ad title and price from ad model %>
+
+<h1><center><b>BUY THIS <%= @ad.title.upcase %> ... $<%='%.2f' % @ad.price%></b></center></h1> 
 
 <%= bootstrap_form_with model: @purchase,  method: :post, url: purchase_item_path(@category, @ad), local: true do |f| %>
 
-<div class = "row needs-validation" novalidate  >
+<div class = "row needs-validation" novalidate>
 <div class = "column col-lg-5 position-relative">
 <br>
   
-  <h3>BILLING INFORMATION</h3>
-
-  <div class="form-floating">
+  <!-- enter billing information, most fields will autofill from user info -->
+  <div class= "column-head-blue" ><h3><center>BILLING INFORMATION</center></h3></div>
+  
+  <div class="form-floating needs-validation">
     <input class="form-control" id="purchase_bill_name" name="purchase[bill_name]" placeholder="Name" type="string"  value= '<%= current_user.first_name %> <%= current_user.last_name %>' required> 
+    <input class="form-control" id="purchase_bill_company" name="purchase[bill_company]" placeholder="Company (optional)" type="string" >
     <input class="form-control" id="purchase_bill_address1" name="purchase[bill_address1]" placeholder="Address 1" type="string" value= '<%= current_user.address1 %>' required>
-    <input class="form-control" id="purchase_bill_address2" name="purchase[bill_address2]" placeholder="Address 2" type="string" >
-    <input class="form-control" id="purchase_bill_address3" name="purchase[bill_address3]" placeholder="Address 3" type="string" >
+    <input class="form-control" id="purchase_bill_address2" name="purchase[bill_address2]" placeholder="Address 2 (optional)" type="string" >
+    <input class="form-control" id="purchase_bill_address3" name="purchase[bill_address3]" placeholder="Address 3 (optional)" type="string" >
     <input class="form-control" id="purchase_bill_city" name="purchase[bill_city]" placeholder="City" type="string" value= <%= current_user.city %> required>
     <input class="form-control" id="purchase_bill_state" name="purchase[bill_state]" placeholder="State/Province" type="string" value= '<%= current_user.state %>' required>
     <input class="form-control" id="purchase_bill_country" name="purchase[bill_country]" placeholder="Country" type="string" value= '<%= current_user.country %>' required>
@@ -26,36 +29,53 @@
   </div>
   
   
-  <h3>CREDIT CARD INFORMATION</h3>
-   Credit card type: <select class="form-select" name="purchase[card_type]"id="purchase_card_type" type="string" required>
-        <option value="Visa">Visa</option>
-        <option value="MasterCard">MasterCard</option>
-        <option value="American Express">American Express</option>
-        <option value="Library">Library</option>
-      </select>
-      <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number" type="integer" required>
-      
-      <div class = "row">
-        <div class = "column col-lg-6">  
-          <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_mo]" placeholder="Expiration month (##)" type="integer" required>
-        </div> 
-        <div class = "column col-lg-6">  
-          <input class="form-control" id="purchase_card_exp_yr" name="purchase[card_exp_yr]" placeholder="Expiration year (####)" type="integer" required>
-        </div>
-      </div>
+  <!-- enter billing information, most fields will autofill from stored user credit card info if card is not expired -->
+ 
+  <div class= "column-head-blue" ><h3><center>CREDIT CARD INFORMATION</center></h3></div>
 
-      <input class="form-control" id="purchase_card_cvv" name="purchase[card_cvv]" placeholder="CVV" type="integer" required>
+    <!-- if stored credit card is present but expired, display message and do not autofill -->
+    <%if current_user.credit_cards != nil && current_user.credit_cards.exp_date < DateTime.now %>
+      <p style="color:red"><b> Your saved credit card is expired. Please provide new information below. </b></p>
+      <pre></pre>
+    <% end %> 
+    Credit card type: <select class="form-select" name="purchase[card_type]"id="purchase_card_type" type="string" required>
+        <% if current_user.credit_cards != nil && current_user.credit_cards.exp_date > DateTime.now %>
+          <option value=<%= current_user.credit_cards.card_type%>><%= current_user.credit_cards.card_type%></option> <!--Makes a duplicate for now-->
+        <% end %>
+          <option value="Visa">Visa</option>
+          <option value="MasterCard">MasterCard</option>
+          <option value="American Express">American Express</option>
+        
+      </select>
+
+      <!-- autofill if credit card is present and not expired -->
+      <% if current_user.credit_cards != nil && current_user.credit_cards.exp_date > DateTime.now %>
+          
+        <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number (16 digits)" type="integer" value= <%= current_user.credit_cards.number%> required>
+        <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_date]" placeholder="Expiration date" type="date" value= <%= current_user.credit_cards.exp_date %> required>
+        <input class="form-control" id="purchase_card_cvv" name="purchase[card_cvv]" placeholder="CVV" type="integer" value= <%= current_user.credit_cards.cvv %> required>
+      
+      <!-- if card is not present or is present and expired do not autofill -->
+      <% else %>
+         
+        <input class="form-control" id="purchase_card_number" name="purchase[card_number]" placeholder="Card number (16 digits)" type="integer" required>
+        <input class="form-control" id="purchase_card_exp_mo" name="purchase[card_exp_date]" placeholder="Expiration date" type="date" required>
+        <input class="form-control" id="purchase_card_cvv" name="purchase[card_cvv]" placeholder="CVV" type="integer" required>
+      <% end %>
 
 </div>
 
+<!-- enter shipping information, most fields will autofill from user info -->
+
 <div class = "column offset-md-1 col-lg-5">
 <br>
-  <h3> SHIPPING INFORMATION</h3>
+  <div class= "column-head-blue" ><h3><center>SHIPPING INFORMATION</center></h3></div>
   <div class="form-floating">
     <input class="form-control" id="purchase_ship_name" name="purchase[ship_name]" placeholder="Name" type="string" value= '<%= current_user.first_name %> <%= current_user.last_name %>' required> 
+    <input class="form-control" id="purchase_ship_company" name="purchase[ship_company]" placeholder="Company (optional)" type="string">
     <input class="form-control" id="purchase_ship_address1" name="purchase[ship_address1]" placeholder="Address 1" type="string" value= '<%= current_user.address1 %>' required>
-    <input class="form-control" id="purchase_ship_address2" name="purchase[ship_address2]" placeholder="Address 2" type="string">
-    <input class="form-control" id="purchase_ship_address3" name="purchase[ship_address3]" placeholder="Address 3" type="string">
+    <input class="form-control" id="purchase_ship_address2" name="purchase[ship_address2]" placeholder="Address 2 (optional)" type="string">
+    <input class="form-control" id="purchase_ship_address3" name="purchase[ship_address3]" placeholder="Address 3 (optional)" type="string">
     <input class="form-control" id="purchase_ship_city" name="purchase[ship_city]" placeholder="City" type="string" value= '<%= current_user.city %>' required>
     <input class="form-control" id="purchase_ship_state" name="purchase[ship_state]" placeholder="State/Province" type="string" value= '<%= current_user.state %>' required>
     <input class="form-control" id="purchase_ship_country" name="purchase[ship_country]" placeholder="Country" type="string" value= '<%= current_user.country %>' required>
@@ -66,42 +86,24 @@
     <br>
   </div>
 
-  <!-- <%= f.text_field :bill_name %>
-  <%= f.text_field :bill_company %>
-  <%= f.text_field :bill_address1, value: current_user.address1 %>
-  <%= f.text_field :bill_address2, value: current_user.address2 %>
-  <%= f.text_field :bill_address3, value: current_user.address3 %>
-  <%= f.text_field :bill_city, value: current_user.city %>
-  <%= f.text_field :bill_state, value: current_user.state %>
-  <%= f.text_field :bill_country, value: current_user.country %>
-  <%= f.text_field :bill_postal, value: current_user.zip %>
-  <%= f.text_field :bill_phone, value: current_user.phone %>
-  <%= f.text_field :bill_email, value: current_user.email %>-->
-
- <!-- <%= f.select :card_type, ['Visa', 'Mastercard', 'American Express','Diner\'s Club', 'Library'] %>
-    <%= f.number_field :card_number %>
-    <%= f.number_field :card_exp_mo %>
-    <%= f.number_field :card_exp_yr %>
-    <%= f.number_field :card_cvv %> -->
-
-  <!-- >  <%= f.text_field :ship_name %>
-  <%= f.text_field :ship_company %>
-  <%= f.text_field :ship_address1, value: current_user.address1 %>
-  <%= f.text_field :ship_address2, value: current_user.address2 %>
-  <%= f.text_field :ship_address3 , value: current_user.address3%>
-  <%= f.text_field :ship_city, value: current_user.city %>
-  <%= f.text_field :ship_state, value: current_user.state %>
-  <%= f.text_field :ship_country, value: current_user.country %>
-  <%= f.text_field :ship_postal, value: current_user.zip %>
-  <%= f.text_field :ship_phone, value: current_user.phone %>
-  <%= f.text_field :ship_email, value: current_user.email %> -->
+<<<<<<< HEAD
   <center>
-  <%= f.submit "BUY NOW!" %>
+  <%= f.submit "BUY NOW!", class: "buy-button lg"%>
   </center>
+=======
+    <center>
+      <%= f.submit "BUY NOW!"%>
+    </center>
+>>>>>>> df0989c0a5f347bd61e072c4187ddb62e54017ed
   </div>
  </div> 
 
 <% end %>
+<pre>
 
+</pre>
+<form>
+    <input type="button" value="< Back" onclick="history.back()">
+</form>
 
 
