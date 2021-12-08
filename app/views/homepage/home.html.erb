@@ -38,7 +38,7 @@
           <% if ad.status == "active" %>
             <% if ad.images.attached? %>
               <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
-                <%= image_tag ad.images[0], width: "125", height: "100" %>
+                <%= image_tag ad.images[0], width: "150", height: "125" %>
                 <br>
                  <%= ad.title %> 
                  <br>
@@ -46,7 +46,7 @@
                 </p> </a>
           <% else %>
             <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
-            <%= image_tag "no_image.jpg", width: "125", height: "100" %>
+            <%= image_tag "no_image.jpg", width: "150", height: "125" %>
             <br>
             <%= ad.title %>
             <br>
