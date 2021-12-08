@@ -1,64 +1,4 @@
 <html>
-<head>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial;
-  padding: 10px;
-}
-
-/* Header */
-.header {
-  /*padding: 30px;*/
-  text-align: center;
-  background: lightgrey;
-  font-size: 80px;
-}
-
-.column-head-blue {
-  background: blue;
-  color: white;
-}
-
-.header h1 {
-  font-size: 50px;
-}
-
-/* Create three unequal columns that floats next to each other */
-.column {   
-  float: center;
-  padding: 10px;
-}
-
-/* side columns */
-.column.side {
-  width: 20%;
-}
-
-/* center column */
-.column.middle {
-  width: 60%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* when the screen is less than 800px wide, make the columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .column.side, .column.middle {   
-    width: 100%;
-  }
-}
-
-</style>
-</head>
 <body>
 
 <div class="header">
@@ -89,28 +29,35 @@ body {
   </div>
 
   <div class="column middle">
-      <table class="table">
-       
-        <thead class="column-head-blue">
-        <th>Ad Listings</th>
-        <th>Posted</th>
-        </thead>
+    <header>
+    <h1>Ad Listings</h1>
+    </header>
 
-        <tbody>
-        
-        <% @ad.each do |a| %>
-          <% if a.status == "active" %>
-            <tr>
-              <td><%= link_to a.title, ad_path(a.category, a) %></td>
-              <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
-              <td class="text-nowrap"></td>
-            </tr>
+    <body>        
+        <% @ad.each do |ad| %>
+          <% if ad.status == "active" %>
+            <% if ad.images.attached? %>
+              <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+                <%= image_tag ad.images[0], width: "150", height: "125" %>
+                <br>
+                 <%= ad.title %> 
+                 <br>
+                 <%= ad.created_at.strftime("%m/%d/%Y")%>
+                </p> </a>
+          <% else %>
+            <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+            <%= image_tag "no_image.jpg", width: "150", height: "125" %>
+            <br>
+            <%= ad.title %>
+            <br>
+            <%= ad.created_at.strftime("%m/%d/%Y")%>
+            </p> </a>
+          <% end %>
           <% end %>
         <% end %>
-  
-        </tbody>
-      </table>
+      </body>
   </div>
+
 
   <div class="column side">
       <!-- <h2><b>Post an Ad and Register</b></h2>
