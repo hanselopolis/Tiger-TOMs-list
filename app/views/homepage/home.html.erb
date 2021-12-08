@@ -113,11 +113,12 @@ body {
   </div>
 
   <div class="column side">
-      <h2><b>Post an Ad and Register</b></h2>
-      <pre></pre>
-      <p><%= link_to "Register Here", new_user_path, class: "basic-button basic-button:hover" %></p>
-
-      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p>
+      <!-- <h2><b>Post an Ad and Register</b></h2>
+      <pre></pre> -->
+      <% if !current_user %>
+        <p><%= link_to "Register Here", new_user_path, class: "basic-button" %></p>
+      <% end %>
+      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button" %></p>
 
   </div>
 </div>
