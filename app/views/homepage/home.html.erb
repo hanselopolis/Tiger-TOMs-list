@@ -1,71 +1,14 @@
 <html>
-<head>
-<style>
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: Arial;
-  padding: 10px;
-}
-
-/* Header */
-.header {
-  /*padding: 30px;*/
-  text-align: center;
-  background: lightgrey;
-  font-size: 80px;
-}
-
-.column-head-blue {
-  background: blue;
-  color: white;
-}
-
-.header h1 {
-  font-size: 50px;
-}
-
-/* Create three unequal columns that floats next to each other */
-.column {   
-  float: center;
-  padding: 10px;
-}
-
-/* side columns */
-.column.side {
-  width: 20%;
-}
-
-/* center column */
-.column.middle {
-  width: 60%;
-}
-
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* when the screen is less than 800px wide, make the columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 800px) {
-  .column.side, .column.middle {   
-    width: 100%;
-  }
-}
-
-</style>
-</head>
 <body>
 
 <div class="header">
     <strong><b>TOM the Tiger's List</b></strong>
 </div>
 
-<b>View: <%= link_to "ALL ADS", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+
+<b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+
+
 <br>
 <div class = "row">
 <div class="column side">
@@ -88,7 +31,7 @@ body {
       </table>
   </div>
 
-  <div class="column middle">
+  <div class="column middle">  
       <table class="table">
        
         <thead class="column-head-blue">
@@ -105,19 +48,20 @@ body {
               <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
               <td class="text-nowrap"></td>
             </tr>
+
           <% end %>
         <% end %>
-  
-        </tbody>
-      </table>
+      </body>
   </div>
 
-  <div class="column side">
-      <h2><b>Post an Ad and Register</b></h2>
-      <pre></pre>
-      <p><%= link_to "Register Here", new_user_path, class: "basic-button basic-button:hover" %></p>
 
-      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p>
+  <div class="column side">
+      <!-- <h2><b>Post an Ad and Register</b></h2>
+      <pre></pre> -->
+      <% if !current_user %>
+        <p><%= link_to "Register Here", new_user_path, class: "basic-button" %></p>
+      <% end %>
+      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button" %></p>
 
   </div>
 </div>

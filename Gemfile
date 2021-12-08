@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+# validate time and date
+gem 'validates_timeliness', '~> 4.0', '>= 4.0.2'
 # Authentication
 gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -72,3 +74,5 @@ gem 'email_validator'
 
 # bootstrap for forms
 gem 'bootstrap', '~> 5.0.2'
+
+gem 'ransack'

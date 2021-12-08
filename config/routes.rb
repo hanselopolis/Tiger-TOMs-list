@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :favorite_ads, only: [:create, :destroy]
   
   #homepage 
-
   root to: redirect('/home')
   get 'home', to: 'homepage#home', as: 'home' 
 
@@ -42,7 +41,13 @@ Rails.application.routes.draw do
   delete 'categories/:category_id/:id', to: 'ads#destroy'
   get 'categories/:category_id/:id/edit', to: 'ads#edit', 
   as: 'edit_ad'
-  
+
+  #search
+  resources :ads, only: [:index] do
+    collection do
+       match 'search' => 'ads#search', via: [:get, :post], as: :search
+     end
+   end
 
   # Purchases
   get 'purchases', to: 'purchases#index', as: 'purchases_index'
