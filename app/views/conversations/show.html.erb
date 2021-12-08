@@ -21,10 +21,10 @@ a { text-decoration: none;
     <h1>Chatting with <%= @conversation.starter.split('@')[0] %></h1>
 <% else %>
     <h1>Chatting with <%= @conversation.listener.split('@')[0] %></h1>
-<% end %> -->
+<% end %> 
 
 <div class= "row">
-    <div class= "column col-lg-6 border1", style= "padding: 10px; ">
+    <div class= "column col-lg-5 border1", style= "padding: 10px; ">
         <% if current_user.email == @conversation.starter %>
             <p class= "msg-overview", style="position: absolute; right: 0;">
                     <%= @conversation.initial_msg %>
@@ -59,18 +59,18 @@ a { text-decoration: none;
         <% end %> 
     </div>
 
-    <div class= "column offset-md-1 col-lg-4", style= "margin-left: 120px;">
+    <div class= "column offset col-lg-5", style= "margin-left: 120px;">
         <pre>
 
 
 
         </pre>
         <%= bootstrap_form_with model: @message,  method: :post, url: conversation_path(@user, @conversation), local: true do |cc| %>
-        <div class = "row needs-validation" novalidate  >
+        <%# <div class = "row needs-validation" novalidate  >
         <div class = "column col-lg-5 position-relative">
-        <div class="form-floating">
+        <div class="form-floating"> %>
             <input class="form-control" id="message_body" name="message[body]" placeholder="Message:" type="string" required>
-        </div> 
+        <%# </div>  %>
         <br>
 
         <%= cc.submit "Send Message", class: "basic-button"%>

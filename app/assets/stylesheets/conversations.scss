@@ -4,12 +4,20 @@
 .msg-overview{
     background-color: rgb(255, 255, 255);
     color: black;
+    min-width: 325px;
     border: 2px solid rgb(0, 0, 0);
     font-size: 16px;
+    inline-size: min-content;
+    overflow-wrap: normal;
+    word-wrap: break-word;
+    white-space: normal;
     display: inline-block;
     text-align: left;
     padding: 5px 10px;
     border-radius: 12px;
+    max-width: 325px;
+    height: auto;
+    margin: auto;
   }
 
   .conversation-container{

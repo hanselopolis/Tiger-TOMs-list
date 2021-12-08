@@ -19,7 +19,7 @@
 #
 class Message < ApplicationRecord
     validates :body, presence: true
-    validates :body, length: { minimum: 1, maximum: 70 }
+    # validates :body, length: { minimum: 1, maximum: 70 }
 
     belongs_to(
         :conversation,
