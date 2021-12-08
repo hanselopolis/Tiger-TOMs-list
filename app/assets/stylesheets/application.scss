@@ -24,7 +24,7 @@
   }
 
   .border1 {
-      border: 2px solid darkslategrey;
+      border: 1px solid blue;
       // border-bottom:2px;
     }
 
@@ -37,28 +37,71 @@
     -moz-border-radius: 2px;
     border-radius: 2px;
     cursor: pointer;
-   } 
+  } 
 
 
-   .column-head-blue {
+  .column-head-blue {
     background: blue;
     color: white;
   }
 
   .basic-button {
-    background-color: white;
-    color: black;
-    border: 2px solid blue;
+    background-color: blue;
+    color: white;
     font-size: 16px;
     display: inline-block;
     text-align: center;
     padding: 5px 10px;
-    border-radius: 12px;
+    border-radius: 3px;
     transition-duration: 0.4s;
   }
 
   .basic-button:hover{
-    background-color: blue;
+    background-color: rgb(2, 2, 104);
+    color: white;
+  }
+
+  .buy-button {
+    background-color: rgb(4, 146, 35);
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+  }
+
+  .buy-button:hover{
+    background-color: rgb(8, 85, 25);
+    color: white;
+  }
+
+  .danger-button {
+    background-color: darkorange;
+    color: white;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+  }
+
+  .danger-button:hover{
+    background-color: crimson;
+    color: white;
+  }
+
+  
+  .empty {
+    line-height: 200px;
+    height: 200px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(114, 113, 113);
+    border: none;
     color: white;
   }
 

@@ -65,7 +65,7 @@ body {
     <strong><b>TOM the Tiger's List</b></strong>
 </div>
 
-<b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+<b>View: <%= link_to "ALL ADS", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
 <br>
 <div class = "row">
 <div class="column side">
@@ -113,8 +113,8 @@ body {
   </div>
 
   <div class="column side">
-      <h2>Post an Ad and Register</h2>
-
+      <h2><b>Post an Ad and Register</b></h2>
+      <pre></pre>
       <p><%= link_to "Register Here", new_user_path, class: "basic-button basic-button:hover" %></p>
 
       <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p>
