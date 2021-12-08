@@ -112,3 +112,15 @@
     background-color: rgb(54, 7, 224);
     color: white;
   }
+
+  .back-button{
+    width: 3.4rem;
+    outline: 1px solid black; 
+    color: black; 
+    padding: 2px; 
+    background-color: rgb(231, 231, 231);
+  }
+
+  .back-button:hover{
+    background-color: rgb(212, 211, 211);
+}

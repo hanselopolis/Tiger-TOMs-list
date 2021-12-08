@@ -9,6 +9,12 @@
     display: inline-block;
     float: none;
 }
+a { text-decoration: none; 
+        color: black; 
+    }
+    a:hover { text-decoration: none; 
+              color:black;
+    }
 </style>
 
 <% if current_user.email == @conversation.listener %>
@@ -19,7 +25,7 @@
 
 
 <div class= "row">
-    <div class= "column col-lg-6 border1", style= "padding: 10px;">
+    <div class= "column col-lg-6 border1", style= "padding: 10px; ">
         <% if current_user.email == @conversation.starter %>
             <p class= "msg-overview", style="position: absolute; right: 0;">
                     <%= @conversation.initial_msg %>
@@ -68,10 +74,14 @@
         </div> 
         <br>
 
-        <%= cc.submit "Send Message"%>
+        <%= cc.submit "Send Message", class: "basic-button"%>
 
         <% end %>
     </div>
 </div>
+<br>
+<a href= "<%= conversations_url(@user)%>"><p class= "back-button"> &lt Back </p></a>
+
+
 
 </html>
