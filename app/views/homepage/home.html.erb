@@ -89,13 +89,7 @@ body {
       </table>
   </div>
 
-  <div class="column middle">
-  <%= search_form_for @q do |f| %> 
-    <%= f.label :title_or_description_or_email_cont %>
-    <%= f.search_field :title_or_description_or_email_cont %>
-  <%= f.submit %>
-  <% end %>
-  
+  <div class="column middle">  
       <table class="table">
        
         <thead class="column-head-blue">

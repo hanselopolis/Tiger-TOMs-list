@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 
-    before_action :authenticate_user!, except: [:index]
-    before_action :require_permission, except: [:show, :new, :create]
+    before_action :authenticate_user!, except: [:index, :show, :search]
+    before_action :require_permission, except: [:index, :search, :show, :new, :create]
     add_flash_types :info, :error, :warning, :success
 
     def require_permission
@@ -10,10 +10,15 @@ class AdsController < ApplicationController
       end
     end
 
+    #search engine
     def index
-      @q = Ad.ransack(params[:q])
-      @ads = Ad.all
+      @ads = @q.result(distinct: true).sort_by(&:title)
     end
+    def search
+      index
+      render :index
+    end
+    #-------------------------------------------------
 
     def show
         @category = Category.find(params[:category_id])

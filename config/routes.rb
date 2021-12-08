@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   post 'categories/:id', to: 'ads#create'
 
   # Ads
-  get 'ads', to: 'ads#index', as: 'ads'
+  #get 'ads', to: 'ads#index', as: 'ads'
   get 'categories/:category_id/new', to: 'ads#new',
   as: 'new_ad'
   get 'categories/:category_id/:id', to: 'ads#show', 
@@ -43,6 +43,15 @@ Rails.application.routes.draw do
   delete 'categories/:category_id/:id', to: 'ads#destroy'
   get 'categories/:category_id/:id/edit', to: 'ads#edit', 
   as: 'edit_ad'
+
+  #search
+  resources :ads, only: [:index] do
+    collection do
+       match 'search' => 'ads#search', via: [:get, :post], as: :search
+     end
+   end
+   #get 'ads/search', to: 'ads#search'
+   #post 'ads/index', to: 'ads#index'
 
   # Purchases
   get 'purchases', to: 'purchases#index', as: 'purchases_index'
