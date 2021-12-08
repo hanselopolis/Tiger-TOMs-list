@@ -16,6 +16,7 @@ class ConversationsController < ApplicationController
     end
     
     def new
+        @ad = Ad.find(params[:id])
         @user = User.find(params[:id])
         @conversation = Conversation.new
 
@@ -25,12 +26,12 @@ class ConversationsController < ApplicationController
     def create
         @user = User.find(params[:id])
         @conversation = Conversation.new(params.require(:conversation).permit(:listener, :initial_msg, :subject))
-        @conversation.starter = @user.email
-        @conversation.user = @user 
+        @conversation.starter = current_user.email
+        @conversation.user = current_user 
 
         if @conversation.save
            flash[:success] = "Message Sent"
-           redirect_to user_url(@user)
+           redirect_to conversations_url
         else
            flash.now[:error] = "Failed to Send Message"
            render :new

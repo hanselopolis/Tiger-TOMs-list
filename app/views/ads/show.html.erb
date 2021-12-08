@@ -61,7 +61,14 @@
 
 
             </pre> 
-           
+
+            <!-- message seller -->
+            <% if @ad.user != current_user%>
+                <%= link_to 'Message seller', new_conversation_path(@ad.user.id), class: 'blue-box-button'  %>
+            <% end %>
+            <pre></pre>
+
+
             <!-- favoriting actions -->
 
             <% if @ad.user != current_user%>
