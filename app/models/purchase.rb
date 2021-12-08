@@ -15,8 +15,7 @@
 #  bill_postal   :string
 #  bill_state    :string
 #  card_cvv      :integer
-#  card_exp_mo   :integer
-#  card_exp_yr   :integer
+#  card_exp_date :date
 #  card_number   :string
 #  card_type     :string
 #  ship_address1 :string
@@ -72,9 +71,9 @@ class Purchase < ApplicationRecord
     validates :bill_country, presence: true
     validates :bill_postal, presence: true
     validates :card_number, presence: true
-    validates :card_exp_mo, presence: true
-    validates :card_exp_yr, presence: true
-    validates :card_cvv, presence: true
+    validates :card_number, length: {minimum: 16, maximum: 19}
+    validates :card_exp_date, presence: true, timeliness: { on_or_after: lambda {Date.current} }
+    validates :card_cvv, presence: true, length: { is: 3}
     validates :card_type, presence: true
     
 end

@@ -147,12 +147,11 @@ ActiveRecord::Schema.define(version: 2021_12_07_215752) do
     t.string "bill_email"
     t.string "card_type"
     t.string "card_number"
-    t.integer "card_exp_mo"
-    t.integer "card_exp_yr"
     t.integer "card_cvv"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
+    t.date "card_exp_date"
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
