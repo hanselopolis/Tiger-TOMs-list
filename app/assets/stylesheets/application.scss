@@ -156,6 +156,15 @@
     color: white;
   }
 
-  .navbar.navbar-2 .navbar-toggler-icon {
-    background-image: url('https://mdbcdn.b-cdn.net/img/svg/hamburger2.svg?color=fff');
-    }
+  .back-button{
+    width: 3.4rem;
+    outline: 1px solid black; 
+    color: black; 
+    padding: 2px; 
+    background-color: rgb(231, 231, 231);
+  }
+
+  .back-button:hover{
+    background-color: rgb(212, 211, 211);
+}
+
