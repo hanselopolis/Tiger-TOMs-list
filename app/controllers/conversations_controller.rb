@@ -1,5 +1,25 @@
 class ConversationsController < ApplicationController
     
+    before_action :authenticate_user!, except: [:index] 
+    before_action :require_permission_viewing, except: [:new, :create, :index]
+    before_action :require_permission_general, except: [:show]
+
+    def require_permission_viewing
+        if User.find(params[:user_id]) != Conversation.find(params[:id]).user
+            if current_user.email != Conversation.find(params[:id]).listener 
+                flash[:error] = "You do not have permission to do that"
+                redirect_to user_path(current_user), flash: { error: "You do not have permission to do that" }
+            end
+        end
+    end
+
+    def require_permission_general
+        if User.find(params[:id]) != current_user 
+            flash[:error] = "You do not have permission to do that"
+            redirect_to user_path(current_user), flash: { error: "You do not have permission to do that" }
+        end
+    end
+
     def index
         @user = User.find(params[:id])
         @conversations = Conversation.all
