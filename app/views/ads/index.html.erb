@@ -3,14 +3,17 @@
   <thead class="thead-dark">
     <tr>
       <th>Title</th>
-      <th>Post</th>
+      <th>User</th>
+      <th>Post Date</th>
     </tr>
   </thead>
   <tbody>
-    <% @ads.each do |ad| %>
+    <% @ads.each do |a| %>
       <tr>
-        <td><%= ad.title %></td>
-        <td><%= ad.created_at.strftime("%m/%d/%Y") %></td>
+        <td><%= link_to a.title, ad_path(a.category, a) %></td>
+        <td> <%= a.email %> </td>
+        <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
+        <td class="text-nowrap"></td>
       </tr>
     <% end %>
   </tbody>

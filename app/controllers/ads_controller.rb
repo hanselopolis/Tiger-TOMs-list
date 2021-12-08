@@ -1,6 +1,6 @@
 class AdsController < ApplicationController
 
-    before_action :authenticate_user!, except: [:index, :show, :search]
+    before_action :authenticate_user!, except: [:index, :search]
     before_action :require_permission, except: [:index, :search, :show, :new, :create]
     add_flash_types :info, :error, :warning, :success
 
