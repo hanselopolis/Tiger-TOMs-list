@@ -5,7 +5,10 @@
     <strong><b>TOM the Tiger's List</b></strong>
 </div>
 
-<b>View: <%= link_to "ALL ADS", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+
+<b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
+
+
 <br>
 <div class = "row">
 <div class="column side">
@@ -28,31 +31,24 @@
       </table>
   </div>
 
-  <div class="column middle">
-    <header>
-    <h1>Ad Listings</h1>
-    </header>
+  <div class="column middle">  
+      <table class="table">
+       
+        <thead class="column-head-blue">
+        <th>Ad Listings</th>
+        <th>Posted</th>
+        </thead>
 
-    <body>        
-        <% @ad.each do |ad| %>
-          <% if ad.status == "active" %>
-            <% if ad.images.attached? %>
-              <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
-                <%= image_tag ad.images[0], width: "150", height: "125" %>
-                <br>
-                 <%= ad.title %> 
-                 <br>
-                 <%= ad.created_at.strftime("%m/%d/%Y")%>
-                </p> </a>
-          <% else %>
-            <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
-            <%= image_tag "no_image.jpg", width: "150", height: "125" %>
-            <br>
-            <%= ad.title %>
-            <br>
-            <%= ad.created_at.strftime("%m/%d/%Y")%>
-            </p> </a>
-          <% end %>
+        <tbody>
+        
+        <% @ad.each do |a| %>
+          <% if a.status == "active" %>
+            <tr>
+              <td><%= link_to a.title, ad_path(a.category, a) %></td>
+              <td> <%= a.created_at.strftime("%m/%d/%Y") %> </td>
+              <td class="text-nowrap"></td>
+            </tr>
+
           <% end %>
         <% end %>
       </body>

@@ -68,4 +68,5 @@ class Ad < ApplicationRecord
         inverse_of: :ads,
         optional: true
     )
+
 end
