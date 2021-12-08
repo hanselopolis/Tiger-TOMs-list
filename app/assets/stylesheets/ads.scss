@@ -1,7 +1,7 @@
 // Place all the styles related to the Ads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.form-column {
+  .form-column {
     float: left;
     width: 33.33%;
   }
@@ -46,7 +46,7 @@
 
   .yellow-box-button:hover{
     background-color: yellow;
-    color: black;
+    color: white;
   }
 
   .green-box-button{
@@ -63,6 +63,23 @@
 
   .green-box-button:hover{
     background-color: green;
+    color: white;
+  }
+
+  .blue-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(54, 7, 224);
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;  
+  }
+
+  .blue-box-button:hover{
+    background-color: rgb(54, 7, 224);
     color: white;
   }
 
@@ -123,6 +140,7 @@
     margin: 0 1.5%;
     width: 63%;
   }
+
   aside {
     float: right;
     margin: 0 1.5%;

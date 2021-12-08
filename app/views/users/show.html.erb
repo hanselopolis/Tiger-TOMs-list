@@ -1,3 +1,16 @@
+
+<% if @user == current_user %>
+    <td><%= link_to "Favorites", favorites_path() , class: "basic-button" %></td>
+    <td><%= link_to "Edit Profile", edit_user_path(@user) , class: "basic-button" %></td>
+    <td><%= link_to "Credit Card", credit_card_path(@user) , class: "basic-button" %></td>
+    <td><%= link_to "Change Password", edit_user_registration_path, class: "basic-button" %></td>
+    <td><%= link_to "My Posts", user_ads_path(@user), class: "basic-button"%></td>
+    <td><%= link_to "My Messages", conversations_path(@user), class: "basic-button"%></td>
+<%end%>
+<pre>
+
+</pre>
+
 <table align ="right">
 
     <thead>
@@ -34,7 +47,7 @@
         <tr>
             <td> ZIP Code: <%= @user.zip %>
         </tr>
-        <tr>
+        <!-- <tr>
         <% if @user == current_user %>
             <td><%= link_to "Favorites", favorites_path() , class: "btn btn-primary" %></td>
             <td><%= link_to "Edit Profile", edit_user_path(@user) , class: "btn btn-primary" %></td>
@@ -42,14 +55,14 @@
             <td><%= link_to "Change Password", edit_user_registration_path, class: "btn btn-primary" %></td>
             <td><%= link_to "My Posts", user_ads_path(@user), class: "btn btn-primary"%></td>
         <%end%>
-        </tr>
+        </tr> -->
     </tbody>
 </table>
 
 
 <p>
 
-Bio:<%= simple_format(@user.bio) %>
+<h2><b>Bio:</b></h2> <h4><%= simple_format(@user.bio) %></h4>
 </p>
 
 

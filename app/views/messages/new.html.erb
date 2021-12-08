@@ -1,0 +1,18 @@
+<% if current_user.email == @conversation.starter %>
+    <h1>Send message to <%= @conversation.listener %></h1>
+<% else %>
+    <h1>Send message to <%= @conversation.starter %></h1>
+<% end %>
+
+<%= bootstrap_form_with model: @message,  method: :post, url: conversation_path(@user, @conversation), local: true do |cc| %>
+<div class = "row needs-validation" novalidate  >
+<div class = "column col-lg-5 position-relative">
+<div class= "column-head-blue" ><h3><center>Enter Message Below</center></h3></div>
+<div class="form-floating">
+    <input class="form-control" id="message_body" name="message[body]" placeholder="Message:" type="string" required>
+</div> 
+<br>
+
+<%= cc.submit "Send Message"%>
+
+<% end %>

@@ -23,6 +23,11 @@
     padding-left: $close-font-size + $alert-padding-x * 2;
   }
 
+  .border1 {
+      border: 1px solid blue;
+      // border-bottom:2px;
+    }
+
  .form-wrapper input[type="submit"] {
     display: block;
     background: green;
@@ -32,12 +37,121 @@
     -moz-border-radius: 2px;
     border-radius: 2px;
     cursor: pointer;
-   } 
+  } 
 
 
-   .column-head-blue {
+  .column-head-blue {
     background: blue;
     color: white;
   }
 
+  .basic-button {
+    background-color: blue;
+    color: white;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+  }
+
+  .basic-button:hover{
+    background-color: rgb(2, 2, 104);
+    color: white;
+  }
+
+  .buy-button {
+    background-color: rgb(4, 146, 35);
+    color: white;
+    font-size: 30px;
+    display: inline-block;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+  }
+
+  .buy-button:hover{
+    background-color: rgb(8, 85, 25);
+    color: white;
+  }
+
+  .danger-button {
+    background-color: darkorange;
+    color: white;
+    font-size: 17px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition-duration: 0.4s;
+  }
+
+  .danger-button:hover{
+    background-color: crimson;
+    color: white;
+  }
+
   
+  .empty {
+    line-height: 200px;
+    height: 200px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(114, 113, 113);
+    border: none;
+    color: white;
+  }
+
+  .yellow-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid yellow;
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;
+  }
+
+  .yellow-box-button:hover{
+    background-color: yellow;
+    color: black;
+  }
+
+  .green-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid green;
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;  
+  }
+
+  .green-box-button:hover{
+    background-color: green;
+    color: white;
+  }
+
+  .blue-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(54, 7, 224);
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;  
+  }
+
+  .blue-box-button:hover{
+    background-color: rgb(54, 7, 224);
+    color: white;
+  }
