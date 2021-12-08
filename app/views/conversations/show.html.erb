@@ -5,6 +5,9 @@
 <% end %>
 
 
+
+<div class = "row needs-validation" novalidate  >
+<div class = "column col-lg-5 border1">
 <% if current_user.email == @conversation.starter %>
     <aside>
         <p class= "msg-overview"> <%= @conversation.initial_msg %></p>
@@ -49,6 +52,33 @@
             </aside>
         <% end %>
     <% end %>
+<% end %>
+
+<pre>
+
+
+</pre> 
+
+<!-- <% if current_user.email == @conversation.starter %>
+    <div class= "column-head-blue" ><h3><center><h3>Send a reply to <%= @conversation.listener %></h3></center></div>
+<% else %>
+    <div class= "column-head-blue" ><h3><center><h3>Send a reply to <%= @conversation.starter %></h3></center></div>
+<% end %> -->
+</div>
+<div class = "column offset-md-1 col-lg-5">
+<%= bootstrap_form_with model: @message,  method: :post, url: conversation_path(@user, @conversation), local: true do |cc| %>
+
+<% if current_user.email == @conversation.starter %>
+    <div class= "column-head-blue" ><h3><center><h3>Send a reply to <%= @conversation.listener.split('@')[0] %></h3></center></div>
+<% else %>
+    <div class= "column-head-blue" ><h3><center><h3>Send a reply to <%= @conversation.starter.split('@')[0] %></h3></center></div>
+<% end %>
+<div class="form-floating">
+    <input class="form-control" id="message_body" name="message[body]" placeholder="Message:" type="string" required>
+</div> 
+<br>
+<%= cc.submit "Send Message"%>
+
 <% end %>
 
     

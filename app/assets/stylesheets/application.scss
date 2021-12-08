@@ -23,6 +23,11 @@
     padding-left: $close-font-size + $alert-padding-x * 2;
   }
 
+  .border1 {
+      border: 2px solid darkslategrey;
+      // border-bottom:2px;
+    }
+
  .form-wrapper input[type="submit"] {
     display: block;
     background: green;
