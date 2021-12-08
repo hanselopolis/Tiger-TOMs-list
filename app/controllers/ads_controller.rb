@@ -12,7 +12,7 @@ class AdsController < ApplicationController
 
     #search engine
     def index
-      @ads = @q.result(distinct: true).sort_by(&:title)
+      @ads = @q.result(distinct: true).sort_by(&:created_at)
     end
     def search
       index

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :favorite_ads, only: [:create, :destroy]
   
   #homepage 
-
   root to: redirect('/home')
   get 'home', to: 'homepage#home', as: 'home' 
 
@@ -33,7 +32,6 @@ Rails.application.routes.draw do
   post 'categories/:id', to: 'ads#create'
 
   # Ads
-  #get 'ads', to: 'ads#index', as: 'ads'
   get 'categories/:category_id/new', to: 'ads#new',
   as: 'new_ad'
   get 'categories/:category_id/:id', to: 'ads#show', 
@@ -50,8 +48,6 @@ Rails.application.routes.draw do
        match 'search' => 'ads#search', via: [:get, :post], as: :search
      end
    end
-   #get 'ads/search', to: 'ads#search'
-   #post 'ads/index', to: 'ads#index'
 
   # Purchases
   get 'purchases', to: 'purchases#index', as: 'purchases_index'
