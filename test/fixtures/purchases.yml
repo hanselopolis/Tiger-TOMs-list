@@ -15,8 +15,7 @@
 #  bill_postal   :string
 #  bill_state    :string
 #  card_cvv      :integer
-#  card_exp_mo   :integer
-#  card_exp_yr   :integer
+#  card_exp_date :date
 #  card_number   :string
 #  card_type     :string
 #  ship_address1 :string

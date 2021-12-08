@@ -2,3 +2,70 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .menu_div ul li.active{background:blue}
+
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial;
+    font-size: 20px;
+    padding: 10px;
+  }
+  
+  /* Header */
+  .header {
+    /*padding: 30px;*/
+    text-align: center;
+    background: lightgrey;
+    font-size: 80px;
+  }
+  
+  .column-head-blue {
+    background: blue;
+    color: white;
+  }
+  
+  .header h1 {
+    font-size: 50px;
+  }
+  
+  /* Create three unequal columns that floats next to each other */
+  .column {   
+    float: center;
+    padding: 10px;
+    column-gap: 40px;
+  }
+  
+  /* side columns */
+  .column.side {
+    width: 20%;
+    background: white;
+    border-style: solid;
+    border-color: blue;
+  }
+  
+  /* center column */
+  .column.middle {
+    width: 60%;
+    background: white;
+    overflow: scroll;
+    border-style: solid;
+    border-color: blue;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* when the screen is less than 800px wide, make the columns stack on top of each other instead of next to each other */
+  @media screen and (max-width: 800px) {
+    .column.side, .column.middle {   
+      width: 100%;
+    }
+  }
+
+  

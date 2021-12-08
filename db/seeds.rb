@@ -16,7 +16,7 @@ vehicles = Category.create!(
 
 parts_mechanical = Category.create!(
     title: 'Parts - Mechanical',
-    description: 'Mechanical Parts for sale'
+    description: 'Keep your car running with these parts'
 )
 
 parts_interior = Category.create!(
@@ -29,7 +29,7 @@ parts_exterior = Category.create!(
 )
 tires = Category.create!(
     title: 'Tires',
-    description: 'Tires of all kinds'
+    description: 'Find any tire to keep your car rolling'
 )
 accessories = Category.create!(
     title: 'Accessories',
@@ -78,17 +78,22 @@ user2 = User.create!(
     zip: 90210
 )
 
-# Card Types
-visa = CardType.create!(
-    cardtype: "Visa"
+CreditCard.create!(
+    name: "Bobby Jones",
+    number: "4456-7783-9754-3521",
+    cvv: 119,
+    exp_date: "09/01/2019",
+    card_type: "MasterCard",
+    user: user1
 )
 
-amex = CardType.create!(
-    cardtype: "American Express"
-)
-
-mastercard = CardType.create!(
-    cardtype: "MasterCard"
+CreditCard.create!(
+    name: "Alice Smith",
+    number: "1344-9912-3456-9987",
+    cvv: 134,
+    exp_date: "08/01/2076",
+    card_type: "American Express",
+    user: user2
 )
 
 #ADS
@@ -97,10 +102,10 @@ ad1 = Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
     location: 'Memphis, TN',
-    contact: 'bob@email.com',
+    contact: 'bboy@email.com',
     price: 5650.0,
     status: 'active',
-    email: 'bob@email.com',
+    email: 'bboy@email.com',
     category: vehicles,
     user: user1
 )
@@ -108,10 +113,10 @@ Ad.create!(
     title: 'Nissan Altima',
     description: 'White, 72450 miles, brand new tires',
     location: 'Memphis, TN',
-    contact: 'bob@email.com',
+    contact: 'bboy@email.com',
     price: 8500.0,
     status: 'active',
-    email: 'bob@email.com',
+    email: 'bboy@email.com',
     category: vehicles,
     user: user1
 )
@@ -119,10 +124,10 @@ Ad.create!(
     title: 'Black Phone Mount',
     description: 'Mount up your phone to make using GPS that much easier',
     location: 'Memphis, TN',
-    contact: 'alice@email.com',
+    contact: 'atoz@email.com',
     price: 25.0,
     status: 'active',
-    email: 'alice@email.com',
+    email: 'atoz@email.com',
     category: accessories,
     user: user2
 )
@@ -131,49 +136,13 @@ ad2 = Ad.create!(
     title: 'Camo Steering Wheel Cover',
     description: 'Just buy it',
     location: 'Memphis, TN',
-    contact: 'alice@email.com',
+    contact: 'atoz@email.com',
     price: 10.0,
     status: 'active',
-    email: 'alice@email.com',
+    email: 'atoz@email.com',
     category: accessories,
     user: user2
 )
-
-## purchase1 = Purchase.create!(
-   ## ship_name: "steve",
-    # ship_company: "national buy stuff",
-    # ship_address1: "123 Elm Street",
-    # ship_address2: "Apt 3",
-    # ship_address3: "Basement",
-    # ship_city: "Haddenfield",
-    # ship_state: "IL",
-    # ship_country: "USA",
-    # ship_postal: "08033",
-    # ship_phone: "6301234567",
-    # ship_email: "steve@email.com",
-
-    # bill_name: "steve",
-    # bill_company: "",
-    # bill_address1: "123 Elm Street",
-    # bill_address2: "Apt 3",
-    # bill_address3: "",
-    # bill_city: "Haddenfield",
-    # bill_state: "IL",
-    # bill_country: "USA",
-    # bill_postal: "08033",
-    # bill_phone: "6301234567",
-    # bill_email: "",
-
-    # card_type: "Diners Club",
-    # card_number: "1234 2234 3234 4234",
-    # card_exp_mo: "12",
-    # card_exp_yr: "25",
-    # card_cvv: "123",
-    # user: user1
-# )
-
-
-
 
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanical.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
@@ -182,7 +151,7 @@ parts_exterior.image.attach(io: File.open('app/assets/images/seed_images/parts_e
 tires.image.attach(io: File.open('app/assets/images/seed_images/tires_cat.jpg'), filename: 'tires_cat.jpg')
 accessories.image.attach(io: File.open('app/assets/images/seed_images/accessories_cat.jpg'), filename: 'accessories_cat.jpg')
 mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_cat.jpg'), filename: 'mechanics_cat.jpg')
-other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.png'), filename: 'vehicles_cat.png')
+other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.jpg'), filename: 'other_services.jpg')
 ad1.images.attach(io: File.open('app/assets/images/seed_images/4runner.jpg'), filename: '4runner.jpg')
 ad2.images.attach(io: File.open('app/assets/images/seed_images/camo_wheel.jpg'), filename: 'camo_wheel.jpg')
 

@@ -1,7 +1,7 @@
 // Place all the styles related to the Ads controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.form-column {
+  .form-column {
     float: left;
     width: 33.33%;
   }
@@ -46,7 +46,7 @@
 
   .yellow-box-button:hover{
     background-color: yellow;
-    color: black;
+    color: white;
   }
 
   .green-box-button{
@@ -58,11 +58,28 @@
     text-align: center;
     padding: 5px 30px;
     border-radius: 1px;
-    transition-duration: 0.4s;
+    transition-duration: 0.4s;  
   }
 
   .green-box-button:hover{
     background-color: green;
+    color: white;
+  }
+
+  .blue-box-button{
+    background-color: white;
+    color: black;
+    border: 2px solid rgb(54, 7, 224);
+    font-size: 24px;
+    display: inline-block;
+    text-align: center;
+    padding: 5px 30px;
+    border-radius: 1px;
+    transition-duration: 0.4s;  
+  }
+
+  .blue-box-button:hover{
+    background-color: rgb(54, 7, 224);
     color: white;
   }
 
@@ -123,6 +140,7 @@
     margin: 0 1.5%;
     width: 63%;
   }
+
   aside {
     float: right;
     margin: 0 1.5%;
@@ -181,6 +199,19 @@
     width: 57rem;
   }
 
+  .bought-ads-container {
+    border: 5px solid black;
+    outline-style: solid;
+    outline-color: rgb(44, 2, 230);
+    outline-width: 7px;
+    margin: 0px 0px 20px 0px;  
+    padding-bottom: 1px;
+    padding-top: 10px;
+    padding-left: 48px;
+    padding-right: 10px;
+    text-align: left;
+    width: 57rem;
+  }
   .single-ad{
     background-color: rgb(255, 255, 255);
     color: black;

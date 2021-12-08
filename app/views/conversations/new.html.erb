@@ -1,0 +1,23 @@
+<h1>Start a New Conversation</h1>
+
+<%= bootstrap_form_with model: @conversation,  method: :post, url: conversations_path(@user), local: true do |cc| %>
+<div class = "row needs-validation" novalidate  >
+<div class = "column col-lg-5 position-relative">
+<div class= "column-head-blue" ><h3><center>Start A Conversation</center></h3></div>
+<div class="form-floating">
+    <input class="form-control" id="conversation_listener" name="conversation[listener]" placeholder="To:" type="string" value='<%= @user.email %>' required>
+    <input class="form-control" id="conversation_subject" name="conversation[subject]" placeholder="Subject" type="string" required>
+    <input class="form-control" id="conversation_initial_msg" name="conversation[initial_msg]" placeholder="Message:" type="string" required>
+</div> 
+<br>
+
+<%= cc.submit "Send Message"%>
+
+<% end %>
+
+<pre>
+
+</pre>
+<form>
+    <input type="button" value="< Back" onclick="history.back()">
+</form>
