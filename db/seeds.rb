@@ -144,6 +144,73 @@ ad2 = Ad.create!(
     user: user2
 )
 
+ad4 = Ad.create!(
+    title: 'Car steering Wheel',
+    description: 'Found it in another car...looking to sell it off quick',
+    location: 'Dallas, TX',
+    contact: 'bboy@email.com',
+    price: 76.43,
+    status: 'active',
+    email: 'bboy@email.com',
+    category: parts_interior,
+    user: user1
+)
+ad6 = Ad.create!(
+    title: 'Brown leather seats',
+    description: 'Only lightly used...',
+    location: 'Dallas, TX',
+    contact: 'bboy@email.com',
+    price: 225.0,
+    status: 'active',
+    email: 'bboy@email.com',
+    category: parts_interior,
+    user: user1
+)
+ad8 = Ad.create!(
+    title: 'Silver car door',
+    description: "working door, you'll have to attatch it yourself",
+    location: 'Fortwayne, IN',
+    contact: 'bboy@email.com',
+    price: 128.0,
+    status: 'active',
+    email: 'bboy@email.com',
+    category: parts_exterior,
+    user: user1
+)
+ad10 = Ad.create!(
+    title: 'Bumper for Ford Ranger',
+    description: 'Only for Ford Ranger nothing more nothing less',
+    location: 'Fortwayne, IN',
+    contact: 'bboy@email.com',
+    price: 365.0,
+    status: 'active',
+    email: 'bboy@email.com',
+    category: parts_exterior,
+    user: user1
+)
+ad12 = Ad.create!(
+    title: 'Door atttatchment service',
+    description: 'I can actually attatch your car door but itll cost you extra',
+    location: 'Fortwayne, IN',
+    contact: 'bboy@email.com',
+    price: 200.0,
+    status: 'active',
+    email: 'bboy@email.com',
+    category: mechanics,
+    user: user1
+)
+ad14 = Ad.create!(
+    title: 'Oil Change',
+    description: 'I can change your oil for you, but you gotta buy the oil',
+    location: 'Fortwayne, IN',
+    contact: 'bboy@email.com',
+    price: 55.0,
+    status: 'active',
+    email: 'bboy@email.com',
+    category: mechanics,
+    user: user1
+)
+
 vehicles.image.attach(io: File.open('app/assets/images/seed_images/vehicles_cat.jpg'), filename: 'vehicles_cat.jpg')
 parts_mechanical.image.attach(io: File.open('app/assets/images/seed_images/parts_mechanical_cat.jpg'), filename: 'parts_mechanical_cat.jpg')
 parts_interior.image.attach(io: File.open('app/assets/images/seed_images/parts_interior_cat.jpg'), filename: 'parts_interior_cat.jpg')
@@ -154,6 +221,10 @@ mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_ca
 other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.jpg'), filename: 'other_services.jpg')
 ad1.images.attach(io: File.open('app/assets/images/seed_images/4runner.jpg'), filename: '4runner.jpg')
 ad2.images.attach(io: File.open('app/assets/images/seed_images/camo_wheel.jpg'), filename: 'camo_wheel.jpg')
+ad4.images.attach(io: File.open('app/assets/images/seed_images/steeringwheel.jpg'), filename: 'steeringwheel.jpg')
+ad6.images.attach(io: File.open('app/assets/images/seed_images/seats.jpg'), filename: 'seats.jpg')
+ad8.images.attach(io: File.open('app/assets/images/seed_images/car-door.jpg'), filename: 'car-door.jpg')
+ad10.images.attach(io: File.open('app/assets/images/seed_images/bumper.jpg'), filename: 'bumper.jpg')
 user1.image.attach(io: File.open('app/assets/images/seed_images/bob.jpg'), filename: 'bob.jpg')
 user2.image.attach(io: File.open('app/assets/images/seed_images/alice.jpg'), filename: 'alice.jpg')
 
