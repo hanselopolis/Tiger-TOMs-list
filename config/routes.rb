@@ -29,11 +29,11 @@ Rails.application.routes.draw do
 
   # Categories
   get 'categories', to: 'categories#index', as: 'categories'
-  get 'categories/:id', to: 'categories#show', as: 'category'
+  get 'categories/:id', to: 'categories#show', as: 'category' 
   
 
   # Ads
-  post 'categories/:category_id/ads', to: 'ads#create'
+  post 'categories/:category_id/ads', to: 'ads#create', as: 'category_ads'
   get 'categories/:category_id/ads/new', to: 'ads#new',as: 'new_ad'
   get 'categories/:category_id/ads/:id', to: 'ads#show', as: 'ad'
   patch 'categories/:category_id/ads/:id', to: 'ads#update'
