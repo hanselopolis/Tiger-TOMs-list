@@ -35,7 +35,7 @@
 
     <!-- if stored credit card is present but expired, display message and do not autofill -->
     <%if current_user.credit_cards != nil && current_user.credit_cards.exp_date < DateTime.now %>
-      <p style="color:red"><b> Your saved credit card is expired. Please provide new information below. </b></p>
+      <p style="color:red; font-family: 'Times New Roman', serif;"><b> Your saved credit card is expired. Please provide new information below. </b></p>
       <pre></pre>
     <% end %> 
     Credit card type: <select class="form-select" name="purchase[card_type]"id="purchase_card_type" type="string" required>
@@ -86,15 +86,9 @@
     <br>
   </div>
 
-<<<<<<< HEAD
   <center>
   <%= f.submit "BUY NOW!", class: "buy-button lg"%>
   </center>
-=======
-    <center>
-      <%= f.submit "BUY NOW!"%>
-    </center>
->>>>>>> df0989c0a5f347bd61e072c4187ddb62e54017ed
   </div>
  </div> 
 

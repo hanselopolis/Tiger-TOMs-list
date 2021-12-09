@@ -53,7 +53,7 @@ class ConversationsController < ApplicationController
            flash[:success] = "Message Sent"
            redirect_to conversations_url
         else
-           flash.now[:error] = "Failed to Send Message"
+           flash.now[:error] = "Failed to Send Message - Maximum Characters is 130"
            render :new
         end
     end
