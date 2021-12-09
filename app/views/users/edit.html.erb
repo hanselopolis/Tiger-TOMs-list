@@ -2,6 +2,7 @@
 
 <%= bootstrap_form_with model: @user, url: user_path(@user), method: :patch, local: true do |u| %>
 
+<%= u.file_field :image %>
 <%= u.text_field :email %>
 <%= u.text_field :first_name %>
 <%= u.text_field :last_name %>
@@ -18,11 +19,14 @@
 <%= u.submit nil, class: 'basic-button' %> | <%= link_to "Delete User", user_path(@user), method: :delete, class: "danger-button" %>
 
 <% end %>
-<pre>
-</pre>
-<!-- <td><%= link_to "Delete User", user_path(@user), method: :delete, class: "danger-button" %></td> -->
-<form>
-    <input type="button" value="< Back" onclick="history.back()">
-</form>
 
+
+<pre></pre>
+ <%= link_to "Delete", user_path(@user), method: :delete, class: "danger-button" %>
+
+
+<pre></pre>
+<form>
+    <input type="button" value="< Leave without saving" onclick="history.back()">
+</form>
 

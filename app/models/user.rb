@@ -67,6 +67,7 @@ class User < ApplicationRecord
         dependent: :destroy
     )
 
+    has_one_attached :image
     has_many :favorites
     has_many :favorite_ads, through: :favorites, source: :favorited, source_type: 'Ad'
 
