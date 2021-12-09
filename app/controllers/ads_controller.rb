@@ -1,8 +1,10 @@
 class AdsController < ApplicationController
 
-    before_action :authenticate_user!, except: [:index, :search]
+    before_action :authenticate_user!, except: [:index, :show, :search]
     before_action :require_permission, except: [:index, :search, :show, :new, :create]
     add_flash_types :info, :error, :warning, :success
+
+    
 
     def require_permission
       if Ad.find(params[:id]).user != current_user
@@ -21,8 +23,9 @@ class AdsController < ApplicationController
     #-------------------------------------------------
 
     def show
-        @category = Category.find(params[:category_id])
+        @category = Category.find(params[:id])
         @ad = Ad.find(params[:id]) 
+        $email = @ad.email
         render :show
     end
 

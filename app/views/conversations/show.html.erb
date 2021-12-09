@@ -32,19 +32,12 @@ a { text-decoration: none;
                 <pre>
 
 
-
-
-
-
                 </pre>
         <% else %>
             <p class= "msg-overview", style="position: absolute; left: 0;">
                     <%= @conversation.initial_msg %>
                 </p>
                 <pre>
-
-
-
 
 
                 </pre>
@@ -57,18 +50,12 @@ a { text-decoration: none;
                 <pre>
 
 
-
-
-
                 </pre>
             <% else %>
                 <p class= "msg-overview", style="position: absolute; left: 0;">
                     <%= msg.body %>
                 </p>
                 <pre>
-
-
-
 
 
                 </pre>
@@ -78,10 +65,6 @@ a { text-decoration: none;
 
     <div class= "column offset col-lg-5", style= "margin-left: 120px;">
         <pre>
-
-
-
-
 
         </pre>
         <%= bootstrap_form_with model: @message,  method: :post, url: conversation_path(@user, @conversation), local: true do |cc| %>

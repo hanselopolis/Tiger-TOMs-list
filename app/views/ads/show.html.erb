@@ -61,7 +61,8 @@
 
 
             </pre> 
-
+            <!-- restricting these buttons and actions to logged in users -->
+            <% if current_user %>
             <!-- message seller -->
             <% if @ad.user != current_user%>
                 <%= link_to 'Message seller', new_conversation_path(current_user), class: 'blue-box-button'  %>
@@ -95,6 +96,7 @@
                 <a href= "<%=  edit_ad_path(@category, @ad)%>", style= "text-align: right;">
                             <p class= "basic-button", style= "text-align: right;">Edit<p>
                         </a>
+            <% end %>
             <% end %>
         </aside>
 

@@ -36,10 +36,10 @@ class ConversationsController < ApplicationController
     end
     
     def new
-        @ad = Ad.find(params[:id])
+        @email = $email
         @user = User.find(params[:id])
         @conversation = Conversation.new
-
+           
         render :new 
     end
 

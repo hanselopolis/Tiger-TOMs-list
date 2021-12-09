@@ -1,10 +1,10 @@
 <html>
 <body>
- 
+ <pre></pre>
 <div class="header">
-    <strong><b>TOM the Tiger's List</b></strong>
+    <strong><b>Welcome to TOM the Tiger's List!</b></strong>
 </div>
- 
+ <pre></pre>
 <b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
 <br>
 <div class = "row">
@@ -60,12 +60,18 @@
  
  
   <div class="column side">
-      <h2>Post an Ad or Register</h2>
-
+      <!-- <h2>Post an Ad or Register</h2> -->
+      <!-- display register button only if registered user is not logged in -->
       <% if !current_user %>
-        <p><%= link_to "Register Here", new_user_path, class: "basic-button basic-button:hover" %></p>
+        <h2>To post or buy ads, please</h2>
+        <p><%= link_to "register here", new_user_path, class: "basic-button basic-button:hover" %></p>
       <% end %>
-      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p> 
+
+      <!-- display post ad button only if registered user not logged in -->
+      <% if current_user %>
+      <h2>Want to sell your stuff? </h2>
+      <p><%= link_to "Post an Ad", new_ad_url(@category.find(1)), class: "basic-button basic-button:hover" %></p>
+      <% end %> 
   </div>
 
 </div>

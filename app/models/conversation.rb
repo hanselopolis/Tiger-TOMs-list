@@ -21,6 +21,8 @@
 #
 class Conversation < ApplicationRecord
     
+    validates :initial_msg, length: { minimum: 1, maximum: 100 }
+
     has_many(
         :messages,
         class_name: 'Message',
