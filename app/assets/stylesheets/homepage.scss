@@ -48,7 +48,9 @@
   .column.middle {
     width: 60%;
     background: white;
-    overflow: scroll;
+    width: 600px;
+    height: 500px;
+    overflow: auto;
     border-style: solid;
     border-color: blue;
   }
