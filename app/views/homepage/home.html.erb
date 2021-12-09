@@ -37,7 +37,7 @@
         <% @ad.each do |ad| %>
           <% if ad.status == "active" %>
             <% if ad.images.attached? %>
-              <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+              <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
                 <%= image_tag ad.images[0], width: "150", height: "125" %>
                 <br>
                  <%= ad.title %>
@@ -45,7 +45,7 @@
                  <%= ad.created_at.strftime("%m/%d/%Y")%>
                 </p> </a>
           <% else %>
-            <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
+            <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
             <%= image_tag "no_image.jpg", width: "150", height: "125" %>
             <br>
             <%= ad.title %>

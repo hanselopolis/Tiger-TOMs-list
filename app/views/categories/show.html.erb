@@ -37,12 +37,13 @@
                                 <%= image_tag ad.images[0], width: "250", height: "200" %>
                                 <br>
                                 <%= ad.title %>
-                            </p> </a>
+                            </p></a>
                         <% else %>
                             <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
                                 <%= image_tag "no_image.jpg", width: "250", height: "200" %>
                                 <br>
                                 <%= ad.title %>
+                            </p></a>
                         <% end %>
                     <% end %>
                 <% end %>

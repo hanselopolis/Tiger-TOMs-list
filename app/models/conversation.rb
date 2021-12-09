@@ -20,6 +20,10 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Conversation < ApplicationRecord
+    validates :initial_msg, presence: true
+    validates :subject, presence: true
+    validates :listener, presence: true 
+    validates :initial_msg, length: { minimum: 1, maximum: 130 }
     
     validates :initial_msg, length: { minimum: 1, maximum: 100 }
 
