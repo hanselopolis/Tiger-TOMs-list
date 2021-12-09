@@ -24,20 +24,24 @@ a { text-decoration: none;
 <% end %> 
 
 <div class= "row">
-    <div class= "column col-lg-5 border1", style= "padding: 10px; ">
+    <div class= "column col-lg-5 border1", style= "padding: 20px; ">
         <% if current_user.email == @conversation.starter %>
             <p class= "msg-overview", style="position: absolute; right: 0;">
                     <%= @conversation.initial_msg %>
+               
                 </p>
                 <pre>
+
 
 
                 </pre>
         <% else %>
             <p class= "msg-overview", style="position: absolute; left: 0;">
                     <%= @conversation.initial_msg %>
+                
                 </p>
                 <pre>
+
 
 
                 </pre>
@@ -46,16 +50,20 @@ a { text-decoration: none;
             <% if current_user.email == msg.author %>
                 <p class= "msg-overview", style="position: absolute; right: 0;">
                     <%= msg.body %>
+                
                 </p>
                 <pre>
+
 
 
                 </pre>
             <% else %>
                 <p class= "msg-overview", style="position: absolute; left: 0;">
                     <%= msg.body %>
+               
                 </p>
                 <pre>
+
 
 
                 </pre>
@@ -68,11 +76,7 @@ a { text-decoration: none;
 
         </pre>
         <%= bootstrap_form_with model: @message,  method: :post, url: conversation_path(@user, @conversation), local: true do |cc| %>
-        <%# <div class = "row needs-validation" novalidate  >
-        <div class = "column col-lg-5 position-relative">
-        <div class="form-floating"> %>
             <input class="form-control" id="message_body" name="message[body]" placeholder="Message:" type="string" required>
-        <%# </div>  %>
         <br>
 
         <%= cc.submit "Send Message", class: "basic-button"%>
