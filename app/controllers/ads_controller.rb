@@ -25,7 +25,7 @@ class AdsController < ApplicationController
     def show
         @category = Category.find(params[:id])
         @ad = Ad.find(params[:id]) 
-        $email = @ad.email
+        $email = @ad.user.email
         render :show
     end
 

@@ -2,9 +2,9 @@
 <nav class="navbar navbar-dark bg-dark">
 
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="/home">Home</a>
+  <b><a class="navbar-brand" href="/home">HOME</a></b>
 
-  <h2 style= "font-family: Garamond, serif;"> TOM the Tiger's List</h2>
+  <h1 style= "font-family: Copperplate, fantasy;"> TOM the Tiger's List</h1>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
@@ -17,25 +17,32 @@
     <!-- Links -->
     <span style= "float: right;">
       <ul class="navbar-nav mr-auto">
+
+        <!-- if user is logged in -->
         <% if user_signed_in? %>
         <li class="nav-item <%= active_class(edit_user_registration_path) %>">
-         <%= link_to "Hi, #{current_user.email}", user_path(current_user), class: 'nav-link' %>
+          <b><%= link_to "Hi, #{current_user.first_name}!", user_path(current_user), class: 'nav-link' %></b>
         </li>
         <li class="nav-item">
          <%= link_to "Messages", conversations_path(current_user), class: 'nav-link' %>
         </li>
         <li class="nav-item">
+          <%= link_to "View Categories", categories_path, class: 'nav-link'  %>
+        </li>
+        <li class="nav-item">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
         </li>
+        
 
-      <% else %>
-      <li class="nav-item <%= active_class(new_user_session_path) %>">
-        <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
-      </li>
-      <li class="nav-item <%= active_class(new_user_registration_path) %>">
-          <%= link_to 'Register New User', new_user_path, class: 'nav-link' %>
+        <!-- if user is NOT logged in -->
+        <% else %>
+        <li class="nav-item <%= active_class(new_user_session_path) %>">
+          <%= link_to 'Sign In', new_user_session_path, class: 'nav-link' %>
         </li>
-      <% end %>
+        <li class="nav-item <%= active_class(new_user_registration_path) %>">
+            <%= link_to 'Register New User', new_user_path, class: 'nav-link' %>
+          </li>
+        <% end %>
     </ul>
 
     <div class="form-inline navbar-form">

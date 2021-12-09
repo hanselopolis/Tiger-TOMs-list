@@ -71,6 +71,12 @@ class User < ApplicationRecord
     has_many :favorites
     has_many :favorite_ads, through: :favorites, source: :favorited, source_type: 'Ad'
 
+    
+    validates :first_name, presence: true
+    validates :last_name, presence: true
+    validates :email, presence: true
+    validates :password, presence: true
+    
     def name
         email.split('@')[0]
     end

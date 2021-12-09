@@ -51,9 +51,18 @@
         </div>
         <pre>
         
+        
         </pre>
-        <a href= "<%=  new_ad_path(@category)%>" class= "basic-button">Post an Ad</a>
-        <pre></pre>
+        <% if current_user %>
+            <a href= "<%=  new_ad_path(@category)%>" class= "basic-button">Post an Ad</a>
+        <% else %>
+            <h2>
+            <%= link_to "REGISTER", new_user_path, class: "basic-button" %> or <%= link_to 'SIGN IN', new_user_session_path, class: "basic-button" %>
+             to buy items or list items for sale on TOM's List!</h2>    
+        <% end %>
+        <pre>
+        
+        </pre>
         <p><a href= "<%=  categories_path%>" class= "basic-button">< Categories</a></p>
  
     </body>

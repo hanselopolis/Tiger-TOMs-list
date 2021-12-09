@@ -1,23 +1,43 @@
-<h1>Create a New Ad</h1>
+<pre>
 
+</pre>
+<div class= "column-head-blue" ><h1><center>CREATE A NEW AD LISTING</center></h1></div>
+<pre>
+
+</pre>
 <%= bootstrap_form_with model: @ad, method: :post, url: category_path(@category), local: true do |f| %>
 <div class = "form-row">
-    <div class = "column">
+    
+    <div class = "column col-lg-6 position-relative">
 
-        <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>
-        <%= f.file_field :images, multiple: true %>
+        <%= f.file_field :images, label: "Image 1", multiple: true %>
+        <%= f.file_field :images, label: "Image 2",multiple: true %>
+    </div>
+    <div class = "column col-lg-6 "> 
+        <%= f.file_field :images, label: "Image 3",multiple: true %>
+        <%= f.file_field :images, label: "Image 4",multiple: true %>
+    </div>
+</div>    
+<pre>
+
+</pre>
+<div class = "form-row">
+    <div class = "column col-lg-5 offset-lg-0">
         <%= f.text_field :title%>
         <%= f.number_field(:price, :step => "0.01") %>
         <%= f.collection_select(:category_id, Category.all, :id, :title) %>
         <%= f.text_area :description %>
 
+        <pre>
+        
+        </pre>
+        <%= f.submit class: "basic-button" %>  
+        <a href= "<%= category_url(@category)%>", class= "danger-button">Cancel</a>
         
 
     </div>
 
-   <div class = "column offset-lg-2"> 
+    <div class = "column col-lg-5 offset-lg-2"> 
 
         <%= f.text_field :email, value: current_user.email %>
         <%= f.text_field :phone, value: current_user.phone %>
@@ -25,12 +45,7 @@
         <%= f.text_field :city, value: current_user.city %>
         <%= f.text_field :state, value: current_user.state %>
         <%= f.text_field :zip, value: current_user.zip %>
-        <pre>
         
-        </pre>
-        <%= f.submit class: "basic-button" %>
-        <a href= "<%= category_url(@category)%>", style= "float: right;",
-        class= "danger-button">Cancel</a>
 
     </div>
 </div>

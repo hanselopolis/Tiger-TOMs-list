@@ -4,6 +4,7 @@
 <div class="header">
     <strong><b>Welcome to TOM the Tiger's List!</b></strong>
 </div>
+<center><h3>~ THE #1 peer-to-peer source for imaginary car parts on your localhost! ~</h3></center>
  <pre></pre>
 <b>View by: <%= link_to "ALL", home_path %> | <%= link_to "CATEGORIES", categories_path %> </b>
 <br>
@@ -19,7 +20,7 @@
  
         <% @category.each do |c| %>
           <tr>
-            <td><%= link_to c.title, category_path(c) %></td>
+            <td><b><%= link_to c.title, category_path(c) %></b></td>
             <td class="text-nowrap">
             </td>
           </tr>
@@ -30,9 +31,9 @@
  
   <div class="column middle">
     <header>
-    <h1>Ad Listings</h1>
+    <div class="column-head-blue"><h1><b><center>AD LISTINGS</center></b></h1></div>
     </header>
- 
+    <pre></pre>
     <body>        
         <% @ad.each do |ad| %>
           <% if ad.status == "active" %>
@@ -40,7 +41,7 @@
               <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
                 <%= image_tag ad.images[0], width: "150", height: "125" %>
                 <br>
-                 <%= ad.title %>
+                 <b><%= ad.title %></b>
                  <br>
                  <%= ad.created_at.strftime("%m/%d/%Y")%>
                 </p> </a>
@@ -48,7 +49,7 @@
             <a href= "<%= ad_path(ad.category, ad) %>"><p class="ad-button">
             <%= image_tag "no_image.jpg", width: "150", height: "125" %>
             <br>
-            <%= ad.title %>
+            <b><%= ad.title %></b>
             <br>
             <%= ad.created_at.strftime("%m/%d/%Y")%>
             </p> </a>
@@ -79,3 +80,5 @@
  
 </body>
 </html>
+
+ 

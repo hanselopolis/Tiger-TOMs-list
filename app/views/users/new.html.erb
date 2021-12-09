@@ -1,28 +1,39 @@
-<h1> Create New User Account </h1>
-
+<!-- <h1> Create New User Account </h1> -->
+<pre>
+</pre>
 <%= bootstrap_form_with model: @user, url: users_path, method: :post, local: true do |u| %>
 
-<%= u.text_field :email %>
-<%= u.text_field :first_name %>
-<%= u.text_field :last_name %>
-<%= u.text_field :address1 %>
-<%= u.text_field :address2 %>
-<%= u.text_field :address3 %>
-<%= u.text_field :city %>
-<%= u.text_field :state %>
-<%= u.number_field :zip %>
-<%= u.text_field :country %>
-<%= u.text_field :phone %>
-<%= u.text_area :bio %>
-<%= u.text_field :password %>
-<%= u.submit nil, class: 'btn btn-primary' %>
+    <div class = "row" >
+        <div class = "column col-lg-8 position-relative" >
 
-
+        <div class= "column-head-blue" ><h3><center>CREATE NEW USER ACCOUNT</center></h3></div>
+            <div class="form-floating needs-validation">
+                <input class="form-control" id="user_email" name="user[email]" placeholder="Email: (required)" type="string" required> 
+                <input class="form-control" id="user_first_name" name="user[first_name]" placeholder="First name: (required)" type="string" required>
+                <input class="form-control" id="user_last_name" name="user[last_name]" placeholder="Last name: (required)" type="string" required>
+                <input class="form-control" id="user_password" name="user[password]" placeholder="Password: (required, minimum six characters)" type="string" required>
+                <input class="form-control" id="user_address1" name="user[address1]" placeholder="Address 1:" type="string" >
+                <input class="form-control" id="user_address2" name="user[address2]" placeholder="Address 2:" type="string" >
+                <input class="form-control" id="user_address3" name="user[address3]" placeholder="Address 3:" type="string" >
+                <input class="form-control" id="user_city" name="user[city]" placeholder="City:" type="string" >
+                <input class="form-control" id="user_state" name="user[state]" placeholder="State/province:" type="string" >
+                <input class="form-control" id="user_country" name="user[country]" placeholder="Country:" type="string" >
+                <input class="form-control" id="user_zip" name="user[zip]" placeholder="Zip/postal code:" type="string" >
+                <input class="form-control" id="user_phone" name="user[phone]" placeholder="Phone:" type="string" >
+                <input class="form-control" id="user_bio" name="user[bio]" placeholder="Bio:" type="string" >
+                
+                <br> 
+                <%= u.submit nil, class: 'buy-button' %>
+        </div>
+        </div>
+    </div>
 <% end %>
 <pre>
 </pre>
 <form>
     <input type="button" value="< Cancel" onclick="history.back()">
 </form>
+
+
 
  
