@@ -4,6 +4,7 @@
             <td><%= link_to "Favorites", favorites_path() , class: "basic-button" %></td>
             <td><%= link_to "My Posts", user_ads_path(@user), class: "basic-button"%></td>
             <td><%= link_to "Settings", user_settings_path(@user), class: "basic-button"%></td>
+            <td><%= link_to "Messages", conversations_path(current_user), class: "basic-button"%></td>
         <%end%>
 </nav>
 
