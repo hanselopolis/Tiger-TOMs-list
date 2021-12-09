@@ -1,69 +1,73 @@
 
+<nav>
 <% if @user == current_user %>
-    <td><%= link_to "Favorites", favorites_path() , class: "basic-button" %></td>
-    <td><%= link_to "Edit Profile", edit_user_path(@user) , class: "basic-button" %></td>
-    <td><%= link_to "Credit Card", credit_card_path(@user) , class: "basic-button" %></td>
-    <td><%= link_to "Change Password", edit_user_registration_path, class: "basic-button" %></td>
-    <td><%= link_to "My Posts", user_ads_path(@user), class: "basic-button"%></td>
-    <td><%= link_to "My Messages", conversations_path(@user), class: "basic-button"%></td>
-<%end%>
+            <td><%= link_to "Favorites", favorites_path() , class: "basic-button" %></td>
+            <td><%= link_to "My Posts", user_ads_path(@user), class: "basic-button"%></td>
+            <td><%= link_to "Settings", user_settings_path(@user), class: "basic-button"%></td>
+        <%end%>
+</nav>
+
+
+<h1 style="text-align:center;"> <%= @user.first_name%> <%= @user.last_name%> </h1>
+
+<% if @user.image.attached? %>
+                    <%= image_tag @user.image, size: "300x300", class: "rounded-circle d-block mx-left " %>
+                <% else %>
+                    <%= image_tag "avatar.png", size: "300x300", class: "rounded-circle d-block mx-left" %>
+<% end %>
+
+
 <pre>
+
+
 
 </pre>
 
-<table align ="right">
-
+<table>
     <thead>
         <tr>
-            <th> <%= @user.username %> </th>
-        <tr>
+            <th> Bio: </th>
+        </tr>
     </thead>
 
     <tbody>
         <tr>
-            <td> <%= @user.first_name%> <%= @user.last_name %> </td>
+            <td><%= simple_format(@user.bio) %></td>
         </tr>
-        <tr>
-            <td> Email: <%= @user.email %> </td>
-        </tr>
-        <tr>
-            <td> Street Address 1: <%= @user.address1 %> </td>
-        </tr>
-        <tr>
-            <td> Street Address 2: <%= @user.address2 %> </td>
-        </tr>
-        <tr>
-            <td> Street Address 3: <%= @user.address3 %> </td>
-        </tr>
-        <tr>
-            <td> City: <%= @user.city%> </td>
-        </tr>
-        <tr>
-            <td> State: <%= @user.state%> </td>
-        </tr>
-        <tr>
-            <td> Country: <%= @user.country %> </td>
-        </tr>
-        <tr>
-            <td> ZIP Code: <%= @user.zip %>
-        </tr>
-        <!-- <tr>
-        <% if @user == current_user %>
-            <td><%= link_to "Favorites", favorites_path() , class: "btn btn-primary" %></td>
-            <td><%= link_to "Edit Profile", edit_user_path(@user) , class: "btn btn-primary" %></td>
-            <td><%= link_to "Credit Card", credit_card_path(@user) , class: "btn btn-primary" %></td>
-            <td><%= link_to "Change Password", edit_user_registration_path, class: "btn btn-primary" %></td>
-            <td><%= link_to "My Posts", user_ads_path(@user), class: "btn btn-primary"%></td>
-        <%end%>
-        </tr> -->
-    </tbody>
+
+
 </table>
 
+<hr>
 
-<p>
+<h2> Items from this seller </h2>
+            <div class= "row">
+                <div class= "column">
+                    <% @ads.each do |ad| %>
+                        <% if ad.status == "active" %>
+                            <% if ad.images.attached? %>
+                                <p class="single-ad">
+                                    <%= image_tag ad.images[0], width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                    <br>
+                                    <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
+                                </p> 
+                                
+                            <% else %>
+                                <p class="single-ad">
+                                    <%= image_tag "no_image.jpg", width: "250", height: "200" %>
+                                    <br>
+                                    <%= ad.title %>
+                                    <br>
+                                    <%= link_to "View", ad_path(ad.category, ad), class: "basic-button"%>
+                                </p>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
 
-<h2><b>Bio:</b></h2> <h4><%= simple_format(@user.bio) %></h4>
-</p>
 
 
 
