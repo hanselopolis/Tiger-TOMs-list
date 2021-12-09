@@ -1,26 +1,28 @@
+<!--Navbar-->
+<nav class="navbar navbar-dark bg-dark">
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/home">Home</a>
+  <!-- Navbar brand -->
+  <a class="navbar-brand" href="/home">Home</a>
 
-    <div class="form-inline navbar-form navbar-left">
-      <%= search_form_for @q, url: search_ads_path, :html => { method: :post } do |f| %>
-      <%= f.search_field :title_or_description_or_email_cont, type: "text", class: "form-control", placeholder: "Search Ads" %> 
-      <%= f.submit 'Search', class: "basic-button basic-button:hover" %>
-      <% end %>
+  <h2 style= "font-family: Garamond, serif;"> TOM the Tiger's List</h2>
 
-    </div>
-    <h2 style= "font-family: Garamond, serif;">TOM the Tiger's List</h2>
-    
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav ml-auto">
-       <ul class="navbar-nav">
-      <% if user_signed_in? %>
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent15"
+    aria-controls="navbarSupportedContent15" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+
+
+  <!-- Collapsible content -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent15">
+
+    <!-- Links -->
+    <span style= "float: right;">
+      <ul class="navbar-nav mr-auto">
+        <% if user_signed_in? %>
         <li class="nav-item <%= active_class(edit_user_registration_path) %>">
          <%= link_to "Hi, #{current_user.email}", user_path(current_user), class: 'nav-link' %>
+        </li>
+        <li class="nav-item">
+         <%= link_to "Messages", conversations_path(current_user), class: 'nav-link' %>
         </li>
         <li class="nav-item">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
@@ -36,6 +38,17 @@
       <% end %>
     </ul>
 
+    <div class="form-inline navbar-form">
+      <%= search_form_for @q, url: search_ads_path, :html => { method: :post } do |f| %>
+      <%= f.search_field :title_or_description_or_email_cont, type: "text", class: "form-control", placeholder: "Search Ads" %> 
+      <%= f.submit 'Search', class: "basic-button basic-button:hover" %>
+      <% end %>
+    </div>
+    </span>
+    <!-- Links -->
+
   </div>
+  <!-- Collapsible content -->
 
 </nav>
+<!--/.Navbar-->
