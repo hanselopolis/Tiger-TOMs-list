@@ -144,6 +144,18 @@ ad2 = Ad.create!(
     user: user2
 )
 
+ad3 = Ad.create!(
+    title: 'Used Ferrari fuel pump',
+    description: 'pulled at 1000000000 miles, worked great when I took it out',
+    location: 'Washington, D.C.',
+    contact: 'atoz@email.com',
+    price: 200.0,
+    status: 'active',
+    email: 'atoz@email.com',
+    category: parts_mechanical,
+    user: user2
+)
+
 ad4 = Ad.create!(
     title: 'Car steering Wheel',
     description: 'Found it in another car...looking to sell it off quick',
@@ -154,6 +166,18 @@ ad4 = Ad.create!(
     email: 'bboy@email.com',
     category: parts_interior,
     user: user1
+)
+
+ad5 = Ad.create!(
+    title: '**BRAND NEW** Koenigsegg air intake',
+    description: 'sold the car so you can have it for cheap!',
+    location: 'Buffalo, NY',
+    contact: 'atoz@email.com',
+    price: 1.0,
+    status: 'active',
+    email: 'atoz@email.com',
+    category: parts_mechanical,
+    user: user2
 )
 ad6 = Ad.create!(
     title: 'Brown leather seats',
@@ -166,6 +190,19 @@ ad6 = Ad.create!(
     category: parts_interior,
     user: user1
 )
+
+ad7 = Ad.create!(
+    title: 'Michelin Pilot Sport 4S, 255/40/R18, 1/256 tread remaining, set of 3',
+    description: 'these grip harder than superman and are still sticky. Plenty of life left! Buy with confidence!',
+    location: 'Pebble Beach, CA',
+    contact: 'atoz@email.com',
+    price: 100.0,
+    status: 'active',
+    email: 'atoz@email.com',
+    category: tires,
+    user: user2
+)
+
 ad8 = Ad.create!(
     title: 'Silver car door',
     description: "working door, you'll have to attatch it yourself",
@@ -177,6 +214,18 @@ ad8 = Ad.create!(
     category: parts_exterior,
     user: user1
 )
+ad9 = Ad.create!(
+    title: '1 blown Bugatti tire',
+    description: 'Shredded to bits but I bet you can make some cool art with it!',
+    location: 'Wichita, KS',
+    contact: 'atoz@email.com',
+    price: 1000.0,
+    status: 'active',
+    email: 'atoz@email.com',
+    category: tires,
+    user: user2
+)
+
 ad10 = Ad.create!(
     title: 'Bumper for Ford Ranger',
     description: 'Only for Ford Ranger nothing more nothing less',
@@ -188,6 +237,17 @@ ad10 = Ad.create!(
     category: parts_exterior,
     user: user1
 )
+ad11 = Ad.create!(
+    title: 'professional welder for hire',
+    description: 'Jieves is my butler and he sure can weld! Acetylene? Mig? Tig? Cast iron? Pot metal? Any of it. If it can be welded he can weld it',
+    location: 'Amarillo, TX',
+    contact: 'atoz@email.com',
+    price: 9999.0,
+    status: 'active',
+    email: 'atoz@email.com',
+    category: other_services,
+    user: user2
+)
 ad12 = Ad.create!(
     title: 'Door atttatchment service',
     description: 'I can actually attatch your car door but itll cost you extra',
@@ -198,6 +258,17 @@ ad12 = Ad.create!(
     email: 'bboy@email.com',
     category: mechanics,
     user: user1
+)
+ad13 = Ad.create!(
+    title: 'Performance tuning, +100 HP minimum guaranteed',
+    description: 'Tired of a lack of power? We can help. ',
+    location: 'Toronto, Canada',
+    contact: 'atoz@email.com',
+    price: 250.0,
+    status: 'active',
+    email: 'atoz@email.com',
+    category: other_services,
+    user: user2
 )
 ad14 = Ad.create!(
     title: 'Oil Change',
@@ -221,9 +292,13 @@ mechanics.image.attach(io: File.open('app/assets/images/seed_images/mechanics_ca
 other_services.image.attach(io: File.open('app/assets/images/seed_images/other_services_cat.jpg'), filename: 'other_services.jpg')
 ad1.images.attach(io: File.open('app/assets/images/seed_images/4runner.jpg'), filename: '4runner.jpg')
 ad2.images.attach(io: File.open('app/assets/images/seed_images/camo_wheel.jpg'), filename: 'camo_wheel.jpg')
+ad5.images.attach(io: File.open('app/assets/images/seed_images/koenig.jpg'), filename: 'koenig.jpg')
 ad4.images.attach(io: File.open('app/assets/images/seed_images/steeringwheel.jpg'), filename: 'steeringwheel.jpg')
+ad7.images.attach(io: File.open('app/assets/images/seed_images/3tires.jpg'), filename: '3tires.jpg')
 ad6.images.attach(io: File.open('app/assets/images/seed_images/seats.jpg'), filename: 'seats.jpg')
+ad9.images.attach(io: File.open('app/assets/images/seed_images/blowntire.jpg'), filename: 'blowntire.jpg')
 ad8.images.attach(io: File.open('app/assets/images/seed_images/car-door.jpg'), filename: 'car-door.jpg')
+ad11.images.attach(io: File.open('app/assets/images/seed_images/palmer.jpg'), filename: 'palmer.jpg')
 ad10.images.attach(io: File.open('app/assets/images/seed_images/bumper.jpg'), filename: 'bumper.jpg')
 user1.image.attach(io: File.open('app/assets/images/seed_images/bob.jpg'), filename: 'bob.jpg')
 user2.image.attach(io: File.open('app/assets/images/seed_images/alice.jpg'), filename: 'alice.jpg')
