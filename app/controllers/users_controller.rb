@@ -11,6 +11,7 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @ads = @user.ads
         render :show
     end
 
@@ -59,6 +60,11 @@ class UsersController < ApplicationController
         @ads = @user.ads
         @bought = Ad.all
         render :my_posts
+    end
+
+    def settings
+        @user = User.find(params[:id])
+        render :settings
     end
 
 
