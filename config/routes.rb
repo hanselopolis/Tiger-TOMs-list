@@ -30,18 +30,16 @@ Rails.application.routes.draw do
   # Categories
   get 'categories', to: 'categories#index', as: 'categories'
   get 'categories/:id', to: 'categories#show', as: 'category'
-  post 'categories/:id', to: 'ads#create'
+  
 
   # Ads
-  get 'categories/:category_id/new', to: 'ads#new',
-  as: 'new_ad'
-  get 'categories/:category_id/:id', to: 'ads#show', 
-  as: 'ad'
-  patch 'categories/:category_id/:id', to: 'ads#update'
-  put 'categories/:category_id/:id', to: 'ads#update'
-  delete 'categories/:category_id/:id', to: 'ads#destroy'
-  get 'categories/:category_id/:id/edit', to: 'ads#edit', 
-  as: 'edit_ad'
+  post 'categories/:category_id/ads', to: 'ads#create'
+  get 'categories/:category_id/ads/new', to: 'ads#new',as: 'new_ad'
+  get 'categories/:category_id/ads/:id', to: 'ads#show', as: 'ad'
+  patch 'categories/:category_id/ads/:id', to: 'ads#update'
+  put 'categories/:category_id/ads/:id', to: 'ads#update'
+  delete 'categories/:category_id/ads/:id', to: 'ads#destroy'
+  get 'categories/:category_id/ads/:id/edit', to: 'ads#edit', as: 'edit_ad'
 
   #search
   resources :ads, only: [:index] do

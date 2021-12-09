@@ -23,7 +23,7 @@ class AdsController < ApplicationController
     #-------------------------------------------------
 
     def show
-        @category = Category.find(params[:id])
+        @category = Category.find(params[:category_id])
         @ad = Ad.find(params[:id]) 
         $email = @ad.user.email
         render :show
@@ -37,7 +37,7 @@ class AdsController < ApplicationController
     end
 
     def create
-        @category = Category.find(params[:ad][:category_id]) 
+        @category = Category.find(params[:category_id]) 
         @ad = current_user.ads.build(params.require(:ad).permit(:title, :description, :price, 
         :email, :phone, :category_id, :addr, :city, :state, :zip, images: []))
         @ad.category = @category

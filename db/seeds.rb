@@ -144,7 +144,7 @@ ad2 = Ad.create!(
     user: user2
 )
 
-ad3 = Ad.create!(
+Ad.create!(
     title: 'Used Ferrari fuel pump',
     description: 'pulled at 1000000000 miles, worked great when I took it out',
     location: 'Washington, D.C.',
@@ -248,7 +248,7 @@ ad11 = Ad.create!(
     category: other_services,
     user: user2
 )
-ad12 = Ad.create!(
+Ad.create!(
     title: 'Door atttatchment service',
     description: 'I can actually attatch your car door but itll cost you extra',
     location: 'Fortwayne, IN',
@@ -259,7 +259,7 @@ ad12 = Ad.create!(
     category: mechanics,
     user: user1
 )
-ad13 = Ad.create!(
+Ad.create!(
     title: 'Performance tuning, +100 HP minimum guaranteed',
     description: 'Tired of a lack of power? We can help. ',
     location: 'Toronto, Canada',
@@ -270,7 +270,7 @@ ad13 = Ad.create!(
     category: other_services,
     user: user2
 )
-ad14 = Ad.create!(
+Ad.create!(
     title: 'Oil Change',
     description: 'I can change your oil for you, but you gotta buy the oil',
     location: 'Fortwayne, IN',
