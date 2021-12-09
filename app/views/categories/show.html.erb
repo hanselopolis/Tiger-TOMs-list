@@ -1,3 +1,13 @@
+<style>
+    a:link {
+        color: white;
+    }
+    a:hover {
+        color: blue;
+        text-decoration: underline;
+    }
+</style>
+
 <!DOCTYPE html>
 <html>
 <style>
@@ -5,8 +15,18 @@
 </style>
     <body>
         <header>
-            <h1>Category: <%= @category.title %> </h1>
+            <h1><b>Category: <%= @category.title %> </b></h1>
         </header>
+
+        <% if @category.ads.count == 0 %>
+            <pre>
+            
+            </pre>
+            <div class = "empty">Nothing to see here... maybe <a href= "<%=  new_ad_path(@category)%>">list something</a></div>
+            <pre>
+            
+            </pre>
+        <% end %>  
 
         <div class= "row">
             <div class= "column">
@@ -17,25 +37,25 @@
                                 <%= image_tag ad.images[0], width: "250", height: "200" %>
                                 <br>
                                 <%= ad.title %>
-                            </p> </a>
+                            </p></a>
                         <% else %>
                             <a href= "<%= ad_path(@category, ad) %>"><p class="ad-button">
                                 <%= image_tag "no_image.jpg", width: "250", height: "200" %>
                                 <br>
                                 <%= ad.title %>
+                            </p></a>
                         <% end %>
                     <% end %>
                 <% end %>
             </div>
         </div>
-    
-        <a href= "<%=  categories_path%>">
-                        <p class= "basic-button", style= "text-align: right;">< Categories<p>
-                    </a>
-
-        <a href= "<%=  new_ad_path(@category)%>">
-                        <p class= "basic-button", style= "text-align: right;">Post an Ad<p>
-                    </a>
+        <pre>
+        
+        </pre>
+        <a href= "<%=  new_ad_path(@category)%>" class= "basic-button">Post an Ad</a>
+        <pre></pre>
+        <p><a href= "<%=  categories_path%>" class= "basic-button">< Categories</a></p>
+ 
     </body>
 
 </html>

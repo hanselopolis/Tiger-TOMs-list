@@ -16,12 +16,14 @@
 <%= u.text_field :phone %>
 <%= u.text_area :bio %>
 <!-- <%= u.text_field :password %> -->
-<%= u.submit nil, class: 'btn btn-primary' %>
+<%= u.submit nil, class: 'basic-button' %> | <%= link_to "Delete User", user_path(@user), method: :delete, class: "danger-button" %>
 
 <% end %>
 
+
 <pre></pre>
- <%= link_to "Delete", user_path(@user), method: :delete, class: "btn btn-danger" %>
+ <%= link_to "Delete", user_path(@user), method: :delete, class: "danger-button" %>
+
 
 <pre></pre>
 <form>

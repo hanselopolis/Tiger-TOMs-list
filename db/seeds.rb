@@ -102,10 +102,10 @@ ad1 = Ad.create!(
     title: 'Toyota 4Runner For Sale',
     description: 'Silver, 165000 miles, good condition',
     location: 'Memphis, TN',
-    contact: 'bob@email.com',
+    contact: 'bboy@email.com',
     price: 5650.0,
     status: 'active',
-    email: 'bob@email.com',
+    email: 'bboy@email.com',
     category: vehicles,
     user: user1
 )
@@ -113,10 +113,10 @@ Ad.create!(
     title: 'Nissan Altima',
     description: 'White, 72450 miles, brand new tires',
     location: 'Memphis, TN',
-    contact: 'bob@email.com',
+    contact: 'bboy@email.com',
     price: 8500.0,
     status: 'active',
-    email: 'bob@email.com',
+    email: 'bboy@email.com',
     category: vehicles,
     user: user1
 )
@@ -124,10 +124,10 @@ Ad.create!(
     title: 'Black Phone Mount',
     description: 'Mount up your phone to make using GPS that much easier',
     location: 'Memphis, TN',
-    contact: 'alice@email.com',
+    contact: 'atoz@email.com',
     price: 25.0,
     status: 'active',
-    email: 'alice@email.com',
+    email: 'atoz@email.com',
     category: accessories,
     user: user2
 )
@@ -136,10 +136,10 @@ ad2 = Ad.create!(
     title: 'Camo Steering Wheel Cover',
     description: 'Just buy it',
     location: 'Memphis, TN',
-    contact: 'alice@email.com',
+    contact: 'atoz@email.com',
     price: 10.0,
     status: 'active',
-    email: 'alice@email.com',
+    email: 'atoz@email.com',
     category: accessories,
     user: user2
 )

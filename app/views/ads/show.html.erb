@@ -8,7 +8,7 @@
         <header>
             <h1> <%= @ad.title %> </h1>
         </header>
-        <pre> </pre> 
+
         <section>
         <div class= "row">
             <div class= "column">
@@ -61,7 +61,14 @@
 
 
             </pre> 
-           
+
+            <!-- message seller -->
+            <% if @ad.user != current_user%>
+                <%= link_to 'Message seller', new_conversation_path(current_user), class: 'blue-box-button'  %>
+            <% end %>
+            <pre></pre>
+
+
             <!-- favoriting actions -->
 
             <% if @ad.user != current_user%>

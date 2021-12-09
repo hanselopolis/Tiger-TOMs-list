@@ -1,7 +1,7 @@
 class AdsController < ApplicationController
 
-    before_action :authenticate_user!, except: [:index]
-    before_action :require_permission, except: [:show, :new, :create]
+    before_action :authenticate_user!, except: [:index, :search]
+    before_action :require_permission, except: [:index, :search, :show, :new, :create]
     add_flash_types :info, :error, :warning, :success
 
     def require_permission
@@ -9,6 +9,16 @@ class AdsController < ApplicationController
         redirect_to categories_path, flash: { error: "You do not have permission to do that" }
       end
     end
+
+    #search engine
+    def index
+      @ads = @q.result(distinct: true).sort_by(&:created_at)
+    end
+    def search
+      index
+      render :index
+    end
+    #-------------------------------------------------
 
     def show
         @category = Category.find(params[:category_id])

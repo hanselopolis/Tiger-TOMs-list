@@ -19,4 +19,5 @@ class Category < ApplicationRecord
         inverse_of: :category,
         dependent: :destroy
     )
+
 end

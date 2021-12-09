@@ -1,8 +1,9 @@
+
 <nav>
 <% if @user == current_user %>
-            <td><%= link_to "Favorites", favorites_path() , class: "btn btn-primary" %></td>
-            <td><%= link_to "My Posts", user_ads_path(@user), class: "btn btn-primary"%></td>
-            <td><%= link_to "Settings", user_settings_path(@user), class: "btn btn-primary"%></td>
+            <td><%= link_to "Favorites", favorites_path() , class: "basic-button" %></td>
+            <td><%= link_to "My Posts", user_ads_path(@user), class: "basic-button"%></td>
+            <td><%= link_to "Settings", user_settings_path(@user), class: "basic-button"%></td>
         <%end%>
 </nav>
 
@@ -33,6 +34,8 @@
         <tr>
             <td><%= simple_format(@user.bio) %></td>
         </tr>
+
+
 </table>
 
 <hr>
@@ -64,6 +67,7 @@
                     <% end %>
                 </div>
             </div>
+
 
 
 

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<style>
+    div.column {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+    div.column [class*="col"]{
+    display: inline-block;
+    float: none;
+}
+a { text-decoration: none; 
+        color: black; 
+    }
+    a:hover { text-decoration: none; 
+              color:black;
+    }
+</style>
+
+<% if current_user.email == @conversation.listener %>
+    <h1>Chatting with <%= @conversation.starter.split('@')[0] %></h1>
+<% else %>
+    <h1>Chatting with <%= @conversation.listener.split('@')[0] %></h1>
+<% end %> 
+
+<div class= "row">
+    <div class= "column col-lg-5 border1", style= "padding: 10px; ">
+        <% if current_user.email == @conversation.starter %>
+            <p class= "msg-overview", style="position: absolute; right: 0;">
+                    <%= @conversation.initial_msg %>
+                </p>
+                <pre>
+
+
+
+
+
+
+                </pre>
+        <% else %>
+            <p class= "msg-overview", style="position: absolute; left: 0;">
+                    <%= @conversation.initial_msg %>
+                </p>
+                <pre>
+
+
+
+
+
+                </pre>
+        <% end %>
+        <% @messages.each do |msg| %>
+            <% if current_user.email == msg.author %>
+                <p class= "msg-overview", style="position: absolute; right: 0;">
+                    <%= msg.body %>
+                </p>
+                <pre>
+
+
+
+
+
+                </pre>
+            <% else %>
+                <p class= "msg-overview", style="position: absolute; left: 0;">
+                    <%= msg.body %>
+                </p>
+                <pre>
+
+
+
+
+
+                </pre>
+            <% end %>
+        <% end %> 
+    </div>
+
+    <div class= "column offset col-lg-5", style= "margin-left: 120px;">
+        <pre>
+
+
+
+
+
+        </pre>
+        <%= bootstrap_form_with model: @message,  method: :post, url: conversation_path(@user, @conversation), local: true do |cc| %>
+        <%# <div class = "row needs-validation" novalidate  >
+        <div class = "column col-lg-5 position-relative">
+        <div class="form-floating"> %>
+            <input class="form-control" id="message_body" name="message[body]" placeholder="Message:" type="string" required>
+        <%# </div>  %>
+        <br>
+
+        <%= cc.submit "Send Message", class: "basic-button"%>
+
+        <% end %>
+    </div>
+</div>
+<br>
+<a href= "<%= conversations_url(@user)%>"><p class= "back-button"> &lt Back </p></a>
+
+
+
+</html>

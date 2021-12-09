@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :favorite_ads, only: [:create, :destroy]
   
   #homepage 
-
   root to: redirect('/home')
   get 'home', to: 'homepage#home', as: 'home' 
 
@@ -43,7 +42,13 @@ Rails.application.routes.draw do
   delete 'categories/:category_id/:id', to: 'ads#destroy'
   get 'categories/:category_id/:id/edit', to: 'ads#edit', 
   as: 'edit_ad'
-  
+
+  #search
+  resources :ads, only: [:index] do
+    collection do
+       match 'search' => 'ads#search', via: [:get, :post], as: :search
+     end
+   end
 
   # Purchases
   get 'purchases', to: 'purchases#index', as: 'purchases_index'
@@ -64,6 +69,17 @@ Rails.application.routes.draw do
   delete 'users/:id/credit_card', to: 'credit_cards#destroy'
   get 'users/:id/credit_card/new', to: 'credit_cards#new', as: 'new_credit_card'
   delete 'users/:id/credit_card/new', to: 'credit_cards#expired'
+
+  # Conversations
+  get 'users/:id/conversations', to: 'conversations#index', as: 'conversations'
+  post 'users/:id/conversations', to: 'conversations#create'
+  get 'users/:id/conversations/new', to: 'conversations#new', as: 'new_conversation'
+  get 'users/:user_id/conversations/:id', to: 'conversations#show', as: 'conversation'
+  
+
+  # Messages
+  get 'users/:user_id/conversations/:id/new', to: 'messages#new', as: 'new_message'
+  post 'users/:user_id/conversations/:id', to: 'messages#create'
   
 
 

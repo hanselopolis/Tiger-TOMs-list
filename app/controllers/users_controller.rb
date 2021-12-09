@@ -21,7 +21,9 @@ class UsersController < ApplicationController
     end
 
     def create
-        @user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :address1, :address2, :address3, :city, :state, :country, :zip, :bio, :image))
+
+        @user = User.new(params.require(:user).permit(:email, :password, :first_name, :last_name, :address1, :address2, :address3, :city, :state, :country, :zip, :bio, :phone, :image))
+
         if @user.save
             flash[:success] = "User account creation successful!"
             redirect_to user_path(@user)
@@ -39,7 +41,9 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        if @user.update(params.require(:user).permit(:email,:first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :bio, :image))
+
+        if @user.update(params.require(:user).permit(:email,:first_name, :last_name, :email, :address1, :address2, :address3, :city, :state, :country, :zip, :phone, :bio, :image))
+
             flash[:success] = "User account successfully updated!"
             redirect_to user_url(@user)
         else
@@ -66,6 +70,7 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         render :settings
     end
+
 
 
 

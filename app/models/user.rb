@@ -51,6 +51,14 @@ class User < ApplicationRecord
         dependent: :destroy
     )
 
+    has_many(
+        :conversations,
+        class_name: 'Conversation',
+        foreign_key: 'user_id',
+        inverse_of: :user,
+        dependent: :destroy
+    )
+
     has_one(
         :credit_cards,
         class_name: 'CreditCard',
@@ -62,5 +70,9 @@ class User < ApplicationRecord
     has_one_attached :image
     has_many :favorites
     has_many :favorite_ads, through: :favorites, source: :favorited, source_type: 'Ad'
+
+    def name
+        email.split('@')[0]
+    end
 
 end
